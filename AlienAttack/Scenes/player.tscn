@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://n7twjndqdq77"]
+
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_3bk1j"]
+[ext_resource type="Texture2D" uid="uid://b2foybjsiot3i" path="res://Assets/alien_attack_assets/textures/player_ship.png" id="2_y3nd8"]
+[ext_resource type="AudioStream" uid="uid://cp715r717526b" path="res://Assets/alien_attack_assets/audio/sfx_laser2.wav" id="3_trstx"]
+
+[sub_resource type="Gradient" id="Gradient_6ufrg"]
+colors = PackedColorArray(0.976471, 1, 0.270588, 1, 1, 0.176471, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v17sl"]
+gradient = SubResource("Gradient_6ufrg")
+
+[sub_resource type="Gradient" id="Gradient_5c5db"]
+colors = PackedColorArray(0.945098, 0.835294, 0.25098, 0, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cftx5"]
+gradient = SubResource("Gradient_5c5db")
+
+[sub_resource type="Curve" id="Curve_58pi8"]
+_data = [Vector2(0, 0.472727), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_86w0x"]
+curve = SubResource("Curve_58pi8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3nj6i"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 15, 1)
+particle_flag_disable_z = true
+spread = 30.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = -200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 10.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_86w0x")
+color_ramp = SubResource("GradientTexture1D_cftx5")
+color_initial_ramp = SubResource("GradientTexture1D_v17sl")
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_3bk1j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_y3nd8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(-265, -60, -155, -148, -117, -149, -74, -179, -3, -189, 77, -178, 110, -151, 172, -130, 261, -48, 245, 13, 202, 33, 170, 116, 94, 72, 1, 178, -90, 72, -166, 110, -193, 40, -238, 13)
+
+[node name="RocketContainer" type="Node" parent="."]
+
+[node name="RocketShotSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_trstx")
+
+[node name="FlameParticleEffect" type="GPUParticles2D" parent="."]
+position = Vector2(-41, 0)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_3nj6i")
+lifetime = 0.3

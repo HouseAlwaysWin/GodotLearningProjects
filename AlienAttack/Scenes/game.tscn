@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://6kgo5kn0wm77"]
+
+[ext_resource type="Texture2D" uid="uid://ciwdogdm6j3jg" path="res://Assets/alien_attack_assets/textures/bg.png" id="1_ab0t3"]
+[ext_resource type="Script" path="res://Scripts/Game.cs" id="1_kwby6"]
+[ext_resource type="PackedScene" uid="uid://coaw3bppvml6" path="res://Scenes/game_over_screen.tscn" id="2_ahmt7"]
+[ext_resource type="PackedScene" uid="uid://n7twjndqdq77" path="res://Scenes/player.tscn" id="2_t7yb7"]
+[ext_resource type="PackedScene" uid="uid://cg2klg2n5bnyk" path="res://Scenes/hud.tscn" id="2_vttfn"]
+[ext_resource type="PackedScene" uid="uid://d2nyl0nr82nux" path="res://Scenes/rocket.tscn" id="3_cmv52"]
+[ext_resource type="PackedScene" uid="uid://cx71a3nk8k50m" path="res://Scenes/enemy_spawner.tscn" id="5_wbtyh"]
+[ext_resource type="AudioStream" uid="uid://bt0awa2ft7whn" path="res://Assets/alien_attack_assets/audio/hit.wav" id="8_lgg7a"]
+[ext_resource type="AudioStream" uid="uid://boakx26xog7bg" path="res://Assets/alien_attack_assets/audio/explode.wav" id="9_gdm6x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iedbc"]
+size = Vector2(49, 798)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_kwby6")
+GameOverScreenScene = ExtResource("2_ahmt7")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("2_vttfn")]
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -20.0
+offset_right = 1298.0
+offset_bottom = 735.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ab0t3")
+stretch_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("2_t7yb7")]
+position = Vector2(136, 338)
+motion_mode = 1
+RocketScene = ExtResource("3_cmv52")
+
+[node name="EnemySpawner" parent="." instance=ExtResource("5_wbtyh")]
+
+[node name="Deathzone" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+position = Vector2(-318, 364)
+shape = SubResource("RectangleShape2D_iedbc")
+
+[node name="EnemyHitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_lgg7a")
+
+[node name="PlayerDamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_gdm6x")
+
+[connection signal="TakeDamage" from="Player" to="." method="OnPlayerTakeDamage"]
+[connection signal="EnemySpawned" from="EnemySpawner" to="." method="OnEnemySpawned"]
+[connection signal="PathEnemySpawned" from="EnemySpawner" to="." method="OnPathEnemySpawned"]
+[connection signal="area_entered" from="Deathzone" to="." method="OnEnterDeathZone"]
