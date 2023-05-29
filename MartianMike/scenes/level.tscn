@@ -1,6 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddm1ngiqh6xqn"]
+[gd_scene load_steps=5 format=3 uid="uid://ddm1ngiqh6xqn"]
 
 [ext_resource type="Script" path="res://scenes/Level.cs" id="1_37yn8"]
+[ext_resource type="PackedScene" uid="uid://uklx1xyinscl" path="res://scenes/player.tscn" id="2_4yvri"]
+[ext_resource type="Texture2D" uid="uid://cwo5v4t32be4e" path="res://assets/textures/bg/Green.png" id="3_7dh0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyttt"]
+size = Vector2(549, 20)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_37yn8")
+
+[node name="Player" parent="." instance=ExtResource("2_4yvri")]
+position = Vector2(186, 77)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(132.5, 260.5)
+scale = Vector2(8.57813, 0.296875)
+texture = ExtResource("3_7dh0w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(132.5, 260.5)
+shape = SubResource("RectangleShape2D_hyttt")
