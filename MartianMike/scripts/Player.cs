@@ -44,7 +44,8 @@ public partial class Player : CharacterBody2D
 
         if (Input.IsActionJustPressed("jump"))
         {
-            Velocity = new Vector2(Velocity.X, -JumpForce);
+            // Velocity = new Vector2(Velocity.X, -JumpForce);
+            Jump(JumpForce);
         }
 
         var direction = Input.GetAxis("move_left", "move_right");
@@ -56,6 +57,11 @@ public partial class Player : CharacterBody2D
         Velocity = new Vector2(direction * Speed, Velocity.Y);
         MoveAndSlide();
         UpdateAnimations(direction);
+    }
+
+    public void Jump(float force)
+    {
+        Velocity = new Vector2(Velocity.X, -force);
     }
 
     public void UpdateAnimations(float direction)

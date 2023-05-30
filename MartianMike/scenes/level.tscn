@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddm1ngiqh6xqn"]
+[gd_scene load_steps=7 format=3 uid="uid://ddm1ngiqh6xqn"]
 
 [ext_resource type="Script" path="res://scenes/Level.cs" id="1_37yn8"]
 [ext_resource type="PackedScene" uid="uid://uklx1xyinscl" path="res://scenes/player.tscn" id="2_4yvri"]
 [ext_resource type="Texture2D" uid="uid://cwo5v4t32be4e" path="res://assets/textures/bg/Green.png" id="3_7dh0w"]
+[ext_resource type="PackedScene" uid="uid://de5it48454dfh" path="res://scenes/jump_pad.tscn" id="4_f5mjb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyttt"]
 size = Vector2(549, 20)
@@ -39,3 +40,6 @@ shape = SubResource("RectangleShape2D_74ito")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(176, 248)
+
+[node name="JumpPad" parent="." instance=ExtResource("4_f5mjb")]
+position = Vector2(96, 237)
