@@ -38,6 +38,7 @@ public partial class Player : CharacterBody2D
             if (Velocity.Y > FallDownSpeed)
             {
                 Velocity = new Vector2(Velocity.X, FallDownSpeed);
+
             }
         }
 
@@ -47,8 +48,40 @@ public partial class Player : CharacterBody2D
         }
 
         var direction = Input.GetAxis("move_left", "move_right");
+        if (direction != 0)
+        {
+            animatedSprite2D.FlipH = (direction == -1);
+        }
+
         Velocity = new Vector2(direction * Speed, Velocity.Y);
         MoveAndSlide();
+        UpdateAnimations(direction);
+    }
+
+    public void UpdateAnimations(float direction)
+    {
+        if (IsOnFloor())
+        {
+            if (direction == 0)
+            {
+                animatedSprite2D.Play("Idle");
+            }
+            else
+            {
+                animatedSprite2D.Play("Run");
+            }
+        }
+        else
+        {
+            if (Velocity.Y < 0)
+            {
+                animatedSprite2D.Play("Jump");
+            }
+            else
+            {
+                animatedSprite2D.Play("Fall");
+            }
+        }
     }
 
 
