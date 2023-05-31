@@ -5,6 +5,8 @@ public partial class Level : Node2D
 {
     public Area2D DeathZone;
     public Marker2D StartPosition;
+
+    public Player Player;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -12,13 +14,12 @@ public partial class Level : Node2D
         DeathZone.BodyEntered += DeathZoneBodyEntered;
 
         StartPosition = GetNode<Marker2D>("StartPosition");
+        Player = GetNode<Player>("Player");
     }
 
     private void DeathZoneBodyEntered(Node2D body)
     {
-        var player = (CharacterBody2D)body;
-        player.Velocity = Vector2.Zero;
-        player.GlobalPosition = StartPosition.GlobalPosition;
+        ResetPlayer();
     }
 
 
@@ -33,5 +34,21 @@ public partial class Level : Node2D
         {
             GetTree().ReloadCurrentScene();
         }
+    }
+
+    public void OnSawTouchedPlayer()
+    {
+        ResetPlayer();
+    }
+
+    public void OnSpikeBallTouchedPlayer()
+    {
+        ResetPlayer();
+    }
+
+    public void ResetPlayer()
+    {
+        Player.Velocity = Vector2.Zero;
+        Player.GlobalPosition = StartPosition.GlobalPosition;
     }
 }
