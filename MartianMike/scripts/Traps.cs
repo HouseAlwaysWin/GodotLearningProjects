@@ -1,18 +1,14 @@
 using Godot;
-using System;
+using Godot.Collections;
 
-public partial class Exited : Area2D
+public partial class Traps : Node2D
 {
-    public AnimatedSprite2D animatedSprite2D;
+    [Export]
+    public Array<Node> TrapList;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-    }
-
-    public void Animate()
-    {
-        animatedSprite2D.Play("exited");
+        TrapList = GetTree().GetNodesInGroup("trapItem");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

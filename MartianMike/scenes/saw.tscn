@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://hrh7mwy68pu8"]
 
-[ext_resource type="Texture2D" uid="uid://n30uo5mlnv22" path="res://assets/textures/other/Saw.png" id="1_6obp8"]
-[ext_resource type="Script" path="res://scripts/Trap.cs" id="1_fmt46"]
+[ext_resource type="Script" path="res://scripts/Trap.cs" id="1_fcfl8"]
+[ext_resource type="Texture2D" uid="uid://n30uo5mlnv22" path="res://assets/textures/other/Saw.png" id="2_j7jo8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_57ah8"]
 radius = 20.0
@@ -44,8 +44,8 @@ _data = {
 "spin": SubResource("Animation_jpgmx")
 }
 
-[node name="Saw" type="Node2D"]
-script = ExtResource("1_fmt46")
+[node name="Saw" type="Node2D" groups=["trapItem"]]
+script = ExtResource("1_fcfl8")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
@@ -55,10 +55,10 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_57ah8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("1_6obp8")
+texture = ExtResource("2_j7jo8")
 hframes = 8
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["traps"]]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "spin"
 libraries = {
 "": SubResource("AnimationLibrary_4tprq")

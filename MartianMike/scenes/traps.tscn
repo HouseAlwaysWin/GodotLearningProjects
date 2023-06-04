@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bri7xyt5710uw"]
+
+[ext_resource type="Script" path="res://scripts/Traps.cs" id="1_7lo5i"]
+
+[node name="Traps" type="Node2D"]
+position = Vector2(326, 134)
+script = ExtResource("1_7lo5i")

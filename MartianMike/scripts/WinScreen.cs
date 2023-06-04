@@ -1,18 +1,20 @@
 using Godot;
 using System;
 
-public partial class Exited : Area2D
+public partial class WinScreen : Control
 {
-    public AnimatedSprite2D animatedSprite2D;
+
+    public Button OkButton;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        OkButton = GetNode<Button>("Button");
+        OkButton.Pressed += OnButtonPress;
     }
 
-    public void Animate()
+    private void OnButtonPress()
     {
-        animatedSprite2D.Play("exited");
+        GetTree().ChangeSceneToFile("res://scenes/level.tscn");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

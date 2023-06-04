@@ -44,10 +44,10 @@ _data = {
 "move": SubResource("Animation_gq77v")
 }
 
-[node name="SpikeBall" type="Node2D"]
+[node name="SpikeBall" type="Node2D" groups=["trapItem"]]
 script = ExtResource("1_fkmam")
 
-[node name="Area2D" type="Area2D" parent="." groups=["traps"]]
+[node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 2
 

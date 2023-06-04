@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://r01u6ff15768" path="res://assets/textures/player/Run (32x32).png" id="5_or28w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ko2jo"]
-size = Vector2(17, 24)
+size = Vector2(19.5, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tx8xj"]
 atlas = ExtResource("3_mtrd2")
@@ -205,14 +205,14 @@ collision_mask = 13
 script = ExtResource("1_g0ipp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 1)
+position = Vector2(-0.25, -12)
 shape = SubResource("RectangleShape2D_ko2jo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_tuhvh")
-animation = &"Fall"
+animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.918389
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_bottom = 272

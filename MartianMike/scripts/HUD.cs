@@ -1,18 +1,19 @@
 using Godot;
 using System;
 
-public partial class Exited : Area2D
+public partial class HUD : Control
 {
-    public AnimatedSprite2D animatedSprite2D;
+
+    public Label TimeLabel;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        TimeLabel = GetNode<Label>("TimeLabel");
     }
 
-    public void Animate()
+    public void SetTimeLabel(float value)
     {
-        animatedSprite2D.Play("exited");
+        TimeLabel.Text = $"TIME: {value}";
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

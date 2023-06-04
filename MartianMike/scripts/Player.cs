@@ -17,6 +17,8 @@ public partial class Player : CharacterBody2D
     [Export]
     public float FallDownSpeed = 500;
 
+    public bool IsActivated = true;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -42,16 +44,21 @@ public partial class Player : CharacterBody2D
             }
         }
 
-        if (Input.IsActionJustPressed("jump"))
-        {
-            // Velocity = new Vector2(Velocity.X, -JumpForce);
-            Jump(JumpForce);
-        }
+        float direction = 0;
 
-        var direction = Input.GetAxis("move_left", "move_right");
-        if (direction != 0)
+        if (IsActivated)
         {
-            animatedSprite2D.FlipH = (direction == -1);
+            if (Input.IsActionJustPressed("jump"))
+            {
+                // Velocity = new Vector2(Velocity.X, -JumpForce);
+                Jump(JumpForce);
+            }
+
+            direction = Input.GetAxis("move_left", "move_right");
+            if (direction != 0)
+            {
+                animatedSprite2D.FlipH = (direction == -1);
+            }
         }
 
         Velocity = new Vector2(direction * Speed, Velocity.Y);
