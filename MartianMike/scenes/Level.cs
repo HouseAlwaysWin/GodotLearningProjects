@@ -4,7 +4,7 @@ using System;
 public partial class Level : Node2D
 {
     public Area2D DeathZone;
-    public Marker2D StartPosition;
+    public Start Start;
 
     public Player Player;
     // Called when the node enters the scene tree for the first time.
@@ -13,8 +13,9 @@ public partial class Level : Node2D
         DeathZone = GetNode<Area2D>("DeathZone");
         DeathZone.BodyEntered += DeathZoneBodyEntered;
 
-        StartPosition = GetNode<Marker2D>("StartPosition");
-        Player = GetNode<Player>("Player");
+        Start = GetNode<Start>("Start");
+        Player = GetTree().GetFirstNodeInGroup("player") as Player;
+        Player.GlobalPosition = Start.GetSpawnPos();
     }
 
     private void DeathZoneBodyEntered(Node2D body)
@@ -49,6 +50,6 @@ public partial class Level : Node2D
     public void ResetPlayer()
     {
         Player.Velocity = Vector2.Zero;
-        Player.GlobalPosition = StartPosition.GlobalPosition;
+        Player.GlobalPosition = Start.GetSpawnPos();
     }
 }
