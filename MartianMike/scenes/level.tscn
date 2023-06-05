@@ -31,7 +31,6 @@ position = Vector2(93, -90)
 position = Vector2(96, 237)
 
 [node name="Traps" parent="." instance=ExtResource("6_456xa")]
-TrapList = Array[Node2D]([null, null])
 
 [node name="Saw" parent="Traps" instance=ExtResource("7_wg5tp")]
 

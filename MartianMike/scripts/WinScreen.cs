@@ -14,7 +14,7 @@ public partial class WinScreen : Control
 
     private void OnButtonPress()
     {
-        GetTree().ChangeSceneToFile("res://scenes/level.tscn");
+        GetTree().ChangeSceneToFile("res://scenes/start_menu.tscn");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

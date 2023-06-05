@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp8trwwy3hvq3"]
+
+[ext_resource type="Script" path="res://scripts/StartMenu.cs" id="1_xm734"]
+[ext_resource type="PackedScene" uid="uid://bqnhl8xuoi0hn" path="res://scenes/bg.tscn" id="2_qctqy"]
+[ext_resource type="FontFile" uid="uid://chieram50ixai" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_uas6j"]
+[ext_resource type="Texture2D" uid="uid://cwo5v4t32be4e" path="res://assets/textures/bg/Green.png" id="3_e1h8c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aul8k"]
+font = ExtResource("2_uas6j")
+font_size = 40
+font_color = Color(0.823529, 0.368627, 1, 1)
+outline_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xm734")
+
+[node name="BG" parent="." instance=ExtResource("2_qctqy")]
+BgTexTure = ExtResource("3_e1h8c")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -90.0
+offset_right = 170.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MARTIAN MIKE"
+label_settings = SubResource("LabelSettings_aul8k")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -7.0
+offset_right = 48.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_uas6j")
+text = "Start
+"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = 43.0
+offset_right = 18.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_uas6j")
+theme_override_font_sizes/font_size = 10
+text = "Quit"
