@@ -5,19 +5,51 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug Godot",
+            "name": "Launch",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "D:\\Projects\\Godot Projects\\Godot4_3\\Godot_v4.0.3-stable_mono_win64.exe",
-            "args": [],
+            "program": "D:\\Projects\\Godot\\GodotMain\\Godot_v4.1.1\\Godot_v4.1.1-stable_mono_win64.exe",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "stopAtEntry": false,
-            "requireExactSource": false
+            "args": [
+                "--path",
+                "${workspaceRoot}"
+            ]
         },
         {
-            "name": "Attach Godot",
+            "name": "Launch (Select Scene)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "D:\\Projects\\Godot\\GodotMain\\Godot_v4.1.1\\Godot_v4.1.1-stable_mono_win64.exe",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "args": [
+                "--path",
+                "${workspaceRoot}",
+                "${command:godot.csharp.getLaunchScene}"
+            ]
+        },
+        {
+            "name": "Launch Editor",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "D:\\Projects\\Godot\\GodotMain\\Godot_v4.1.1\\Godot_v4.1.1-stable_mono_win64.exe",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "args": [
+                "--path",
+                "${workspaceRoot}",
+                "--editor"
+            ]
+        },
+        {
+            "name": "Attach to Process",
             "type": "coreclr",
             "request": "attach"
         }

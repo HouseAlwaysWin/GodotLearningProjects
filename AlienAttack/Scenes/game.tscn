@@ -55,7 +55,4 @@ stream = ExtResource("8_lgg7a")
 [node name="PlayerDamageSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_gdm6x")
 
-[connection signal="TakeDamage" from="Player" to="." method="OnPlayerTakeDamage"]
-[connection signal="EnemySpawned" from="EnemySpawner" to="." method="OnEnemySpawned"]
-[connection signal="PathEnemySpawned" from="EnemySpawner" to="." method="OnPathEnemySpawned"]
 [connection signal="area_entered" from="Deathzone" to="." method="OnEnterDeathZone"]
