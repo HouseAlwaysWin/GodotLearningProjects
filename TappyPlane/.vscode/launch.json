@@ -51,7 +51,7 @@
         {
             "name": "Attach to Process",
             "type": "coreclr",
-            "request": "attach"
-        }
-    ]
+            "request": "attach",
+        },
+    ],
 }

@@ -51,7 +51,20 @@
         {
             "name": "Attach to Process",
             "type": "coreclr",
-            "request": "attach"
+            "request": "attach",
+            "processId": "${input:FindVivadoPID}",
+        },
+    ],
+    "inputs": [
+        {
+            "id": "FindVivadoPID",
+            "type": "command",
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "pgrep 'ecold.*lnx64.g/vivado' -f",
+                "description": "Select your Vivado PID",
+                "useFirstResult": true,
+            }
         }
     ]
 }
