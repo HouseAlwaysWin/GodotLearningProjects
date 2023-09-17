@@ -10,10 +10,11 @@ public partial class PlaneCB : CharacterBody2D
 	const float POWER = -400f;
 
 	[OnReady]
-	AnimationPlayer animationPlayer;
+	public AnimationPlayer AnimationPlayer;
 
 	[OnReady]
-	AnimatedSprite2D animatedSprite2D;
+	public AnimatedSprite2D AnimatedSprite2D;
+
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -43,14 +44,14 @@ public partial class PlaneCB : CharacterBody2D
 		if (Input.IsActionJustPressed("fly"))
 		{
 			Velocity += new Vector2(Velocity.X, POWER);
-			animationPlayer.Play("fly");
+			this.AnimationPlayer.Play("fly");
 		}
 	}
 
 	public void Die()
 	{
-		animatedSprite2D.Stop();
-		SetProcess(false);
+		this.AnimatedSprite2D.Stop();
+		SetPhysicsProcess(false);
 	}
 
 }

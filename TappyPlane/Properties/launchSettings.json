@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Tappy Plane": {
+      "commandName": "Project",
+      "commandLineArgs": "Godot_v4.1.1-stable_mono_win64.exe",
+      "workingDirectory": "D:\\Projects\\Godot\\GodotMain\\Godot_v4.1.1",
+      "remoteDebugEnabled": false
+    }
+  }
+}
