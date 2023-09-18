@@ -59,5 +59,10 @@ namespace GodotCsharpExtension
         {
             return new Vector2(vector2.X, y);
         }
+
+        public static void SetPosition(this Node2D node2D, float x, float y)
+        {
+            node2D.Position = new Vector2(x, y);
+        }
     }
 }

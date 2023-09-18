@@ -8,13 +8,12 @@ public partial class Game : Node2D
 
     [Export]
     public PackedScene PipesScene;
-
     [OnReady]
     public Timer SpawnTimer;
     [OnReady]
     public Node PipeHolder;
     [OnReady]
-    public Marker2D SpwanU;
+    public Marker2D SpawnU;
     [OnReady]
     public Marker2D SpawnL;
 
@@ -23,6 +22,7 @@ public partial class Game : Node2D
     {
         this.InitOnReady();
         SpawnTimer.Timeout += OnSpawnTimerTimeout;
+        SpawnPipes();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,11 +32,15 @@ public partial class Game : Node2D
 
     public void SpawnPipes()
     {
+        var yPos = GD.RandRange(SpawnU.Position.Y, SpawnL.Position.Y);
+        Node2D newPipes = (Node2D)PipesScene.Instantiate();
+        newPipes.SetPosition(SpawnL.Position.X, (float)yPos);
+        PipeHolder.AddChild(newPipes);
     }
 
     public void OnSpawnTimerTimeout()
     {
-
+        SpawnPipes();
     }
 
 }

@@ -5,7 +5,7 @@ using GodotCsharpExtension.Attributes;
 
 public partial class Pipes : Node2D
 {
-	const float SCROLL_SPEED = 50f;
+	const float SCROLL_SPEED = 120f;
 	[OnReady]
 	public VisibleOnScreenNotifier2D VisibleOnScreenNotifier2D;
 
