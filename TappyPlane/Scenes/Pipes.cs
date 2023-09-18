@@ -1,6 +1,7 @@
 using System.Globalization;
 using Godot;
-using TappyPlane.Extensions.Attributes;
+using GodotCsharpExtension;
+using GodotCsharpExtension.Attributes;
 
 public partial class Pipes : Node2D
 {

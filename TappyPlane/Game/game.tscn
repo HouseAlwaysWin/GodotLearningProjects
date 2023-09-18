@@ -1,13 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://ck2w3bdcrx2xi"]
 
 [ext_resource type="Texture2D" uid="uid://bi4e2idkyjp7v" path="res://Tappy/assets/background/rocks_2.png" id="1_6403q"]
+[ext_resource type="Script" path="res://Game/Game.cs" id="1_rsqtb"]
 [ext_resource type="PackedScene" uid="uid://34gxva0cf2cg" path="res://Game/plane_cb.tscn" id="2_h67jg"]
-[ext_resource type="PackedScene" uid="uid://bt38mwbpc2fud" path="res://Scenes/pipes.tscn" id="3_rfic0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_076ra"]
 size = Vector2(505, 20)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_rsqtb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(600, 350)
@@ -16,15 +17,21 @@ texture = ExtResource("1_6403q")
 [node name="PlaneCB" parent="." instance=ExtResource("2_h67jg")]
 position = Vector2(58, 211)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 832)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 position = Vector2(242.5, 0)
 shape = SubResource("RectangleShape2D_076ra")
 
-[node name="Pipes" parent="." instance=ExtResource("3_rfic0")]
-position = Vector2(195, 273)
+[node name="SpwanU" type="Marker2D" parent="."]
+position = Vector2(516, 202)
 
-[node name="Pipes2" parent="." instance=ExtResource("3_rfic0")]
-position = Vector2(384, 423)
+[node name="SpwanL" type="Marker2D" parent="."]
+position = Vector2(516, 476)
+
+[node name="SpwanTimer" type="Timer" parent="."]
+wait_time = 1.2
+autostart = true
+
+[node name="PipeHolder" type="Node" parent="."]

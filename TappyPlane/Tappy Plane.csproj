@@ -4,4 +4,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>TappyPlane</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GodotCsharpExtension\GodotCsharpExtension.csproj" />
+  </ItemGroup>
 </Project>

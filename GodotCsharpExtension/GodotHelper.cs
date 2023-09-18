@@ -1,11 +1,12 @@
-using System.Collections.Generic;
+﻿using Godot;
+using GodotCsharpExtension.Attributes;
+using System;
 using System.Linq;
 using System.Reflection;
-using Godot;
 
-namespace TappyPlane.Extensions.Attributes
+namespace GodotCsharpExtension
 {
-    public static class GodotExtensions
+    public static class GodotHelper
     {
         public static void InitOnReady<T>(this T node) where T : Node
         {
@@ -19,25 +20,6 @@ namespace TappyPlane.Extensions.Attributes
                 var nodePath = string.IsNullOrWhiteSpace(onReadyAttribute.NodePath) ? field.Name : onReadyAttribute.NodePath;
                 field.SetValue(node, node.GetNode(nodePath));
             }
-            // var fields = typeof(T).GetFields(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
-
-            // foreach (var field in fields)
-            // {
-            //     var attributes = field.GetCustomAttributes(true);
-
-            //     foreach (var attribute in attributes)
-            //     {
-            //         if (attribute is OnReadyAttribute onReadyAttribute)
-            //         {
-            //             var nodePath = onReadyAttribute.NodePath;
-            //             if (string.IsNullOrWhiteSpace(nodePath))
-            //             {
-            //                 nodePath = field.Name;
-            //             }
-            //             field.SetValue(node, node.GetNode(nodePath));
-            //         }
-            //     }
-            // }
         }
 
         public static Vector2 MinusEqPos(this Vector2 vector2, float? x = null, float? y = null)
@@ -67,8 +49,6 @@ namespace TappyPlane.Extensions.Attributes
             vector2 *= new Vector2(tmpX.Value, tmpY.Value);
             return vector2;
         }
-
-
 
         public static Vector2 SetXPosition(this Vector2 vector2, float x = 0)
         {

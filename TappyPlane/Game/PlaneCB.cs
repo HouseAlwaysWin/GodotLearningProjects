@@ -2,56 +2,57 @@ using System.Runtime.CompilerServices;
 using System.Globalization;
 using Godot;
 using System;
-using TappyPlane.Extensions.Attributes;
+using GodotCsharpExtension;
+using GodotCsharpExtension.Attributes;
 
 public partial class PlaneCB : CharacterBody2D
 {
-	const float GRAVITY = 300f;
-	const float POWER = -400f;
+    const float GRAVITY = 300f;
+    const float POWER = -400f;
 
-	[OnReady]
-	public AnimationPlayer AnimationPlayer;
+    [OnReady]
+    public AnimationPlayer AnimationPlayer;
 
-	[OnReady]
-	public AnimatedSprite2D AnimatedSprite2D;
-
-
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-		this.InitOnReady();
-	}
+    [OnReady]
+    public AnimatedSprite2D AnimatedSprite2D;
 
 
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _PhysicsProcess(double delta)
-	{
-		Velocity += new Vector2(Velocity.X, GRAVITY * (float)delta);
-
-		Fly();
-		MoveAndSlide();
-
-		if (IsOnFloor())
-		{
-			Die();
-		}
-	}
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+        this.InitOnReady();
+    }
 
 
-	public void Fly()
-	{
-		if (Input.IsActionJustPressed("fly"))
-		{
-			Velocity += new Vector2(Velocity.X, POWER);
-			this.AnimationPlayer.Play("fly");
-		}
-	}
 
-	public void Die()
-	{
-		this.AnimatedSprite2D.Stop();
-		SetPhysicsProcess(false);
-	}
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _PhysicsProcess(double delta)
+    {
+        Velocity += new Vector2(Velocity.X, GRAVITY * (float)delta);
+
+        Fly();
+        MoveAndSlide();
+
+        if (IsOnFloor())
+        {
+            Die();
+        }
+    }
+
+
+    public void Fly()
+    {
+        if (Input.IsActionJustPressed("fly"))
+        {
+            Velocity += new Vector2(Velocity.X, POWER);
+            this.AnimationPlayer.Play("fly");
+        }
+    }
+
+    public void Die()
+    {
+        this.AnimatedSprite2D.Stop();
+        SetPhysicsProcess(false);
+    }
 
 }

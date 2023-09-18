@@ -1,6 +1,6 @@
 using System;
 
-namespace TappyPlane.Extensions.Attributes
+namespace GodotCsharpExtension.Attributes
 {
     [AttributeUsage(AttributeTargets.Field, Inherited = true, AllowMultiple = false)]
     public class OnReadyAttribute : Attribute

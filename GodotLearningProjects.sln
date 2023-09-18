@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianMike", "MartianMike\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tappy Plane", "TappyPlane\Tappy Plane.csproj", "{104C8898-2B8D-4778-98E7-8A979E71D0C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodotCsharpExtension", "GodotCsharpExtension\GodotCsharpExtension.csproj", "{C9DB6EAF-E68B-4B28-B242-AFB04EDBAC0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{104C8898-2B8D-4778-98E7-8A979E71D0C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{104C8898-2B8D-4778-98E7-8A979E71D0C6}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{104C8898-2B8D-4778-98E7-8A979E71D0C6}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{C9DB6EAF-E68B-4B28-B242-AFB04EDBAC0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9DB6EAF-E68B-4B28-B242-AFB04EDBAC0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9DB6EAF-E68B-4B28-B242-AFB04EDBAC0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9DB6EAF-E68B-4B28-B242-AFB04EDBAC0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
