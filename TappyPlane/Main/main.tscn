@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwheuxy0qcvcc"]
+
+[ext_resource type="Script" path="res://Main/Main.cs" id="1_wsw3i"]
+[ext_resource type="Texture2D" uid="uid://gk1oaul3o6i3" path="res://Tappy/assets/background/sky.png" id="1_xc74n"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wsw3i")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xc74n")

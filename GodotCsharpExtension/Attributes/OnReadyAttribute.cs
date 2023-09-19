@@ -7,9 +7,9 @@ namespace GodotCsharpExtension.Attributes
     {
         public string NodePath { get; }
 
-        public OnReadyAttribute(string? NodePath = "")
+        public OnReadyAttribute(string? nodePath = "")
         {
-            NodePath = NodePath;
+            NodePath = nodePath;
         }
 
     }

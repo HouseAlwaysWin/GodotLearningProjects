@@ -14,6 +14,10 @@ config/name="Tappy Plane"
 run/main_scene="res://Game/game.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 
+[autoload]
+
+GameManager="*res://Global/GameManager.cs"
+
 [display]
 
 window/size/viewport_width=480
