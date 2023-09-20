@@ -16,12 +16,18 @@ public partial class Game : Node2D
     public Marker2D SpawnU;
     [OnReady]
     public Marker2D SpawnL;
+    [OnReady("/root/GameManager")]
+    public GameManager GameManager;
+
+    [OnReady]
+    public PlaneCB PlaneCB;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         this.InitOnReady();
         SpawnTimer.Timeout += OnSpawnTimerTimeout;
+        PlaneCB.OnPlaneDied += OnPlaneDied;
         SpawnPipes();
     }
 
@@ -41,6 +47,11 @@ public partial class Game : Node2D
     public void OnSpawnTimerTimeout()
     {
         SpawnPipes();
+    }
+
+    public void OnPlaneDied()
+    {
+        GameManager.LoadMainScene();
     }
 
 }

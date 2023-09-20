@@ -37,3 +37,5 @@ wait_time = 1.2
 autostart = true
 
 [node name="PipeHolder" type="Node" parent="."]
+
+[connection signal="OnPlaneDied" from="PlaneCB" to="." method="OnPlaneDied"]
