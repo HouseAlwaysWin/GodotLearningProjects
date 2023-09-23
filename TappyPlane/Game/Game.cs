@@ -27,7 +27,9 @@ public partial class Game : Node2D
     {
         this.InitOnReady();
         SpawnTimer.Timeout += OnSpawnTimerTimeout;
-        PlaneCB.OnPlaneDied += OnPlaneDied;
+
+        // PlaneCB.OnPlaneDied += OnPlaneDied;
+        this.GameManager.OnGameOver += OnGameOver;
         SpawnPipes();
     }
 
@@ -49,9 +51,15 @@ public partial class Game : Node2D
         SpawnPipes();
     }
 
-    public void OnPlaneDied()
+    public void OnGameOver()
     {
-        GameManager.LoadMainScene();
+
     }
+
+
+    // public void OnPlaneDied()
+    // {
+    //     GameManager.LoadMainScene();
+    // }
 
 }
