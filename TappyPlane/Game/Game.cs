@@ -11,7 +11,7 @@ public partial class Game : Node2D
     [OnReady]
     public Timer SpawnTimer;
     [OnReady]
-    public Node PipeHolder;
+    public Node PipesHolder;
     [OnReady]
     public Marker2D SpawnU;
     [OnReady]
@@ -21,6 +21,7 @@ public partial class Game : Node2D
 
     [OnReady]
     public PlaneCB PlaneCB;
+
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -43,7 +44,7 @@ public partial class Game : Node2D
         var yPos = GD.RandRange(SpawnU.Position.Y, SpawnL.Position.Y);
         Node2D newPipes = (Node2D)PipesScene.Instantiate();
         newPipes.SetPosition(SpawnL.Position.X, (float)yPos);
-        PipeHolder.AddChild(newPipes);
+        PipesHolder.AddChild(newPipes);
     }
 
     public void OnSpawnTimerTimeout()
@@ -51,9 +52,18 @@ public partial class Game : Node2D
         SpawnPipes();
     }
 
+    public void StopPipe()
+    {
+        SpawnTimer.Stop();
+        foreach (var pipe in PipesHolder.GetChildren())
+        {
+            pipe.SetProcess(false);
+        }
+    }
+
     public void OnGameOver()
     {
-
+        StopPipe();
     }
 
 

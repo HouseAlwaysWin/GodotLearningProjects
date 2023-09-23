@@ -2,29 +2,31 @@ using Godot;
 
 public partial class GameManager : Node
 {
-	public PackedScene GameScene = GD.Load<PackedScene>("res://Game/game.tscn");
-	public PackedScene MainScene = GD.Load<PackedScene>("res://Main/main.tscn");
+    public PackedScene GameScene = GD.Load<PackedScene>("res://Game/game.tscn");
+    public PackedScene MainScene = GD.Load<PackedScene>("res://Main/main.tscn");
 
-	[Signal]
-	public delegate void OnGameOverEventHandler();
+    public  string GROUP_PLANE = "plane";
 
-	public override void _Ready()
-	{
-	}
+    [Signal]
+    public delegate void OnGameOverEventHandler();
 
-	public void OnGameOverEmit()
-	{
-		EmitSignal(SignalName.OnGameOver);
-	}
+    public override void _Ready()
+    {
+    }
 
-	public void LoadGameScene()
-	{
-		GetTree().ChangeSceneToPacked(GameScene);
-	}
+    public void OnGameOverEmit()
+    {
+        EmitSignal(SignalName.OnGameOver);
+    }
 
-	public void LoadMainScene()
-	{
-		GetTree().ChangeSceneToPacked(MainScene);
-	}
+    public void LoadGameScene()
+    {
+        GetTree().ChangeSceneToPacked(GameScene);
+    }
+
+    public void LoadMainScene()
+    {
+        GetTree().ChangeSceneToPacked(MainScene);
+    }
 
 }

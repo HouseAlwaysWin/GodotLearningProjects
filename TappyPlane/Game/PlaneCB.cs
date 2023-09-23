@@ -22,6 +22,7 @@ public partial class PlaneCB : CharacterBody2D
     // [Signal]
     // public delegate void OnPlaneDiedEventHandler();
 
+    public bool isDead = false;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -57,8 +58,12 @@ public partial class PlaneCB : CharacterBody2D
 
     public void Die()
     {
+        if (isDead)
+        {
+            return;
+        }
+        isDead = true;
         this.AnimatedSprite2D.Stop();
-        // EmitSignal(SignalName.OnPlaneDied);
         this.GameManager.OnGameOverEmit();
         SetPhysicsProcess(false);
     }

@@ -37,7 +37,7 @@ position = Vector2(516, 476)
 wait_time = 1.2
 autostart = true
 
-[node name="PipeHolder" type="Node" parent="."]
+[node name="PipesHolder" type="Node" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
