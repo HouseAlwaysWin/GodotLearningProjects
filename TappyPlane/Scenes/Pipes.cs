@@ -16,6 +16,11 @@ public partial class Pipes : Node2D
     [OnReady]
     public Area2D Lower;
 
+    [OnReady]
+    public Area2D Laser;
+
+
+
     [OnReady("/root/GameManager")]
     public GameManager GameManager;
 
@@ -27,6 +32,7 @@ public partial class Pipes : Node2D
         VisibleOnScreenNotifier2D.ScreenExited += ScreenExited;
         Upper.BodyEntered += OnPipeBodyEntered;
         Lower.BodyEntered += OnPipeBodyEntered;
+        Laser.BodyEntered += OnLaserBodyEntered;
     }
 
     private void OnPipeBodyEntered(Node2D body)
@@ -34,6 +40,19 @@ public partial class Pipes : Node2D
         if (body.IsInGroup(this.GameManager.GROUP_PLANE))
         {
             ((PlaneCB)body).Die();
+        }
+    }
+
+    private void PlayerScored()
+    {
+        this.GameManager.IncrementScore();
+    }
+
+    private void OnLaserBodyEntered(Node2D body)
+    {
+        if (body.IsInGroup(this.GameManager.GROUP_PLANE))
+        {
+            PlayerScored();
         }
     }
 

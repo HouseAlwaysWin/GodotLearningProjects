@@ -64,7 +64,7 @@ public partial class PlaneCB : CharacterBody2D
         }
         isDead = true;
         this.AnimatedSprite2D.Stop();
-        this.GameManager.OnGameOverEmit();
+        this.GameManager.EmitSignal(GameManager.SignalName.OnGameOver);
         SetPhysicsProcess(false);
     }
 
