@@ -30,7 +30,8 @@ public partial class Game : Node2D
         SpawnTimer.Timeout += OnSpawnTimerTimeout;
 
         // PlaneCB.OnPlaneDied += OnPlaneDied;
-        this.GameManager.OnGameOver += OnGameOver;
+        // this.GameManager.OnGameOver += OnGameOver;
+        this.GameManager.Connect(GameManager.SignalName.OnGameOver, Callable.From(OnGameOver));
         SpawnPipes();
     }
 
