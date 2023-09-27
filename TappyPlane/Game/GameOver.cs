@@ -30,6 +30,12 @@ public partial class GameOver : Control
         this.GameManager.Connect(GameManager.SignalName.OnGameOver, Callable.From(OnGameOver));
     }
 
+    public void OnGameOver()
+    {
+        Show();
+        this.Timer.Start();
+    }
+
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
@@ -42,11 +48,7 @@ public partial class GameOver : Control
         }
     }
 
-    public void OnGameOver()
-    {
-        Show();
-        this.Timer.Start();
-    }
+
 
     public void RunSequence()
     {

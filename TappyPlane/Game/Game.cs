@@ -32,6 +32,7 @@ public partial class Game : Node2D
         // PlaneCB.OnPlaneDied += OnPlaneDied;
         // this.GameManager.OnGameOver += OnGameOver;
         this.GameManager.Connect(GameManager.SignalName.OnGameOver, Callable.From(OnGameOver));
+        this.GameManager.Score = 0;
         SpawnPipes();
     }
 
