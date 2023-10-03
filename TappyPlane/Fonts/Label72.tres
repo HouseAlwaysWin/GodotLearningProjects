@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cbjkc8dowypgk"]
+
+[ext_resource type="FontFile" uid="uid://8e66ohmawn0w" path="res://Tappy/assets/fonts/LuckiestGuy-Regular.ttf" id="1_47ard"]
+
+[resource]
+line_spacing = 1.0
+font = ExtResource("1_47ard")
+font_size = 72
+font_color = Color(1, 0.168627, 0.294118, 1)
+outline_size = 11

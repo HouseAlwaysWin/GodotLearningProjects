@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dvjqffxa2yaes"]
+
+[ext_resource type="FontFile" uid="uid://8e66ohmawn0w" path="res://Tappy/assets/fonts/LuckiestGuy-Regular.ttf" id="1_rem4r"]
+
+[resource]
+font = ExtResource("1_rem4r")
+font_size = 48
+outline_color = Color(0, 0, 1, 1)
+shadow_color = Color(0, 0, 0, 1)
