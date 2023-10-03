@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6jm7xts3n25l"]
+[gd_scene load_steps=3 format=3 uid="uid://c6jm7xts3n25l"]
 
 [ext_resource type="LabelSettings" uid="uid://bka8we0687kym" path="res://Fonts/Label48_RED.tres" id="1_ji7n1"]
+[ext_resource type="Script" path="res://Hud/Hud.cs" id="1_uf3ej"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uf3ej")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -21,7 +23,7 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="ScoreLabel" type="Label" parent="MarginContainer"]
 layout_mode = 2
 text = "000"
 label_settings = ExtResource("1_ji7n1")

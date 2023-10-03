@@ -8,7 +8,7 @@ public partial class Main : Control
 
     [OnReady("/root/GameManager")]
     public GameManager GameManager;
-    [OnReady("MarginContainer/HBoxContainer/GameManager")]
+    [OnReady("MarginContainer/HBoxContainer/Heighscore")]
     public Label Highscore;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()

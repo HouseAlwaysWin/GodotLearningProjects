@@ -5,7 +5,7 @@ using System;
 
 public partial class Hud : Control
 {
-    [OnReady("MarginContainer/Hud")]
+    [OnReady("MarginContainer/ScoreLabel")]
     public Label ScoreLabel;
 
     [OnReady("/root/GameManager")]
