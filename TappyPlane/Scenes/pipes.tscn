@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt38mwbpc2fud"]
+[gd_scene load_steps=5 format=3 uid="uid://bt38mwbpc2fud"]
 
 [ext_resource type="Script" path="res://Scenes/Pipes.cs" id="1_448t6"]
 [ext_resource type="PackedScene" uid="uid://xf7uwn8dc4sl" path="res://Scenes/laser.tscn" id="1_ot7ob"]
 [ext_resource type="PackedScene" uid="uid://c3i17a8ti5h0c" path="res://Scenes/pipe.tscn" id="2_tug5q"]
+[ext_resource type="AudioStream" uid="uid://b8wp17008ee1x" path="res://Tappy/assets/audio/score.wav" id="4_5mf6b"]
 
 [node name="Pipes" type="Node2D"]
 script = ExtResource("1_448t6")
@@ -19,3 +20,6 @@ position = Vector2(0, 80)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(70, 0)
+
+[node name="ScoreSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5mf6b")

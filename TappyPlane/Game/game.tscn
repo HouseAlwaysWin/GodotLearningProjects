@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://ck2w3bdcrx2xi"]
+[gd_scene load_steps=10 format=3 uid="uid://ck2w3bdcrx2xi"]
 
 [ext_resource type="Texture2D" uid="uid://bi4e2idkyjp7v" path="res://Tappy/assets/background/rocks_2.png" id="1_6403q"]
 [ext_resource type="Script" path="res://Game/Game.cs" id="1_rsqtb"]
 [ext_resource type="PackedScene" uid="uid://34gxva0cf2cg" path="res://Game/plane_cb.tscn" id="2_h67jg"]
 [ext_resource type="PackedScene" uid="uid://bt38mwbpc2fud" path="res://Scenes/pipes.tscn" id="3_rfic0"]
 [ext_resource type="PackedScene" uid="uid://gjo3x6ugr76s" path="res://Game/game_over.tscn" id="5_y6fae"]
+[ext_resource type="AudioStream" uid="uid://bsul3twuynqis" path="res://Tappy/assets/audio/engine.mp3" id="6_7et1s"]
+[ext_resource type="PackedScene" uid="uid://c6jm7xts3n25l" path="res://Hud/hud.tscn" id="6_pe37u"]
+[ext_resource type="AudioStream" uid="uid://bir3lwb40cunc" path="res://Tappy/assets/audio/game_over.wav" id="7_72xfi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_076ra"]
 size = Vector2(505, 20)
@@ -43,3 +46,12 @@ autostart = true
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("5_y6fae")]
 visible = false
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("6_pe37u")]
+
+[node name="GameEngineSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_7et1s")
+autoplay = true
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_72xfi")

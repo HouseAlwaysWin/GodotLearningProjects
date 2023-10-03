@@ -19,6 +19,8 @@ public partial class Pipes : Node2D
     [OnReady]
     public Area2D Laser;
 
+    [OnReady]
+    public AudioStreamPlayer ScoreSound;
 
 
     [OnReady("/root/GameManager")]
@@ -46,6 +48,7 @@ public partial class Pipes : Node2D
     private void PlayerScored()
     {
         this.GameManager.IncrementScore();
+        ScoreSound.Play();
     }
 
     private void OnLaserBodyEntered(Node2D body)
