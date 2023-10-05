@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ck2w3bdcrx2xi"]
+[gd_scene load_steps=11 format=3 uid="uid://ck2w3bdcrx2xi"]
 
 [ext_resource type="Texture2D" uid="uid://bi4e2idkyjp7v" path="res://Tappy/assets/background/rocks_2.png" id="1_6403q"]
 [ext_resource type="Script" path="res://Game/Game.cs" id="1_rsqtb"]
 [ext_resource type="PackedScene" uid="uid://34gxva0cf2cg" path="res://Game/plane_cb.tscn" id="2_h67jg"]
+[ext_resource type="PackedScene" uid="uid://c21nbxmswgphc" path="res://Background/scrolling_bg.tscn" id="3_2oews"]
 [ext_resource type="PackedScene" uid="uid://bt38mwbpc2fud" path="res://Scenes/pipes.tscn" id="3_rfic0"]
 [ext_resource type="PackedScene" uid="uid://gjo3x6ugr76s" path="res://Game/game_over.tscn" id="5_y6fae"]
 [ext_resource type="AudioStream" uid="uid://bsul3twuynqis" path="res://Tappy/assets/audio/engine.mp3" id="6_7et1s"]
@@ -16,7 +17,10 @@ size = Vector2(505, 20)
 script = ExtResource("1_rsqtb")
 PipesScene = ExtResource("3_rfic0")
 
+[node name="ScrollingBG" parent="." instance=ExtResource("3_2oews")]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(600, 350)
 texture = ExtResource("1_6403q")
 
@@ -37,7 +41,7 @@ position = Vector2(516, 202)
 position = Vector2(516, 476)
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 1.2
+wait_time = 3.0
 autostart = true
 
 [node name="PipesHolder" type="Node" parent="."]
