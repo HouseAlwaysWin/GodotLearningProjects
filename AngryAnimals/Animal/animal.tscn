@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://23e8638bd11j"]
+[gd_scene load_steps=5 format=3 uid="uid://cp8khjj15glk4"]
 
-[ext_resource type="Script" path="res://Animail/Animal.cs" id="1_np0bk"]
-[ext_resource type="Texture2D" uid="uid://go2wlagc6mt6" path="res://assets/AngryAnimals/assets/player/parrot.png" id="1_yp6ar"]
+[ext_resource type="Script" path="res://Animal/Animal.cs" id="1_a5rs3"]
+[ext_resource type="Texture2D" uid="uid://go2wlagc6mt6" path="res://assets/AngryAnimals/assets/player/parrot.png" id="2_t7dc7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w6vap"]
 bounce = 0.2
@@ -9,13 +9,13 @@ bounce = 0.2
 [sub_resource type="CircleShape2D" id="CircleShape2D_xgtkh"]
 radius = 26.0
 
-[node name="Animail" type="RigidBody2D"]
+[node name="Animal" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_w6vap")
-script = ExtResource("1_np0bk")
+script = ExtResource("1_a5rs3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_yp6ar")
+texture = ExtResource("2_t7dc7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xgtkh")

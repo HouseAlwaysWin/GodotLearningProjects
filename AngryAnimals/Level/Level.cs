@@ -11,12 +11,29 @@ public partial class Level : Node2D
     [OnReady("/root/GameManager")]
     public GameManager GameManager;
 
+    [OnReady("AnimalStart")]
+    public Marker2D AnimalStart;
+
+    public PackedScene AnimalScene;
+
+
+
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        AnimalScene = GD.Load<PackedScene>("res://Animal/animal.tscn");
         this.InitOnReady();
         this.GameManager.Connect(GameManager.SignalName.OnUpdateDebugLabel, Callable.From<string>(OnUpdateDebugLabel));
+        this.GameManager.Connect(GameManager.SignalName.OnAnimailDied, Callable.From(OnAnimalDied));
+		OnAnimalDied();
+    }
+
+    private void OnAnimalDied()
+    {
+        Animal animal = (Animal)this.AnimalScene.Instantiate();
+        animal.GlobalPosition = AnimalStart.GlobalPosition;
+        AddChild(animal);
     }
 
     private void OnUpdateDebugLabel(string text)
