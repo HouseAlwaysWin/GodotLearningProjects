@@ -12,8 +12,12 @@ config_version=5
 
 config/name="AngryAnimals"
 run/main_scene="res://Level/level.tscn"
-config/features=PackedStringArray("4.1", "Mobile")
+config/features=PackedStringArray("4.1", "C#", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://GlobalManager/GameManager.cs"
 
 [display]
 
@@ -24,7 +28,3 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="AngryAnimals"
-
-[rendering]
-
-renderer/rendering_method="mobile"

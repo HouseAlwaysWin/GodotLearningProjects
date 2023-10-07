@@ -64,5 +64,10 @@ namespace GodotCsharpExtension
         {
             node2D.Position = new Vector2(x, y);
         }
+
+        public static string ToPositionString(this Vector2 vector2, string precisionFormat = "")
+        {
+            return $"({vector2.X.ToString(precisionFormat)},{vector2.Y.ToString(precisionFormat)})";
+        }
     }
 }
