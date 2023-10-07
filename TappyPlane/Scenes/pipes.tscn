@@ -10,6 +10,7 @@ script = ExtResource("1_448t6")
 
 [node name="Laser" parent="." instance=ExtResource("1_ot7ob")]
 position = Vector2(0, -110)
+collision_layer = 0
 
 [node name="Upper" parent="." instance=ExtResource("2_tug5q")]
 position = Vector2(0, -80)

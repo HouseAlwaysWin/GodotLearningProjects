@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c21nbxmswgphc"]
 
-[ext_resource type="Script" path="res://ScrollingBG.cs" id="1_8gafx"]
+[ext_resource type="Script" path="res://Background/ScrollingBG.cs" id="1_8gafx"]
 [ext_resource type="PackedScene" uid="uid://cp3dy4legghxn" path="res://Background/scrolling_layer.tscn" id="2_5yuwl"]
 [ext_resource type="Texture2D" uid="uid://gk1oaul3o6i3" path="res://Tappy/assets/background/sky.png" id="3_8e4h7"]
 [ext_resource type="Texture2D" uid="uid://ohh0gy28s418" path="res://Tappy/assets/background/clouds_2.png" id="4_g2mdx"]

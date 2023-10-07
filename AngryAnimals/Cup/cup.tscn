@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://beyg4gy1if3gu"]
+
+[ext_resource type="Texture2D" uid="uid://b6qpg8ah4w6b6" path="res://assets/AngryAnimals/assets/env/elementWood004.png" id="1_k8shm"]
+[ext_resource type="Texture2D" uid="uid://clctejtfa05fe" path="res://assets/AngryAnimals/assets/env/elementWood015.png" id="2_ufy8l"]
+
+[node name="Cup" type="StaticBody2D"]
+
+[node name="Sprites" type="Node2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites"]
+position = Vector2(-72, -66)
+texture = ExtResource("1_k8shm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites"]
+texture = ExtResource("2_ufy8l")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites"]
+position = Vector2(72, -66)
+texture = ExtResource("1_k8shm")
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-53, -50, -55, 17, 54, 17, 53, -51, 19, -17, -21, -17)

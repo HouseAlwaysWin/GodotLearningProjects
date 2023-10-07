@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://23e8638bd11j"]
+
+[ext_resource type="Texture2D" uid="uid://go2wlagc6mt6" path="res://assets/AngryAnimals/assets/player/parrot.png" id="1_yp6ar"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w6vap"]
+bounce = 0.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xgtkh"]
+radius = 26.0
+
+[node name="Animail" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_w6vap")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_yp6ar")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xgtkh")

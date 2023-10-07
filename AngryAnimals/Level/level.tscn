@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2lyhixf7mi44"]
+
+[ext_resource type="Texture2D" uid="uid://bhq3ieprkt78j" path="res://assets/AngryAnimals/assets/scene/colored_castle.png" id="1_sk6r2"]
+[ext_resource type="PackedScene" uid="uid://beyg4gy1if3gu" path="res://Cup/cup.tscn" id="2_dy8ie"]
+[ext_resource type="PackedScene" uid="uid://23e8638bd11j" path="res://Animail/animail.tscn" id="3_prsku"]
+
+[node name="Level" type="Node2D"]
+
+[node name="ColoredCastle" type="Sprite2D" parent="."]
+position = Vector2(505, 328)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_sk6r2")
+
+[node name="Cup" parent="." instance=ExtResource("2_dy8ie")]
+position = Vector2(525, 471)
+
+[node name="Animail" parent="." instance=ExtResource("3_prsku")]
+position = Vector2(488, 129)
