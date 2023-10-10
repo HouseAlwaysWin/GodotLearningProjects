@@ -3,6 +3,7 @@ using GodotCsharpExtension;
 using GodotCsharpExtension.Attributes;
 using System;
 using System.Collections;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 public partial class Animal : RigidBody2D
@@ -13,13 +14,33 @@ public partial class Animal : RigidBody2D
     [OnReady]
     public VisibleOnScreenNotifier2D VisibleOnScreenNotifier2D;
 
-    public bool Dead = false;
+    private bool _dead = false;
+    private bool _dragging = false;
+    private bool _released = false;
+    private Vector2 _start = Vector2.Zero;
+    private Vector2 _dragStart = Vector2.Zero;
+    private Vector2 _draggedVector = Vector2.Zero;
+    private Vector2 _lastDraggedPosition = Vector2.Zero;
+    private float _lastDragAmount = 0.0f;
+    private float _firedTime = 0.0f;
+
+
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         this.InitOnReady();
         this.VisibleOnScreenNotifier2D.ScreenExited += OnScreenExited;
+        this.InputEvent += OnInputEvent;
+        _start = GlobalPosition;
+    }
+
+    private void OnInputEvent(Node viewport, InputEvent @event, long shapeIdx)
+    {
+        if (@event.IsActionPressed("drag"))
+        {
+            GD.Print(@event);
+        }
     }
 
     private void OnScreenExited()
@@ -29,11 +50,11 @@ public partial class Animal : RigidBody2D
 
     private void Died()
     {
-        if (Dead)
+        if (_dead)
         {
             return;
         }
-        Dead = true;
+        _dead = true;
         this.GameManager.EmitSignal(GameManager.SignalName.OnAnimailDied);
         QueueFree();
     }
