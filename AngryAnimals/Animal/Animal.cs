@@ -69,6 +69,8 @@ public partial class Animal : RigidBody2D
     private void UpdateDebugLabel()
     {
         StringBuilder strBuilder = new($@"g_pos:{GlobalPosition.ToPositionString("0.0")}");
+        strBuilder.Append($"\ndragging:{_dragging.ToString} released: {_released}");
+        strBuilder.Append($"\nang:{AngularVelocity.ToString("0.0")} linear: {LinearVelocity.ToPositionString("0.0")}");
         strBuilder.Append($"\nang:{AngularVelocity.ToString("0.0")} linear: {LinearVelocity.ToPositionString("0.0")}");
         this.GameManager.EmitSignal(GameManager.SignalName.OnUpdateDebugLabel, strBuilder.ToString());
     }
