@@ -37,15 +37,37 @@ public partial class Animal : RigidBody2D
 
     private void OnInputEvent(Node viewport, InputEvent @event, long shapeIdx)
     {
+        if (_dragging || _released)
+        {
+            return;
+        }
+
         if (@event.IsActionPressed("drag"))
         {
-            GD.Print(@event);
+            GrabIt();
         }
     }
 
     private void OnScreenExited()
     {
         Died();
+    }
+
+    private void GrabIt()
+    {
+        _dragging = true;
+        _dragStart = GetGlobalMousePosition();
+        _lastDraggedPosition = _dragStart;
+    }
+
+    private void DragIt()
+    {
+        var gmp = GetGlobalMousePosition();
+        _lastDragAmount = (_lastDraggedPosition - gmp).Length();
+        _lastDraggedPosition = gmp;
+
+        _draggedVector = gmp - _dragStart;
+        GlobalPosition = _start + _draggedVector;
     }
 
     private void Died()
@@ -61,15 +83,31 @@ public partial class Animal : RigidBody2D
 
     public override void _PhysicsProcess(double delta)
     {
-
-        this.InitOnReady();
         UpdateDebugLabel();
+
+        if (_released)
+        {
+            return;
+        }
+        else if (!_dragging)
+        {
+            return;
+        }
+        else
+        {
+            DragIt();
+        }
     }
 
     private void UpdateDebugLabel()
     {
-        StringBuilder strBuilder = new($@"g_pos:{GlobalPosition.ToPositionString("0.0")}");
-        strBuilder.Append($"\nang:{AngularVelocity.ToString("0.0")} linear: {LinearVelocity.ToPositionString("0.0")}");
+        string strBuilder = $@"
+        g_pos:{GlobalPosition.ToPositionString("0.0")}
+        \n_dragging:{_dragging} _release:{_released}
+        \n_start:{_start.ToPositionString("0.0")} _dragStart: {_dragStart.ToPositionString("0.0")}
+        \n_lastDraggedPosition:{_lastDraggedPosition.ToPositionString("0.0")} _lastDragAmount: {_lastDragAmount:0.0}
+        \nang:{AngularVelocity:0.0} linear: {LinearVelocity.ToPositionString("0.0")} _firedTime:{_firedTime:0.0}
+        ";
         this.GameManager.EmitSignal(GameManager.SignalName.OnUpdateDebugLabel, strBuilder.ToString());
     }
 
