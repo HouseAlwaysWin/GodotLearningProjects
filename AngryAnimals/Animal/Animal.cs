@@ -104,7 +104,7 @@ public partial class Animal : RigidBody2D
         string strBuilder = $@"
         g_pos:{GlobalPosition.ToPositionString("0.0")}
         \n_dragging:{_dragging} _release:{_released}
-        \n_start:{_start.ToPositionString("0.0")} _dragStart: {_dragStart.ToPositionString("0.0")}
+        \n_start:{_start.ToPositionString("0.0")} _dragStart: {_dragStart.ToPositionString("0.0")} _draggedVector:{_draggedVector.ToPositionString("0.0")}
         \n_lastDraggedPosition:{_lastDraggedPosition.ToPositionString("0.0")} _lastDragAmount: {_lastDragAmount:0.0}
         \nang:{AngularVelocity:0.0} linear: {LinearVelocity.ToPositionString("0.0")} _firedTime:{_firedTime:0.0}
         ";
