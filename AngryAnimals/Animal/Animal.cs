@@ -14,6 +14,12 @@ public partial class Animal : RigidBody2D
     [OnReady]
     public VisibleOnScreenNotifier2D VisibleOnScreenNotifier2D;
 
+    private Vector2 DRAG_LIM_MIN = new Vector2(0, 60);
+    private Vector2 DRAG_LIM_MAX = new Vector2(-60, 0);
+
+    [OnReady]
+    public AudioStreamPlayer StretchSound;
+
     private bool _dead = false;
     private bool _dragging = false;
     private bool _released = false;
