@@ -16,7 +16,7 @@ public partial class Animal : RigidBody2D
 
     private Vector2 DRAG_LIM_MAX = new Vector2(0, 60);
     private Vector2 DRAG_LIM_MIN = new Vector2(-60, 0);
-    private const float IMPULSE_MULT = 100f;
+    private const float IMPULSE_MULT = 10f;
 
     [OnReady]
     public AudioStreamPlayer StretchSound;
@@ -124,6 +124,10 @@ public partial class Animal : RigidBody2D
         {
             return;
         }
+        else if (Input.IsActionJustReleased("drag"))
+        {
+            ReleaseIt();
+        }
         else
         {
             DragIt();
@@ -134,10 +138,10 @@ public partial class Animal : RigidBody2D
     {
         string strBuilder = $@"
         g_pos:{GlobalPosition.ToPositionString("0.0")}
-        \n_dragging:{_dragging} _release:{_released}
-        \n_start:{_start.ToPositionString("0.0")} _dragStart: {_dragStart.ToPositionString("0.0")} _draggedVector:{_draggedVector.ToPositionString("0.0")}
-        \n_lastDraggedPosition:{_lastDraggedPosition.ToPositionString("0.0")} _lastDragAmount: {_lastDragAmount:0.0}
-        \nang:{AngularVelocity:0.0} linear: {LinearVelocity.ToPositionString("0.0")} _firedTime:{_firedTime:0.0}
+        _dragging:{_dragging} _release:{_released}
+        _start:{_start.ToPositionString("0.0")} _dragStart: {_dragStart.ToPositionString("0.0")} _draggedVector:{_draggedVector.ToPositionString("0.0")}
+        _lastDraggedPosition:{_lastDraggedPosition.ToPositionString("0.0")} _lastDragAmount: {_lastDragAmount:0.0}
+        ang:{AngularVelocity:0.0} linear: {LinearVelocity.ToPositionString("0.0")} _firedTime:{_firedTime:0.0}
         ";
         this.GameManager.EmitSignal(GameManager.SignalName.OnUpdateDebugLabel, strBuilder.ToString());
     }
