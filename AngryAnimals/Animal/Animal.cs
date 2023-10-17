@@ -14,11 +14,14 @@ public partial class Animal : RigidBody2D
     [OnReady]
     public VisibleOnScreenNotifier2D VisibleOnScreenNotifier2D;
 
-    private Vector2 DRAG_LIM_MIN = new Vector2(0, 60);
-    private Vector2 DRAG_LIM_MAX = new Vector2(-60, 0);
+    private Vector2 DRAG_LIM_MAX = new Vector2(0, 60);
+    private Vector2 DRAG_LIM_MIN = new Vector2(-60, 0);
+    private const float IMPULSE_MULT = 100f;
 
     [OnReady]
     public AudioStreamPlayer StretchSound;
+    [OnReady]
+    public AudioStreamPlayer LaunchSound;
 
     private bool _dead = false;
     private bool _dragging = false;
@@ -59,6 +62,21 @@ public partial class Animal : RigidBody2D
         Died();
     }
 
+    private void ReleaseIt()
+    {
+        _dragging = false;
+        _released = true;
+        Freeze = false;
+        ApplyCentralImpulse(GetImpulse());
+        StretchSound.Stop();
+        LaunchSound.Play();
+    }
+
+    private Vector2 GetImpulse()
+    {
+        return _draggedVector * -1 * IMPULSE_MULT;
+    }
+
     private void GrabIt()
     {
         _dragging = true;
@@ -72,7 +90,14 @@ public partial class Animal : RigidBody2D
         _lastDragAmount = (_lastDraggedPosition - gmp).Length();
         _lastDraggedPosition = gmp;
 
+        if (_lastDragAmount > 0 && !StretchSound.Playing)
+        {
+            StretchSound.Play();
+        }
+
         _draggedVector = gmp - _dragStart;
+        _draggedVector.X = Mathf.Clamp(_draggedVector.X, DRAG_LIM_MIN.X, DRAG_LIM_MAX.X);
+        _draggedVector.Y = Mathf.Clamp(_draggedVector.Y, DRAG_LIM_MIN.Y, DRAG_LIM_MAX.Y);
         GlobalPosition = _start + _draggedVector;
     }
 
