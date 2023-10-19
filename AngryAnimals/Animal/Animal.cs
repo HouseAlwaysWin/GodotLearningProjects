@@ -17,11 +17,14 @@ public partial class Animal : RigidBody2D
     private Vector2 DRAG_LIM_MAX = new Vector2(0, 60);
     private Vector2 DRAG_LIM_MIN = new Vector2(-60, 0);
     private const float IMPULSE_MULT = 10f;
+    private const float FIRE_DELAY = 0.25f;
 
     [OnReady]
     public AudioStreamPlayer StretchSound;
     [OnReady]
     public AudioStreamPlayer LaunchSound;
+    [OnReady]
+    public AudioStreamPlayer CollisionSound;
 
     private bool _dead = false;
     private bool _dragging = false;
@@ -32,6 +35,7 @@ public partial class Animal : RigidBody2D
     private Vector2 _lastDraggedPosition = Vector2.Zero;
     private float _lastDragAmount = 0.0f;
     private float _firedTime = 0.0f;
+    private int _lastCollisionCount = 0;
 
 
 
@@ -118,7 +122,12 @@ public partial class Animal : RigidBody2D
 
         if (_released)
         {
-            return;
+            _firedTime += (float)delta;
+            if (_firedTime > FIRE_DELAY)
+            {
+                PlayCollision();
+            }
+            // return;
         }
         else if (!_dragging)
         {
@@ -137,14 +146,26 @@ public partial class Animal : RigidBody2D
     private void UpdateDebugLabel()
     {
         string strBuilder = $@"
-        g_pos:{GlobalPosition.ToPositionString("0.0")}
-        _dragging:{_dragging} _release:{_released}
-        _start:{_start.ToPositionString("0.0")} _dragStart: {_dragStart.ToPositionString("0.0")} _draggedVector:{_draggedVector.ToPositionString("0.0")}
-        _lastDraggedPosition:{_lastDraggedPosition.ToPositionString("0.0")} _lastDragAmount: {_lastDragAmount:0.0}
-        ang:{AngularVelocity:0.0} linear: {LinearVelocity.ToPositionString("0.0")} _firedTime:{_firedTime:0.0}
+        g_pos:{GlobalPosition.ToPositionString("0.0")} contacts: {GetContactCount()}
+        \n_dragging:{_dragging} _release:{_released}
+        \n_start:{_start.ToPositionString("0.0")} _dragStart: {_dragStart.ToPositionString("0.0")} _draggedVector:{_draggedVector.ToPositionString("0.0")}
+        \n_lastDraggedPosition:{_lastDraggedPosition.ToPositionString("0.0")} _lastDragAmount: {_lastDragAmount:0.0}
+        \nang:{AngularVelocity:0.0} linear: {LinearVelocity.ToPositionString("0.0")} _firedTime:{_firedTime:0.0}
         ";
         this.GameManager.EmitSignal(GameManager.SignalName.OnUpdateDebugLabel, strBuilder.ToString());
     }
+
+    private void PlayCollision()
+    {
+        if (_lastCollisionCount == 0 && GetContactCount() > 0 && !CollisionSound.Playing)
+        {
+            CollisionSound.Play();
+            return;
+        }
+        _lastCollisionCount = GetContactCount();
+    }
+
+
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
 

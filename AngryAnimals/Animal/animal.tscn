@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cp8khjj15glk4"]
+[gd_scene load_steps=8 format=3 uid="uid://cp8khjj15glk4"]
 
 [ext_resource type="Script" path="res://Animal/Animal.cs" id="1_a5rs3"]
 [ext_resource type="Texture2D" uid="uid://go2wlagc6mt6" path="res://assets/AngryAnimals/assets/player/parrot.png" id="2_t7dc7"]
 [ext_resource type="AudioStream" uid="uid://ccopeg1avsx5d" path="res://assets/AngryAnimals/assets/audio/stretch2.ogg" id="3_fbqll"]
-[ext_resource type="AudioStream" uid="uid://cfmt8hxa3u2wa" path="res://assets/AngryAnimals/assets/audio/catapult.ogg" id="4_r7yy3"]
+[ext_resource type="AudioStream" uid="uid://cfmt8hxa3u2wa" path="res://assets/AngryAnimals/assets/audio/catapult.ogg" id="4_phot2"]
+[ext_resource type="AudioStream" uid="uid://dprjwks7r7qwa" path="res://assets/AngryAnimals/assets/audio/kick_wood.ogg" id="5_t6830"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w6vap"]
 bounce = 0.2
@@ -12,8 +13,11 @@ bounce = 0.2
 radius = 26.0
 
 [node name="Animal" type="RigidBody2D"]
+position = Vector2(0, 4)
 input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_w6vap")
+max_contacts_reported = 1
+contact_monitor = true
 freeze = true
 script = ExtResource("1_a5rs3")
 
@@ -32,4 +36,7 @@ scale = Vector2(2.55, 2.6)
 stream = ExtResource("3_fbqll")
 
 [node name="LaunchSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_r7yy3")
+stream = ExtResource("4_phot2")
+
+[node name="CollisionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_t6830")
