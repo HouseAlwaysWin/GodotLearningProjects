@@ -1,9 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://beyg4gy1if3gu"]
+[gd_scene load_steps=8 format=3 uid="uid://beyg4gy1if3gu"]
 
+[ext_resource type="Script" path="res://Cup/Cup.cs" id="1_5j5kk"]
 [ext_resource type="Texture2D" uid="uid://b6qpg8ah4w6b6" path="res://assets/AngryAnimals/assets/env/elementWood004.png" id="1_k8shm"]
 [ext_resource type="Texture2D" uid="uid://clctejtfa05fe" path="res://assets/AngryAnimals/assets/env/elementWood015.png" id="2_ufy8l"]
+[ext_resource type="AudioStream" uid="uid://cjn3jvlc63yu1" path="res://assets/AngryAnimals/assets/audio/vanish.wav" id="4_mvnwh"]
 
-[node name="Cup" type="StaticBody2D"]
+[sub_resource type="Animation" id="Animation_okdiq"]
+resource_name = "vanish"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pnu0m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vucbb"]
+_data = {
+"RESET": SubResource("Animation_pnu0m"),
+"vanish": SubResource("Animation_okdiq")
+}
+
+[node name="Cup" type="StaticBody2D" groups=["cup"]]
+script = ExtResource("1_5j5kk")
 
 [node name="Sprites" type="Node2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -22,3 +62,11 @@ flip_h = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-53, -50, -55, 17, 54, 17, 53, -51, 19, -17, -21, -17)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vucbb")
+}
+
+[node name="VanishSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mvnwh")

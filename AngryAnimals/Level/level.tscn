@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2lyhixf7mi44"]
+[gd_scene load_steps=5 format=3 uid="uid://d2lyhixf7mi44"]
 
 [ext_resource type="Texture2D" uid="uid://bhq3ieprkt78j" path="res://assets/AngryAnimals/assets/scene/colored_castle.png" id="1_sk6r2"]
 [ext_resource type="Script" path="res://Level/Level.cs" id="1_yp6er"]
 [ext_resource type="PackedScene" uid="uid://beyg4gy1if3gu" path="res://Cup/cup.tscn" id="2_dy8ie"]
+[ext_resource type="PackedScene" uid="uid://dtdw8r86e6n41" path="res://Water/water.tscn" id="4_oyn24"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_yp6er")
@@ -29,3 +30,5 @@ text = "debug message
 
 [node name="AnimalStart" type="Marker2D" parent="."]
 position = Vector2(351, 211)
+
+[node name="Water" parent="." instance=ExtResource("4_oyn24")]

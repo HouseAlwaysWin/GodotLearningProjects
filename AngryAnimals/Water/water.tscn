@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtdw8r86e6n41"]
+
+[ext_resource type="Texture2D" uid="uid://mpfou5fkew38" path="res://assets/AngryAnimals/assets/scene/waterTop_high.png" id="1_i1mg8"]
+[ext_resource type="Script" path="res://Water/Water.cs" id="1_qf5t5"]
+[ext_resource type="AudioStream" uid="uid://b0tgc4o4ioye" path="res://assets/AngryAnimals/assets/audio/splash.ogg" id="2_jv3nh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlo1s"]
+size = Vector2(1229, 16)
+
+[node name="Water" type="Area2D"]
+script = ExtResource("1_qf5t5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture_repeat = 2
+position = Vector2(0, 520)
+texture = ExtResource("1_i1mg8")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1200, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(592, 569)
+shape = SubResource("RectangleShape2D_dlo1s")
+
+[node name="SplashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_jv3nh")

@@ -18,6 +18,7 @@ public partial class Animal : RigidBody2D
     private Vector2 DRAG_LIM_MIN = new Vector2(-60, 0);
     private const float IMPULSE_MULT = 10f;
     private const float FIRE_DELAY = 0.25f;
+    private const float STOPPED = 0.1f;
 
     [OnReady]
     public AudioStreamPlayer StretchSound;
@@ -126,6 +127,7 @@ public partial class Animal : RigidBody2D
             if (_firedTime > FIRE_DELAY)
             {
                 PlayCollision();
+                CheckOnTarget();
             }
             // return;
         }
@@ -147,12 +149,47 @@ public partial class Animal : RigidBody2D
     {
         string strBuilder = $@"
         g_pos:{GlobalPosition.ToPositionString("0.0")} contacts: {GetContactCount()}
-        \n_dragging:{_dragging} _release:{_released}
-        \n_start:{_start.ToPositionString("0.0")} _dragStart: {_dragStart.ToPositionString("0.0")} _draggedVector:{_draggedVector.ToPositionString("0.0")}
-        \n_lastDraggedPosition:{_lastDraggedPosition.ToPositionString("0.0")} _lastDragAmount: {_lastDragAmount:0.0}
-        \nang:{AngularVelocity:0.0} linear: {LinearVelocity.ToPositionString("0.0")} _firedTime:{_firedTime:0.0}
+        _dragging:{_dragging} _release:{_released}
+        _start:{_start.ToPositionString("0.0")} _dragStart: {_dragStart.ToPositionString("0.0")} _draggedVector:{_draggedVector.ToPositionString("0.0")}
+        _lastDraggedPosition:{_lastDraggedPosition.ToPositionString("0.0")} _lastDragAmount: {_lastDragAmount:0.0}
+        ang:{AngularVelocity:0.0} linear: {LinearVelocity.ToPositionString("0.0")} _firedTime:{_firedTime:0.0}
         ";
         this.GameManager.EmitSignal(GameManager.SignalName.OnUpdateDebugLabel, strBuilder.ToString());
+    }
+
+    private bool StoppedRolling()
+    {
+        if (GetContactCount() > 0)
+        {
+            if (Math.Abs(LinearVelocity.Y) < STOPPED &&
+               Math.Abs(AngularVelocity) < STOPPED)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void CheckOnTarget()
+    {
+        if (!StoppedRolling())
+        {
+            return;
+        }
+
+        var cb = GetCollidingBodies();
+        if (cb.Count == 0)
+        {
+            return;
+        }
+
+        var cup = (Cup)cb[0];
+
+        if (cup.IsInGroup(this.GameManager.GROUP_CUP))
+        {
+            cup.Die();
+            Died();
+        }
     }
 
     private void PlayCollision()

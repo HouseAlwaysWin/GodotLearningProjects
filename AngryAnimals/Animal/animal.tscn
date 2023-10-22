@@ -12,7 +12,7 @@ bounce = 0.2
 [sub_resource type="CircleShape2D" id="CircleShape2D_xgtkh"]
 radius = 26.0
 
-[node name="Animal" type="RigidBody2D"]
+[node name="Animal" type="RigidBody2D" groups=["animal"]]
 position = Vector2(0, 4)
 input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_w6vap")
