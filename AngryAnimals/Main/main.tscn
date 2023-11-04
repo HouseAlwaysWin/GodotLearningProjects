@@ -67,7 +67,6 @@ theme_override_constants/separation = 48
 
 [node name="LevelButton" parent="HB" instance=ExtResource("4_l8mn1")]
 layout_mode = 2
-LevelNumber = 1
 
 [node name="LevelButton2" parent="HB" instance=ExtResource("4_l8mn1")]
 layout_mode = 2

@@ -26,7 +26,7 @@ public partial class Level : Node2D
         this.InitOnReady();
         this.GameManager.Connect(GameManager.SignalName.OnUpdateDebugLabel, Callable.From<string>(OnUpdateDebugLabel));
         this.GameManager.Connect(GameManager.SignalName.OnAnimailDied, Callable.From(OnAnimalDied));
-		OnAnimalDied();
+        OnAnimalDied();
     }
 
     private void OnAnimalDied()
@@ -44,5 +44,9 @@ public partial class Level : Node2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
+        if (Input.IsKeyPressed(Key.Q))
+        {
+            GameManager.LoadMainScene();
+        }
     }
 }

@@ -10,7 +10,7 @@ public partial class LevelButton : TextureButton
     public Vector2 DEFAULT_SCALE = new Vector2(1.0f, 1.0f);
 
     [Export]
-    public int LevelNumber;
+    public int LevelNumber = 1;
 
     [OnReady("MC/VB/LevelLabel")]
     public Label LevelLabel;
@@ -18,11 +18,15 @@ public partial class LevelButton : TextureButton
     [OnReady("MC/VB/ScoreLabel")]
     public Label ScoreLabel;
 
+    public PackedScene _levelScene;
+
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         this.InitOnReady();
+        _levelScene = GD.Load<PackedScene>($"res://Level/level_{this.LevelNumber}.tscn");
+
         LevelLabel.Text = LevelNumber.ToString();
         Pressed += OnPressed;
         MouseEntered += OnMouseEntered;
@@ -41,7 +45,7 @@ public partial class LevelButton : TextureButton
 
     private void OnPressed()
     {
-        throw new NotImplementedException();
+        GetTree().ChangeSceneToPacked(_levelScene);
     }
 
 

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7ofh3qr7ajku"]
+
+[ext_resource type="PackedScene" uid="uid://d2lyhixf7mi44" path="res://Level/level.tscn" id="1_irrhd"]
+[ext_resource type="PackedScene" uid="uid://beyg4gy1if3gu" path="res://Cup/cup.tscn" id="2_wo1hy"]
+
+[node name="Level2" instance=ExtResource("1_irrhd")]
+
+[node name="ColoredCastle" parent="." index="0"]
+position = Vector2(537, 368)
+
+[node name="Cup" parent="." index="4" instance=ExtResource("2_wo1hy")]
+position = Vector2(547, 402)
+
+[node name="Cup2" parent="." index="5" instance=ExtResource("2_wo1hy")]
+position = Vector2(839, 448)
