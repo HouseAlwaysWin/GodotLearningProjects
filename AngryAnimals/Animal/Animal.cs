@@ -75,6 +75,7 @@ public partial class Animal : RigidBody2D
         ApplyCentralImpulse(GetImpulse());
         StretchSound.Stop();
         LaunchSound.Play();
+        this.GameManager.AttemptMade();
     }
 
     private Vector2 GetImpulse()

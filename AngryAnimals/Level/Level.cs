@@ -24,6 +24,7 @@ public partial class Level : Node2D
     {
         AnimalScene = GD.Load<PackedScene>("res://Animal/animal.tscn");
         this.InitOnReady();
+        Setup();
         this.GameManager.Connect(GameManager.SignalName.OnUpdateDebugLabel, Callable.From<string>(OnUpdateDebugLabel));
         this.GameManager.Connect(GameManager.SignalName.OnAnimailDied, Callable.From(OnAnimalDied));
         OnAnimalDied();
@@ -48,5 +49,11 @@ public partial class Level : Node2D
         {
             GameManager.LoadMainScene();
         }
+    }
+
+    public void Setup()
+    {
+        var tc = GetTree().GetNodesInGroup(this.GameManager.GROUP_CUP);
+        this.GameManager.SetTargetCups(tc.Count);
     }
 }

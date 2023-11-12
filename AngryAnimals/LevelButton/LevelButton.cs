@@ -18,6 +18,11 @@ public partial class LevelButton : TextureButton
     [OnReady("MC/VB/ScoreLabel")]
     public Label ScoreLabel;
 
+    [OnReady("/root/GameManager")]
+    public GameManager GameManager;
+
+
+
     public PackedScene _levelScene;
 
 
@@ -28,6 +33,7 @@ public partial class LevelButton : TextureButton
         _levelScene = GD.Load<PackedScene>($"res://Level/level_{this.LevelNumber}.tscn");
 
         LevelLabel.Text = LevelNumber.ToString();
+        ScoreLabel.Text = this.GameManager.GetBestForLevel(LevelNumber).ToString();
         Pressed += OnPressed;
         MouseEntered += OnMouseEntered;
         MouseExited += OnMouseExited;
@@ -45,6 +51,7 @@ public partial class LevelButton : TextureButton
 
     private void OnPressed()
     {
+        this.GameManager.LevelSelected(LevelNumber);
         GetTree().ChangeSceneToPacked(_levelScene);
     }
 
