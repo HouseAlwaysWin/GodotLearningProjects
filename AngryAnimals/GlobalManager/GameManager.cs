@@ -10,8 +10,8 @@ public partial class GameManager : Node
     [Signal]
     public delegate void OnAnimailDiedEventHandler();
 
-    [Signal]
-    public delegate void OnCupDestroyedEventHandler();
+    // [Signal]
+    // public delegate void OnCupDestroyedEventHandler();
 
     [Signal]
     public delegate void OnGameOverEventHandler();
@@ -38,12 +38,7 @@ public partial class GameManager : Node
 
     public void _Ready()
     {
-        Connect(SignalName.OnCupDestroyed, Callable.From(() =>
-        {
-            _cupsHit += 1;
-            GD.Print($@"target cups:{_targetCups}, attempts:{_attempts}, cup hit: {_cupsHit}");
-            CheckGameOver();
-        }));
+        // this.Connect(SignalName.OnCupDestroyed, Callable.From(OnCupDestroyedEvent));
     }
 
     public void CheckAndAdd(int level)
@@ -104,5 +99,12 @@ public partial class GameManager : Node
     {
         _targetCups = t;
         GD.Print($"Set Target Cups:{_targetCups}");
+    }
+
+    public void OnCupDestroyed()
+    {
+        _cupsHit += 1;
+        GD.Print($@"target cups:{_targetCups}, attempts:{_attempts}, cup hit: {_cupsHit}");
+        CheckGameOver();
     }
 }

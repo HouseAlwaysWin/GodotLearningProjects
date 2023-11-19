@@ -23,7 +23,8 @@ public partial class Cup : StaticBody2D
 
     private void OnVanishSoundFinished()
     {
-        this.GameManager.EmitSignal(GameManager.SignalName.OnCupDestroyed);
+        // this.GameManager.EmitSignal(GameManager.SignalName.OnCupDestroyed);
+        this.GameManager.OnCupDestroyed();
         QueueFree();
     }
 
