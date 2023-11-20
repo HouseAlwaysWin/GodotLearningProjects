@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbdm4m38upgv5"]
+[gd_scene load_steps=6 format=3 uid="uid://dbdm4m38upgv5"]
 
-[ext_resource type="LabelSettings" path="res://assets/AngryAnimals/assets/fonts/LG_24_Grey.tres" id="1_tuojt"]
+[ext_resource type="Script" path="res://GameUI/GameUI.cs" id="1_dbk74"]
+[ext_resource type="LabelSettings" uid="uid://c2jo06wpes6no" path="res://assets/AngryAnimals/assets/fonts/LG_24_Grey.tres" id="1_tuojt"]
 [ext_resource type="LabelSettings" uid="uid://xk2ek4bmn34l" path="res://assets/AngryAnimals/assets/fonts/LG_72_Green.tres" id="2_u7q5i"]
 [ext_resource type="LabelSettings" uid="uid://j0crnjkcvtbn" path="res://assets/AngryAnimals/assets/fonts/LG_48_White.tres" id="3_elf0k"]
+[ext_resource type="AudioStream" uid="uid://c0kaohntagidx" path="res://assets/AngryAnimals/assets/audio/jazzyfrenchy.mp3" id="5_5qgob"]
 
 [node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1_dbk74")
 
 [node name="MC" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -33,6 +36,7 @@ label_settings = ExtResource("1_tuojt")
 vertical_alignment = 1
 
 [node name="VB2" type="VBoxContainer" parent="MC"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 12
@@ -51,3 +55,4 @@ label_settings = ExtResource("3_elf0k")
 horizontal_alignment = 1
 
 [node name="Sounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5qgob")
