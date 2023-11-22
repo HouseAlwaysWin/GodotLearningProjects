@@ -14,9 +14,13 @@ public partial class Animal : RigidBody2D
     [OnReady]
     public VisibleOnScreenNotifier2D VisibleOnScreenNotifier2D;
 
+    [OnReady]
+    public Sprite2D ArrowSprite;
+
     private Vector2 DRAG_LIM_MAX = new Vector2(0, 60);
     private Vector2 DRAG_LIM_MIN = new Vector2(-60, 0);
     private const float IMPULSE_MULT = 10f;
+    private const float IMPULSE_MAX = 1200f;
     private const float FIRE_DELAY = 0.25f;
     private const float STOPPED = 0.1f;
 
@@ -36,6 +40,7 @@ public partial class Animal : RigidBody2D
     private Vector2 _lastDraggedPosition = Vector2.Zero;
     private float _lastDragAmount = 0.0f;
     private float _firedTime = 0.0f;
+    private float _arrowScaleX = 0.0f;
     private int _lastCollisionCount = 0;
 
 
@@ -47,6 +52,8 @@ public partial class Animal : RigidBody2D
         this.VisibleOnScreenNotifier2D.ScreenExited += OnScreenExited;
         this.InputEvent += OnInputEvent;
         _start = GlobalPosition;
+        _arrowScaleX = ArrowSprite.Scale.X;
+        ArrowSprite.Hide();
     }
 
     private void OnInputEvent(Node viewport, InputEvent @event, long shapeIdx)
@@ -76,6 +83,7 @@ public partial class Animal : RigidBody2D
         StretchSound.Stop();
         LaunchSound.Play();
         this.GameManager.AttemptMade();
+        ArrowSprite.Hide();
     }
 
     private Vector2 GetImpulse()
@@ -88,6 +96,7 @@ public partial class Animal : RigidBody2D
         _dragging = true;
         _dragStart = GetGlobalMousePosition();
         _lastDraggedPosition = _dragStart;
+        ArrowSprite.Show();
     }
 
     private void DragIt()
@@ -105,6 +114,7 @@ public partial class Animal : RigidBody2D
         _draggedVector.X = Mathf.Clamp(_draggedVector.X, DRAG_LIM_MIN.X, DRAG_LIM_MAX.X);
         _draggedVector.Y = Mathf.Clamp(_draggedVector.Y, DRAG_LIM_MIN.Y, DRAG_LIM_MAX.Y);
         GlobalPosition = _start + _draggedVector;
+        ScaleArrow();
     }
 
     private void Died()
@@ -156,6 +166,14 @@ public partial class Animal : RigidBody2D
         ang:{AngularVelocity:0.0} linear: {LinearVelocity.ToPositionString("0.0")} _firedTime:{_firedTime:0.0}
         ";
         this.GameManager.EmitSignal(GameManager.SignalName.OnUpdateDebugLabel, strBuilder.ToString());
+    }
+
+    public void ScaleArrow()
+    {
+        var impLen = GetImpulse().Length();
+        var perc = impLen / IMPULSE_MAX;
+        ArrowSprite.Scale = ArrowSprite.Scale.SetXPosition((_arrowScaleX * perc) + _arrowScaleX);
+        ArrowSprite.Rotation = (_start - GlobalPosition).Angle();
     }
 
     private bool StoppedRolling()

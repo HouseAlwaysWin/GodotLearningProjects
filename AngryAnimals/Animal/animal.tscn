@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp8khjj15glk4"]
+[gd_scene load_steps=9 format=3 uid="uid://cp8khjj15glk4"]
 
 [ext_resource type="Script" path="res://Animal/Animal.cs" id="1_a5rs3"]
 [ext_resource type="Texture2D" uid="uid://go2wlagc6mt6" path="res://assets/AngryAnimals/assets/player/parrot.png" id="2_t7dc7"]
 [ext_resource type="AudioStream" uid="uid://ccopeg1avsx5d" path="res://assets/AngryAnimals/assets/audio/stretch2.ogg" id="3_fbqll"]
 [ext_resource type="AudioStream" uid="uid://cfmt8hxa3u2wa" path="res://assets/AngryAnimals/assets/audio/catapult.ogg" id="4_phot2"]
 [ext_resource type="AudioStream" uid="uid://dprjwks7r7qwa" path="res://assets/AngryAnimals/assets/audio/kick_wood.ogg" id="5_t6830"]
+[ext_resource type="Texture2D" uid="uid://c5f6vrohao38s" path="res://assets/AngryAnimals/assets/items/arrow.png" id="6_dr0cy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w6vap"]
 bounce = 0.2
@@ -40,3 +41,8 @@ stream = ExtResource("4_phot2")
 
 [node name="CollisionSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_t6830")
+
+[node name="ArrowSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_dr0cy")
+offset = Vector2(150, 0)

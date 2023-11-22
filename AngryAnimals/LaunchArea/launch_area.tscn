@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://byqll54orccvj"]
+
+[ext_resource type="Texture2D" uid="uid://cwi202yw66xko" path="res://assets/AngryAnimals/assets/env/elementStone025.png" id="1_8hjam"]
+
+[node name="LaunchArea" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.5)
+texture = ExtResource("1_8hjam")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(133, 21)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_8hjam")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(65, 43)
+rotation = 1.5708
+scale = Vector2(0.3, 0.5)
+texture = ExtResource("1_8hjam")
