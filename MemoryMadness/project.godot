@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="MemoryMadness"
-config/features=PackedStringArray("4.1", "Mobile")
+run/main_scene="res://assets/master_scene/master_scene.tscn"
+config/features=PackedStringArray("4.1", "C#", "Mobile")
 config/icon="res://icon.png"
+
+[autoload]
+
+ImageManager="*res://globalManager/ImageManager.cs"
 
 [display]
 

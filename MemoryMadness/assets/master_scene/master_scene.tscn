@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bde7r1wpuaq0e"]
+[gd_scene load_steps=3 format=3 uid="uid://bde7r1wpuaq0e"]
 
 [ext_resource type="Texture2D" uid="uid://bfoorki21mylf" path="res://assets/images/backgroundEmpty.png" id="1_cv8af"]
+[ext_resource type="PackedScene" uid="uid://c5kgmfefbycx8" path="res://assets/main_screen/main_screen.tscn" id="2_3bbt1"]
 
 [node name="MasterScene" type="CanvasLayer"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_cv8af")
+
+[node name="MainScreen" parent="." instance=ExtResource("2_3bbt1")]
