@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dsepgkuqfuy7f"]
 
 [ext_resource type="Texture2D" uid="uid://kkj0t1v7815k" path="res://assets/glitch/cabbage.png" id="1_a2d42"]
-[ext_resource type="Script" path="res://assets/front_sprite/front_sprite.cs" id="2_oy0no"]
+[ext_resource type="Script" path="res://assets/front_sprite/FrontSprite.cs" id="2_lrq1i"]
 
 [node name="FrontSprite" type="TextureRect"]
 anchors_preset = 8
@@ -17,4 +17,4 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("1_a2d42")
-script = ExtResource("2_oy0no")
+script = ExtResource("2_lrq1i")
