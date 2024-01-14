@@ -14,11 +14,23 @@ public partial class FrontSprite : TextureRect
         RunMe();
     }
 
+    public float GetRandomSpinTime()
+    {
+        return (float)GD.RandRange(SPIN_TIME_RANGE.X, SPIN_TIME_RANGE.Y);
+    }
+
+    public float GetRandomRotation()
+    {
+        return Mathf.DegToRad(GD.RandRange(-360, 360));
+    }
+
     public void RunMe()
     {
         var tween = CreateTween();
         tween.SetLoops();
         tween.TweenProperty(this, "scale", SCALE_NORMAL, SCALE_TIME);
+        tween.TweenProperty(this, "rotation", GetRandomRotation(), GetRandomSpinTime());
+        tween.TweenProperty(this, "rotation", GetRandomRotation(), GetRandomSpinTime());
         tween.TweenProperty(this, "scale", SCALE_SMALL, SCALE_TIME);
     }
 
