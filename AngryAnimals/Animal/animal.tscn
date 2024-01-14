@@ -17,9 +17,9 @@ radius = 26.0
 position = Vector2(0, 4)
 input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_w6vap")
+freeze = true
 max_contacts_reported = 1
 contact_monitor = true
-freeze = true
 script = ExtResource("1_a5rs3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
