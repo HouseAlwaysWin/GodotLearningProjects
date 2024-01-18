@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5kgmfefbycx8"]
+[gd_scene load_steps=5 format=3 uid="uid://c5kgmfefbycx8"]
 
 [ext_resource type="FontFile" uid="uid://87cchitw81s4" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_pvfnq"]
+[ext_resource type="PackedScene" uid="uid://c7h1gkxqubttj" path="res://assets/level_button/level_button.tscn" id="2_deltw"]
 [ext_resource type="PackedScene" uid="uid://dsepgkuqfuy7f" path="res://assets/front_sprite/front_sprite.tscn" id="2_ourbg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_skfqk"]
@@ -54,6 +55,9 @@ size_flags_vertical = 3
 [node name="HBLevels" type="HBoxContainer" parent="VB"]
 layout_mode = 2
 size_flags_horizontal = 4
+
+[node name="LevelButton" parent="VB/HBLevels" instance=ExtResource("2_deltw")]
+layout_mode = 2
 
 [node name="Spacer3" type="Control" parent="VB"]
 layout_mode = 2

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7h1gkxqubttj"]
+[gd_scene load_steps=7 format=3 uid="uid://c7h1gkxqubttj"]
 
 [ext_resource type="Texture2D" uid="uid://dpojh3libbxgo" path="res://assets/ui/level_select_frame_128.png" id="1_xlem5"]
 [ext_resource type="Texture2D" uid="uid://do2jjk02bux06" path="res://assets/ui/level_select_frame_select_128.png" id="2_luj3b"]
 [ext_resource type="Texture2D" uid="uid://chp7skhi2lefk" path="res://assets/ui/level_select_frame_hover_128.png" id="3_t7qun"]
 [ext_resource type="FontFile" uid="uid://dgo6ipyscb277" path="res://assets/fonts/gemunu-libre-v8-latin-700.ttf" id="4_r1f06"]
+[ext_resource type="Script" path="res://assets/level_button/LevelButton.cs" id="4_whtgd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qb5mr"]
 font = ExtResource("4_r1f06")
@@ -29,6 +30,7 @@ size_flags_horizontal = 4
 texture_normal = ExtResource("1_xlem5")
 texture_pressed = ExtResource("2_luj3b")
 texture_hover = ExtResource("3_t7qun")
+script = ExtResource("4_whtgd")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

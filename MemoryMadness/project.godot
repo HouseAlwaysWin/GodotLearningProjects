@@ -18,6 +18,8 @@ config/icon="res://icon.png"
 [autoload]
 
 ImageManager="*res://globalManager/ImageManager.cs"
+GameManager="*res://globalManager/GameManager.cs"
+SoundManager="*res://globalManager/SoundManager.cs"
 
 [display]
 
