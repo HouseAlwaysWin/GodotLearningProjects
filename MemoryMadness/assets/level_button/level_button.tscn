@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7h1gkxqubttj"]
+[gd_scene load_steps=5 format=3 uid="uid://c7h1gkxqubttj"]
 
 [ext_resource type="Texture2D" uid="uid://dpojh3libbxgo" path="res://assets/ui/level_select_frame_128.png" id="1_xlem5"]
 [ext_resource type="Texture2D" uid="uid://do2jjk02bux06" path="res://assets/ui/level_select_frame_select_128.png" id="2_luj3b"]
 [ext_resource type="Texture2D" uid="uid://chp7skhi2lefk" path="res://assets/ui/level_select_frame_hover_128.png" id="3_t7qun"]
+[ext_resource type="LabelSettings" uid="uid://cglcp4a7jet6x" path="res://assets/labels/GM_32_White.tres" id="4_mtmau"]
 
 [node name="LevelButton" type="TextureButton"]
 anchors_preset = 8
@@ -29,5 +30,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+text = "0x0"
+label_settings = ExtResource("4_mtmau")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
