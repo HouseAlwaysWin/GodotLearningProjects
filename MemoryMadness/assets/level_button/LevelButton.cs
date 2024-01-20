@@ -9,17 +9,34 @@ public partial class LevelButton : TextureButton
     public Label Label;
 
     [OnReady]
-    public AudioStreamPlayer2D Sound;
+    public AudioStreamPlayer Sound;
+
+
+    private int _levelNumber = 0;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         this.InitOnReady();
-        this.Label.Text = "3x4";
+        Pressed += OnPress;
+        // this.Label.Text = "3x4";
+    }
+
+    public void SetLevelNumber(int levelNum)
+    {
+        _levelNumber = levelNum;
+        var lData = GameManager.LEVELS[_levelNumber];
+        Label.Text = $"{lData.Rows}x{lData.Cols}";
+
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
+    }
+
+    public void OnPress()
+    {
+        SoundManager.PlayButtonClick(Sound);
     }
 }

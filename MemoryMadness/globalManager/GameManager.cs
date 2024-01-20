@@ -9,7 +9,7 @@ public class LevelPos
 
 public partial class GameManager : Node
 {
-    public Dictionary<int, LevelPos> LEVELS = new()
+    public static Dictionary<int, LevelPos> LEVELS = new()
     {
         { 1 , new LevelPos{ Rows = 2,Cols = 2}},
         { 2 , new LevelPos{ Rows = 3,Cols = 4}},
