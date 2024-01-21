@@ -20,6 +20,7 @@ config/icon="res://icon.png"
 ImageManager="*res://globalManager/ImageManager.cs"
 GameManager="*res://globalManager/GameManager.cs"
 SoundManager="*res://globalManager/SoundManager.cs"
+SignalManager="*res://globalManager/SignalManager.cs"
 
 [display]
 

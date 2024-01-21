@@ -11,6 +11,8 @@ public partial class LevelButton : TextureButton
     [OnReady]
     public AudioStreamPlayer Sound;
 
+    [OnReady("/root/SignalManager")]
+    public SignalManager SGManager;
 
     private int _levelNumber = 0;
 
@@ -38,5 +40,6 @@ public partial class LevelButton : TextureButton
     public void OnPress()
     {
         SoundManager.PlayButtonClick(Sound);
+        this.SGManager.EmitSignal(SignalManager.SignalName.OnLevelSelected, _levelNumber);
     }
 }
