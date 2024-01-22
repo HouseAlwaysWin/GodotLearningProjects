@@ -7,7 +7,15 @@ public partial class ImageManager : Node
 {
 
     public List<Dictionary<string, object>> ItemImages = new List<Dictionary<string, object>>();
-    // Called when the node enters the scene tree for the first time.
+
+    public List<Resource> FRAME_IMAGES = new List<Resource>
+    {
+        GD.Load("res://assets/frames/blue_frame.png"),
+        GD.Load("res://assets/frames/red_frame.png"),
+        GD.Load("res://assets/frames/yellow_frame.png"),
+        GD.Load("res://assets/frames/green_frame.png"),
+    };
+
     public override void _Ready()
     {
         LoadItemImages();
@@ -50,6 +58,7 @@ public partial class ImageManager : Node
 
         GD.Print($"load:{ItemImages.Count}");
     }
+
 
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
