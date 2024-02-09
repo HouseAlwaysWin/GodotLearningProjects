@@ -18,6 +18,10 @@ public partial class MasterScreen : CanvasLayer
     [OnReady("/root/SignalManager")]
     public SignalManager SGManager;
 
+
+    [OnReady("/root/GameManager")]
+    public GameManager GameManager;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -36,6 +40,7 @@ public partial class MasterScreen : CanvasLayer
     private void OnGameExitPressed()
     {
         ShowGame(false);
+        this.GameManager.ClearNodesOfGroup(this.GameManager.GROUP_TILE);
         SoundManager.PlaySound(Sound, SoundType.SOUND_MAIN_MENU);
     }
 

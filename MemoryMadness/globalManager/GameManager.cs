@@ -16,6 +16,8 @@ public partial class GameManager : Node
     [OnReady("/root/ImageManager")]
     public ImageManager ImageManager;
 
+    public string GROUP_TILE = "tile";
+
     public override void _Ready()
     {
         this.InitOnReady();
@@ -41,8 +43,8 @@ public partial class GameManager : Node
 
         for (int i = 0; i < targetPairs; i++)
         {
-            selectedLevelImages.Append(ImageManager.GetImage(i));
-            selectedLevelImages.Append(ImageManager.GetImage(i));
+            selectedLevelImages.Add(ImageManager.GetImage(i));
+            selectedLevelImages.Add(ImageManager.GetImage(i));
         }
 
         selectedLevelImages.Shuffle();
@@ -52,7 +54,14 @@ public partial class GameManager : Node
             {"num_cols",lData.Cols},
             {"image_list",selectedLevelImages},
         };
+    }
 
+    public void ClearNodesOfGroup(string groupName)
+    {
+        foreach (var item in GetTree().GetNodesInGroup(groupName))
+        {
+            item.QueueFree();
+        }
     }
 
 }
