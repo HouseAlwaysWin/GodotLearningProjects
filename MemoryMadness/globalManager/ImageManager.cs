@@ -1,14 +1,18 @@
 using Godot;
-using System;
-using System.Collections.Generic;
-using System.IO;
+using Godot.NativeInterop;
+using Godot.Collections;
+using System.Linq;
 
 public partial class ImageManager : Node
 {
 
-    public List<Dictionary<string, object>> ItemImages = new List<Dictionary<string, object>>();
+    // public List<Dictionary<string, object>> ItemImages = new List<Dictionary<string, object>>();
+    public Array ItemImages = new Array();
 
-    public List<Resource> FRAME_IMAGES = new List<Resource>
+
+
+
+    public Array<Resource> FRAME_IMAGES = new Array<Resource>
     {
         GD.Load("res://assets/frames/blue_frame.png"),
         GD.Load("res://assets/frames/red_frame.png"),
@@ -26,13 +30,13 @@ public partial class ImageManager : Node
         var fullPath = $"{path}/{filename}";
         var resource = GD.Load(fullPath);
 
-        Dictionary<string, object> iiDict = new()
+        Dictionary iiDict = new()
         {
             {"item_name", filename.Replace(".png","")},
             {"item_texture", resource},
         };
 
-        ItemImages.Add(iiDict);
+        ItemImages.Append(iiDict);
     }
 
     public void LoadItemImages()
@@ -57,6 +61,26 @@ public partial class ImageManager : Node
         }
 
         GD.Print($"load:{ItemImages.Count}");
+    }
+
+    public Dictionary GetRandomItemImage()
+    {
+        return (Dictionary)ItemImages.PickRandom();
+    }
+
+    public Dictionary GetImage(int index)
+    {
+        return (Dictionary)ItemImages[index];
+    }
+
+    public CompressedTexture2D GetRandomFrameImage()
+    {
+        return (CompressedTexture2D)FRAME_IMAGES.PickRandom();
+    }
+
+    public void ShuffleImages()
+    {
+        ItemImages.Shuffle();
     }
 
 

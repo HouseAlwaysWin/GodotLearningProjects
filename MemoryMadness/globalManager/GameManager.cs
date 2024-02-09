@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using Godot;
 
 public class LevelPos
@@ -18,5 +19,12 @@ public partial class GameManager : Node
         { 5 , new LevelPos{ Rows = 5,Cols = 6}},
         { 6 , new LevelPos{ Rows = 6,Cols = 6}},
     };
+
+    // public Dictionary<string, int> GetLevelSelection(int levelNum)
+    // {
+    //     var lData = LEVELS[levelNum];
+    //     var numTiles = lData.Rows * lData.Cols;
+    //     var targetPairs = numTiles / 2;
+    // }
 
 }
