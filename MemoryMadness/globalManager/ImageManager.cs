@@ -10,8 +10,6 @@ public partial class ImageManager : Node
     public Array ItemImages = new Array();
 
 
-
-
     public Array<Resource> FRAME_IMAGES = new Array<Resource>
     {
         GD.Load("res://assets/frames/blue_frame.png"),
@@ -36,7 +34,7 @@ public partial class ImageManager : Node
             {"item_texture", resource},
         };
 
-        ItemImages.Append(iiDict);
+        ItemImages.Add(iiDict);
     }
 
     public void LoadItemImages()

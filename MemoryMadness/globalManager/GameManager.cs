@@ -1,8 +1,11 @@
-using System.Collections.Generic;
 using System.Diagnostics.Metrics;
+using System.Linq;
 using Godot;
+using Godot.Collections;
+using GodotCsharpExtension;
+using GodotCsharpExtension.Attributes;
 
-public class LevelPos
+public partial class LevelPos : Node
 {
     public int Rows { get; set; }
     public int Cols { get; set; }
@@ -10,6 +13,13 @@ public class LevelPos
 
 public partial class GameManager : Node
 {
+    [OnReady("/root/ImageManager")]
+    public ImageManager ImageManager;
+
+    public override void _Ready()
+    {
+        this.InitOnReady();
+    }
     public static Dictionary<int, LevelPos> LEVELS = new()
     {
         { 1 , new LevelPos{ Rows = 2,Cols = 2}},
@@ -20,11 +30,29 @@ public partial class GameManager : Node
         { 6 , new LevelPos{ Rows = 6,Cols = 6}},
     };
 
-    // public Dictionary<string, int> GetLevelSelection(int levelNum)
-    // {
-    //     var lData = LEVELS[levelNum];
-    //     var numTiles = lData.Rows * lData.Cols;
-    //     var targetPairs = numTiles / 2;
-    // }
+    public Dictionary GetLevelSelection(int levelNum)
+    {
+        var lData = LEVELS[levelNum];
+        var numTiles = lData.Rows * lData.Cols;
+        var targetPairs = numTiles / 2;
+        var selectedLevelImages = new Array();
+
+        ImageManager.ShuffleImages();
+
+        for (int i = 0; i < targetPairs; i++)
+        {
+            selectedLevelImages.Append(ImageManager.GetImage(i));
+            selectedLevelImages.Append(ImageManager.GetImage(i));
+        }
+
+        selectedLevelImages.Shuffle();
+
+        return new Dictionary{
+            {"target_pairs",targetPairs},
+            {"num_cols",lData.Cols},
+            {"image_list",selectedLevelImages},
+        };
+
+    }
 
 }

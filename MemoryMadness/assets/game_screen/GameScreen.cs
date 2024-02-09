@@ -16,6 +16,14 @@ public partial class GameScreen : Control
     public SoundManager SoundManager;
 
 
+    [OnReady("/root/GameManager")]
+    public GameManager GameManager;
+
+    [OnReady("/root/ImageManager")]
+    public ImageManager ImageManager;
+
+
+
 
     [OnReady("Sound")]
     public AudioStreamPlayer Sound;
@@ -26,12 +34,21 @@ public partial class GameScreen : Control
     {
         this.InitOnReady();
         ExitButton.Pressed += OnExitButtonPressed;
+        SGManager.Connect(SignalManager.SignalName.OnLevelSelected, Callable.From<int>(OnLevelSelected));
+
     }
 
     private void OnExitButtonPressed()
     {
         SoundManager.PlayButtonClick(Sound);
         SGManager.EmitSignal(SignalManager.SignalName.OnGameExitPressed);
+    }
+
+    private void OnLevelSelected(int levelNum)
+    {
+        var levelSelection = this.GameManager.GetLevelSelection(levelNum);
+        var frameImage = this.ImageManager.GetRandomFrameImage();
+
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
