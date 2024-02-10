@@ -31,6 +31,9 @@ public partial class GameScreen : Control
     [OnReady("Sound")]
     public AudioStreamPlayer Sound;
 
+    [OnReady("Scorer")]
+    public Scorer Scorer;
+
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -43,7 +46,7 @@ public partial class GameScreen : Control
 
     private void OnExitButtonPressed()
     {
-        SoundManager.PlayButtonClick(Sound);
+        this.SoundManager.PlayButtonClick(Sound);
         SGManager.EmitSignal(SignalManager.SignalName.OnGameExitPressed);
     }
 
@@ -65,6 +68,7 @@ public partial class GameScreen : Control
         {
             AddMemoryTile((Dictionary)iiDict, frameImage);
         }
+        this.Scorer.ClearNewGame((int)levelSelection["target_pairs"]);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

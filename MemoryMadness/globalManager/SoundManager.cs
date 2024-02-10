@@ -8,7 +8,7 @@ public enum SoundType
     SOUND_IN_GAME,
     SOUND_SUCCESS,
     SOUND_GAME_OVER,
-    SOUND_SELECT_TITLE,
+    SOUND_SELECT_TILE,
     SOUND_SELECT_BUTTON,
 }
 
@@ -27,11 +27,11 @@ public partial class SoundManager : Node
         {SoundType.SOUND_IN_GAME,  GD.Load("res://assets/sounds/bgm_action_4.mp3")},
         {SoundType.SOUND_SUCCESS,  GD.Load("res://assets/sounds/sfx_sounds_fanfare3.wav")},
         {SoundType.SOUND_GAME_OVER,  GD.Load("res://assets/sounds/sfx_sounds_powerup12.wav")},
-        {SoundType.SOUND_SELECT_TITLE,  GD.Load("res://assets/sounds/sfx_sounds_impact1.wav")},
+        {SoundType.SOUND_SELECT_TILE,  GD.Load("res://assets/sounds/sfx_sounds_impact1.wav")},
         {SoundType.SOUND_SELECT_BUTTON,  GD.Load("res://assets/sounds/sfx_sounds_impact7.wav")},
     };
 
-    public static void PlaySound(AudioStreamPlayer player, SoundType key)
+    public void PlaySound(AudioStreamPlayer player, SoundType key)
     {
         if (!SOUNDS.ContainsKey(key))
         {
@@ -43,9 +43,15 @@ public partial class SoundManager : Node
         player.Play();
     }
 
-    public static void PlayButtonClick(AudioStreamPlayer player)
+    public void PlayButtonClick(AudioStreamPlayer player)
     {
         PlaySound(player, SoundType.SOUND_SELECT_BUTTON);
     }
+
+    public void PlayTileClick(AudioStreamPlayer player)
+    {
+        PlaySound(player, SoundType.SOUND_SELECT_TILE);
+    }
+
 
 }

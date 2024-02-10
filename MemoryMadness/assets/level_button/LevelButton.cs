@@ -14,6 +14,9 @@ public partial class LevelButton : TextureButton
     [OnReady("/root/SignalManager")]
     public SignalManager SGManager;
 
+    [OnReady("/root/SoundManager")]
+    public SoundManager SoundManager;
+
     private int _levelNumber = 0;
 
     // Called when the node enters the scene tree for the first time.
@@ -39,7 +42,7 @@ public partial class LevelButton : TextureButton
 
     public void OnPress()
     {
-        SoundManager.PlayButtonClick(Sound);
+        this.SoundManager.PlayButtonClick(Sound);
         this.SGManager.EmitSignal(SignalManager.SignalName.OnLevelSelected, _levelNumber);
     }
 }

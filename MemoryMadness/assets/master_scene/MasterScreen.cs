@@ -18,6 +18,9 @@ public partial class MasterScreen : CanvasLayer
     [OnReady("/root/SignalManager")]
     public SignalManager SGManager;
 
+    [OnReady("/root/SoundManager")]
+    public SoundManager SoundManager;
+
 
     [OnReady("/root/GameManager")]
     public GameManager GameManager;
@@ -41,13 +44,13 @@ public partial class MasterScreen : CanvasLayer
     {
         ShowGame(false);
         this.GameManager.ClearNodesOfGroup(this.GameManager.GROUP_TILE);
-        SoundManager.PlaySound(Sound, SoundType.SOUND_MAIN_MENU);
+        this.SoundManager.PlaySound(Sound, SoundType.SOUND_MAIN_MENU);
     }
 
     private void OnLevelSelected(int levelNum)
     {
         ShowGame(true);
-        SoundManager.PlaySound(Sound, SoundType.SOUND_IN_GAME);
+        this.SoundManager.PlaySound(Sound, SoundType.SOUND_IN_GAME);
     }
 
 
