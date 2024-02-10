@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfaher77lpc03"]
+[gd_scene load_steps=9 format=3 uid="uid://dfaher77lpc03"]
 
 [ext_resource type="Script" path="res://assets/game_screen/GameScreen.cs" id="1_0hxd2"]
 [ext_resource type="LabelSettings" uid="uid://hlut1orchln6" path="res://assets/labels/GM_32_Dark.tres" id="1_tusvx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dn8nrn8wlufwh" path="res://assets/ui/yellow_button00.png" id="3_iknuo"]
 [ext_resource type="Texture2D" uid="uid://d4kkxwveaqss4" path="res://assets/ui/green_button00.png" id="4_wvohg"]
 [ext_resource type="LabelSettings" uid="uid://cglcp4a7jet6x" path="res://assets/labels/GM_32_White.tres" id="5_wrlbo"]
+[ext_resource type="PackedScene" uid="uid://dbt33557s13s2" path="res://assets/Scroer/scorer.tscn" id="8_c4ugd"]
 
 [node name="GameScreen" type="Control"]
 layout_mode = 3
@@ -105,3 +106,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sound" type="AudioStreamPlayer" parent="."]
+
+[node name="Scorer" parent="." instance=ExtResource("8_c4ugd")]
