@@ -34,6 +34,12 @@ public partial class GameScreen : Control
     [OnReady("Scorer")]
     public Scorer Scorer;
 
+    [OnReady("HB/MC2/VBoxContainer/HB/MovesLabel")]
+    public Label MovesLabel;
+
+    [OnReady("HB/MC2/VBoxContainer/HB2/PairsLabel")]
+    public Label PairsLabel;
+
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -74,5 +80,7 @@ public partial class GameScreen : Control
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
+        MovesLabel.Text = this.Scorer.GetMovesMadeStr();
+        PairsLabel.Text = this.Scorer.GetPairMadeStr();
     }
 }

@@ -65,10 +65,20 @@ public partial class MemoryTile : TextureButton
         Reveal(false);
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
+    public void KillOnSuccess()
     {
+        ZIndex = 1;
+        var tween = GetTree().CreateTween();
+        tween.SetParallel(true);
+        tween.TweenProperty(this, "disabled", true, 0);
+        tween.TweenProperty(this, "rotation", Mathf.DegToRad(720), 0);
+        tween.TweenProperty(this, "scale", new Vector2(1.5f, 1.5f), 0.5);
+        tween.SetParallel(false);
+        tween.TweenInterval(0.6);
+        tween.TweenProperty(this, "scale", new Vector2(0, 0), 0);
     }
+
+
 
 
 }

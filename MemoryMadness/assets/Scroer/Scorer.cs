@@ -22,9 +22,9 @@ public partial class Scorer : Node
     public GameManager GameManager;
 
 
-    Array Tiles = new Array();
+    // Array Tiles = new Array();
     Array<MemoryTile> Selections = new Array<MemoryTile>();
-    int TargetParis = 0;
+    int TargetPairs = 0;
     int MovesMade = 0;
     int PairsMade = 0;
 
@@ -53,18 +53,48 @@ public partial class Scorer : Node
     {
     }
 
+    public string GetMovesMadeStr()
+    {
+        return MovesMade.ToString();
+    }
+
+    public string GetPairMadeStr()
+    {
+        return $"{PairsMade}/{TargetPairs}";
+    }
+
     public void ClearNewGame(int targetPairs)
     {
         Selections.Clear();
         PairsMade = 0;
         MovesMade = 0;
-        TargetParis = targetPairs;
-        Tiles = (Array)GetTree().GetNodesInGroup(this.GameManager.GROUP_TILE);
+        TargetPairs = targetPairs;
+        // Tiles = (Array)GetTree().GetNodesInGroup(this.GameManager.GROUP_TILE);
+    }
+
+    public bool SelectionsArePair()
+    {
+        return (Selections[0].GetInstanceId() != Selections[1].GetInstanceId()) &&
+                (Selections[0].GetItemName() == Selections[1].GetItemName());
+    }
+
+    public void KillTiles()
+    {
+        foreach (var s in Selections)
+        {
+            s.KillOnSuccess();
+        }
+        PairsMade += 1;
+        this.SoundManager.PlaySound(Sound, SoundType.SOUND_SUCCESS);
     }
 
     public void UpdateSelections()
     {
         RevealTimer.Start();
+        if (SelectionsArePair())
+        {
+            KillTiles();
+        }
     }
 
     public void CheckPairMade(MemoryTile tile)
@@ -93,6 +123,10 @@ public partial class Scorer : Node
 
     public void OnRevealTimerTimeout()
     {
+        if (!SelectionsArePair())
+        {
+            HideSelections();
+        }
         HideSelections();
         Selections.Clear();
         this.SGManager.EmitSignal(SignalManager.SignalName.OnSelectionEnabled);

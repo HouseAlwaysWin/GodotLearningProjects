@@ -72,7 +72,7 @@ size_flags_horizontal = 3
 text = "Pairs"
 label_settings = ExtResource("1_tusvx")
 
-[node name="PairssLabel" type="Label" parent="HB/MC2/VBoxContainer/HB2"]
+[node name="PairsLabel" type="Label" parent="HB/MC2/VBoxContainer/HB2"]
 layout_mode = 2
 text = "0/00
 "

@@ -10,15 +10,22 @@ namespace GodotCsharpExtension
     {
         public static void InitOnReady<T>(this T node) where T : Node
         {
-            var fieldsWithOnReady = typeof(T)
-                .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                .Where(field => field.GetCustomAttributes(typeof(OnReadyAttribute), true).Any());
-
-            foreach (var field in fieldsWithOnReady)
+            try
             {
-                var onReadyAttribute = (OnReadyAttribute)field.GetCustomAttribute(typeof(OnReadyAttribute), true);
-                var nodePath = string.IsNullOrWhiteSpace(onReadyAttribute.NodePath) ? field.Name : onReadyAttribute.NodePath;
-                field.SetValue(node, node.GetNode(nodePath));
+                var fieldsWithOnReady = typeof(T)
+                    .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+                    .Where(field => field.GetCustomAttributes(typeof(OnReadyAttribute), true).Any());
+
+                foreach (var field in fieldsWithOnReady)
+                {
+                    var onReadyAttribute = (OnReadyAttribute)field.GetCustomAttribute(typeof(OnReadyAttribute), true);
+                    var nodePath = string.IsNullOrWhiteSpace(onReadyAttribute.NodePath) ? field.Name : onReadyAttribute.NodePath;
+                    field.SetValue(node, node.GetNode(nodePath));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
