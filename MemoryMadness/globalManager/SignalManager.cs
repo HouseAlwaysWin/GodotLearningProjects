@@ -16,4 +16,7 @@ public partial class SignalManager : Node
 
     [Signal]
     public delegate void OnTileSelectedEventHandler(MemoryTile tile);
+
+    [Signal]
+    public delegate void OnGameOverEventHandler(int moves);
 }

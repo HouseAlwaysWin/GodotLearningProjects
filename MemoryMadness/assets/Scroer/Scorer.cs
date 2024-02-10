@@ -48,6 +48,14 @@ public partial class Scorer : Node
         CheckPairMade(tile);
     }
 
+    public void CheckGameOver()
+    {
+        if (PairsMade >= TargetPairs)
+        {
+            this.SGManager.EmitSignal(SignalManager.SignalName.OnGameOver, MovesMade);
+        }
+    }
+
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
@@ -129,6 +137,7 @@ public partial class Scorer : Node
         }
         HideSelections();
         Selections.Clear();
+        CheckGameOver();
         this.SGManager.EmitSignal(SignalManager.SignalName.OnSelectionEnabled);
     }
 }
