@@ -4,9 +4,6 @@
 			"path": "."
 		},
 		{
-			"path": "Dungeon RPG"
-		},
-		{
 			"path": "GodotCsharpExtension"
 		}
 	],
