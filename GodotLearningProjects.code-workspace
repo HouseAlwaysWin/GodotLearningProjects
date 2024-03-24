@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "GodotCsharpExtension"
+		},
+		{
+			"path": "MemoryMadness"
 		}
 	],
 	"settings": {}
