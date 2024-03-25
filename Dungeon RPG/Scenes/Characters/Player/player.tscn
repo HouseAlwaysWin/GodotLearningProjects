@@ -72,10 +72,13 @@ _data = {
 "Move": SubResource("Animation_s4ptk")
 }
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("animationPlayer", "sprite3D")]
 script = ExtResource("1_hf5rb")
+animationPlayer = NodePath("AnimationPlayer")
+sprite3D = NodePath("Sprite3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032521, -0.680901, -0.0303009)
 texture = ExtResource("1_eaa7m")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
