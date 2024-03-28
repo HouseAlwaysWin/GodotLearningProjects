@@ -115,16 +115,16 @@ libraries = {
 "": SubResource("AnimationLibrary_d4wst")
 }
 
-[node name="IdleState" type="Node" parent="."]
-script = ExtResource("31_vrotf")
-
-[node name="MoveState" type="Node" parent="."]
-script = ExtResource("32_6h4ta")
-
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState", "states")]
 script = ExtResource("33_kitmd")
-currentState = NodePath("../IdleState")
-states = [NodePath("../IdleState"), NodePath("../MoveState")]
+currentState = NodePath("IdleState")
+states = [NodePath("IdleState"), NodePath("MoveState"), NodePath("DashState")]
 
-[node name="DashState" type="Node" parent="."]
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("31_vrotf")
+
+[node name="MoveState" type="Node" parent="StateMachine"]
+script = ExtResource("32_6h4ta")
+
+[node name="DashState" type="Node" parent="StateMachine"]
 script = ExtResource("40_ryf1p")

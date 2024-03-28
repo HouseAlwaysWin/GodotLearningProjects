@@ -22,7 +22,7 @@ public partial class PlayerDashState : Node
         base._Notification(what);
         if (what == 5001)
         {
-            playerNode.animationPlayer.Play(GameConstants.ANIM_IDLE);
+            playerNode.animationPlayer.Play(GameConstants.ANIM_DASH);
             SetPhysicsProcess(true);
         }
         else if (what == 5002)
