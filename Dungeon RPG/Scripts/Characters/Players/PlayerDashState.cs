@@ -1,23 +1,18 @@
 using Godot;
-using GodotCsharpExtension;
-using GodotCsharpExtension.Attributes;
 using System;
 
-public partial class PlayerIdleState : Node
+public partial class PlayerDashState : Node
 {
     private Player playerNode;
     public override void _Ready()
     {
         playerNode = GetOwner<Player>();
+        playerNode.animationPlayer.Play(GameConstants.ANIM_DASH);
         SetPhysicsProcess(false);
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        if (playerNode.direction != Vector2.Zero)
-        {
-            playerNode.stateMachineNode.SwitchState<PlayerMoveState>();
-        }
     }
 
 

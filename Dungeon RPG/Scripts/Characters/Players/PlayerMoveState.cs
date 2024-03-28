@@ -7,6 +7,7 @@ public partial class PlayerMoveState : Node
     public override void _Ready()
     {
         playerNode = GetOwner<Player>();
+        SetPhysicsProcess(false);
     }
 
     public override void _PhysicsProcess(double delta)
@@ -24,6 +25,11 @@ public partial class PlayerMoveState : Node
         {
             Player playerNode = GetOwner<Player>();
             playerNode.animationPlayer.Play(GameConstants.ANIM_MOVE);
+            SetPhysicsProcess(true);
+        }
+        else if (what == 5002)
+        {
+            SetPhysicsProcess(false);
         }
     }
 }
