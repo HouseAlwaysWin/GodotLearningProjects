@@ -1,14 +1,11 @@
 using Godot;
 using System;
 
-public partial class PlayerMoveState : Node
+public partial class PlayerMoveState : PlayerState
 {
-    private Player playerNode;
-    public override void _Ready()
+    protected override void EnterState()
     {
-        playerNode = GetOwner<Player>();
-        SetPhysicsProcess(false);
-        SetProcessInput(false);
+        playerNode.animationPlayer.Play(GameConstants.ANIM_MOVE);
     }
 
     public override void _PhysicsProcess(double delta)
@@ -16,25 +13,14 @@ public partial class PlayerMoveState : Node
         if (playerNode.direction == Vector2.Zero)
         {
             playerNode.stateMachineNode.SwitchState<PlayerIdleState>();
+            return;
         }
+        playerNode.Velocity = new(playerNode.direction.X, 0, playerNode.direction.Y);
+        playerNode.Velocity *= 5;
+        playerNode.MoveAndSlide();
+        playerNode.Flip();
     }
 
-    public override void _Notification(int what)
-    {
-        base._Notification(what);
-        if (what == 5001)
-        {
-            Player playerNode = GetOwner<Player>();
-            playerNode.animationPlayer.Play(GameConstants.ANIM_MOVE);
-            SetPhysicsProcess(true);
-            SetProcessInput(true);
-        }
-        else if (what == 5002)
-        {
-            SetProcessInput(false);
-            SetPhysicsProcess(false);
-        }
-    }
 
     public override void _Input(InputEvent @event)
     {

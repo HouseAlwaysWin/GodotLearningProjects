@@ -1,33 +1,42 @@
 using Godot;
 using System;
 
-public partial class PlayerDashState : Node
+public partial class PlayerDashState : PlayerState
 {
-    private Player playerNode;
+    [Export] private Timer dashTimerNode;
+    [Export] private float speed = 10;
+
     public override void _Ready()
     {
-        playerNode = GetOwner<Player>();
-        playerNode.animationPlayer.Play(GameConstants.ANIM_DASH);
-        SetPhysicsProcess(false);
+        base._Ready();
+        dashTimerNode.Timeout += HandleDashTimeout;
+    }
+
+    private void HandleDashTimeout()
+    {
+        playerNode.Velocity = Vector3.Zero;
+        playerNode.stateMachineNode.SwitchState<PlayerIdleState>();
     }
 
     public override void _PhysicsProcess(double delta)
     {
+        playerNode.MoveAndSlide();
+        playerNode.Flip();
     }
 
 
 
-    public override void _Notification(int what)
+    protected override void EnterState()
     {
-        base._Notification(what);
-        if (what == 5001)
+        playerNode.animationPlayer.Play(GameConstants.ANIM_DASH);
+        playerNode.Velocity = new(playerNode.direction.X, 0, playerNode.direction.Y);
+
+        if (playerNode.Velocity == Vector3.Zero)
         {
-            playerNode.animationPlayer.Play(GameConstants.ANIM_DASH);
-            SetPhysicsProcess(true);
+            playerNode.Velocity = playerNode.sprite3D.FlipH ? Vector3.Left : Vector3.Right;
         }
-        else if (what == 5002)
-        {
-            SetPhysicsProcess(false);
-        }
+
+        playerNode.Velocity *= speed;
+        dashTimerNode.Start();
     }
 }
