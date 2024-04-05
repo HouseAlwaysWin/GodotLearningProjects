@@ -4,9 +4,9 @@ using System;
 public partial class Player : CharacterBody3D
 {
     [ExportGroup("Required Node")]
-    [Export] public AnimationPlayer animationPlayer;
-    [Export] public Sprite3D sprite3D;
-    [Export] public StateMachine stateMachineNode;
+    [Export] public AnimationPlayer AnimationPlayer { get; private set; }
+    [Export] public Sprite3D Sprite3D { get; private set; }
+    [Export] public StateMachine StateMachineNode { get; private set; }
     public Vector2 direction = new();
 
     // public override void _PhysicsProcess(double delta)
@@ -43,6 +43,6 @@ public partial class Player : CharacterBody3D
         if (isNotMovingHorizontally) return;
 
         bool isMovingLeft = Velocity.X < 0;
-        sprite3D.FlipH = isMovingLeft;
+        Sprite3D.FlipH = isMovingLeft;
     }
 }

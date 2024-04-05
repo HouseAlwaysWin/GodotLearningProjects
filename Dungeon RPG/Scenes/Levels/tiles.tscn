@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqnbqpqbmyygp"]
+
+[ext_resource type="PackedScene" uid="uid://b4ya436gp82cc" path="res://Assets/Models/Dungeon/gltf/floor_tile_small.gltf.glb" id="1_q1wn7"]
+[ext_resource type="PackedScene" uid="uid://jnnu466o2b5e" path="res://Assets/Models/Dungeon/gltf/wall.gltf.glb" id="2_7rsy3"]
+[ext_resource type="PackedScene" uid="uid://0cfa2ljp2adh" path="res://Assets/Models/Dungeon/gltf/stairs_wood_decorated.gltf.glb" id="3_rbqof"]
+[ext_resource type="PackedScene" uid="uid://c5j8hirk2a8w" path="res://Assets/Models/Dungeon/gltf/wall_corner.gltf.glb" id="4_kbyeu"]
+[ext_resource type="PackedScene" uid="uid://c0k1yb7ypehnm" path="res://Assets/Models/Dungeon/gltf/wall_Tsplit.gltf.glb" id="5_u8wp0"]
+[ext_resource type="PackedScene" uid="uid://dct66uk132rad" path="res://Assets/Models/Dungeon/gltf/wall_open_scaffold.gltf.glb" id="6_v5vsr"]
+[ext_resource type="PackedScene" uid="uid://4yo5g3cuoe6j" path="res://Assets/Models/Dungeon/gltf/wall_doorway_scaffold.glb" id="7_n8nkm"]
+
+[node name="Tiles" type="Node3D"]
+
+[node name="floor_tile_small_gltf" parent="." instance=ExtResource("1_q1wn7")]
+
+[node name="wall_gltf" parent="." instance=ExtResource("2_7rsy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.29279, 0, -0.107388)
+
+[node name="stairs_wood_decorated_gltf" parent="." instance=ExtResource("3_rbqof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.02376)
+
+[node name="wall_corner_gltf" parent="." instance=ExtResource("4_kbyeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.88054)
+
+[node name="wall_Tsplit_gltf" parent="." instance=ExtResource("5_u8wp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97304, 0, 0)
+
+[node name="wall_open_scaffold_gltf" parent="." instance=ExtResource("6_v5vsr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.70979, 0, -9.03822)
+
+[node name="wall_doorway_scaffold2" parent="." instance=ExtResource("7_n8nkm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.842056, 0, -4.59606)

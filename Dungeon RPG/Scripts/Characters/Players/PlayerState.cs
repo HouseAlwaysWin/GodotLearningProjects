@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class PlayerState : Node
+public abstract partial class PlayerState : Node
 {
     protected Player playerNode;
     public override void _Ready()
@@ -14,20 +14,20 @@ public partial class PlayerState : Node
     {
         if (playerNode.direction != Vector2.Zero)
         {
-            playerNode.stateMachineNode.SwitchState<PlayerMoveState>();
+            playerNode.StateMachineNode.SwitchState<PlayerMoveState>();
         }
     }
 
     public override void _Notification(int what)
     {
         base._Notification(what);
-        if (what == 5001)
+        if (what == GameConstants.NOTIFICATION_ENTER_STATE)
         {
             EnterState();
             SetPhysicsProcess(true);
             SetProcessInput(true);
         }
-        else if (what == 5002)
+        else if (what == GameConstants.NOTIFICATION_EXIT_STATE)
         {
             SetPhysicsProcess(false);
             SetProcessInput(false);
@@ -36,7 +36,7 @@ public partial class PlayerState : Node
 
     protected virtual void EnterState()
     {
-        playerNode.animationPlayer.Play(GameConstants.ANIM_IDLE);
+        playerNode.AnimationPlayer.Play(GameConstants.ANIM_IDLE);
     }
 
 
