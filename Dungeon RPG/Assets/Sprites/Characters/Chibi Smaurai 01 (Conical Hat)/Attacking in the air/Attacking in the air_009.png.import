@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ba0si0fiyxpfd"
-path="res://.godot/imported/Attacking in the air_009.png-76cf507ab9c4ea45662f18d4cfde5447.ctex"
+path="res://.godot/imported/Attacking in the air_009.png-f6ca0bf6cb03bdaab0fedcb3ecb0dbde.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Characters/Chibi Smaurai 01 (Conical Hat)/PNG/PNG Sequences/Large/Attacking in the air/Attacking in the air_009.png"
-dest_files=["res://.godot/imported/Attacking in the air_009.png-76cf507ab9c4ea45662f18d4cfde5447.ctex"]
+source_file="res://Assets/Sprites/Characters/Chibi Smaurai 01 (Conical Hat)/Attacking in the air/Attacking in the air_009.png"
+dest_files=["res://.godot/imported/Attacking in the air_009.png-f6ca0bf6cb03bdaab0fedcb3ecb0dbde.ctex"]
 
 [params]
 

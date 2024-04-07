@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://be1icl5wy38ty"
-path="res://.godot/imported/Running_001.png-9a6a4377f3a85fa46baa14b652997f65.ctex"
+path="res://.godot/imported/Running_001.png-72766d65b697335e037762c06bbc8324.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Characters/Chibi Smaurai 01 (Conical Hat)/PNG/PNG Sequences/Large/Running/Running_001.png"
-dest_files=["res://.godot/imported/Running_001.png-9a6a4377f3a85fa46baa14b652997f65.ctex"]
+source_file="res://Assets/Sprites/Characters/Chibi Smaurai 01 (Conical Hat)/Running/Running_001.png"
+dest_files=["res://.godot/imported/Running_001.png-72766d65b697335e037762c06bbc8324.ctex"]
 
 [params]
 

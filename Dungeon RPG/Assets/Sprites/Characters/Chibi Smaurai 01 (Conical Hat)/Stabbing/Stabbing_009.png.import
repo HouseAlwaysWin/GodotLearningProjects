@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nfsy2hcloltg"
-path="res://.godot/imported/Stabbing_009.png-939286ad57b4384ca08fd80978c2968a.ctex"
+path="res://.godot/imported/Stabbing_009.png-1fcd6c505de985c5e7552037eba8b21a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Characters/Chibi Smaurai 01 (Conical Hat)/PNG/PNG Sequences/Large/Stabbing/Stabbing_009.png"
-dest_files=["res://.godot/imported/Stabbing_009.png-939286ad57b4384ca08fd80978c2968a.ctex"]
+source_file="res://Assets/Sprites/Characters/Chibi Smaurai 01 (Conical Hat)/Stabbing/Stabbing_009.png"
+dest_files=["res://.godot/imported/Stabbing_009.png-1fcd6c505de985c5e7552037eba8b21a.ctex"]
 
 [params]
 

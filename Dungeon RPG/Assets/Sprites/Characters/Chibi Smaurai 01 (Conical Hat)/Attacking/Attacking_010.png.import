@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cp5j634ahbeqx"
-path="res://.godot/imported/Attacking_010.png-954664a21e7c1c6c4f8d2b0419ad9e22.ctex"
+path="res://.godot/imported/Attacking_010.png-4117acc1c7ed0ad644edbb31c4afd70e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Characters/Chibi Smaurai 01 (Conical Hat)/PNG/PNG Sequences/Large/Attacking/Attacking_010.png"
-dest_files=["res://.godot/imported/Attacking_010.png-954664a21e7c1c6c4f8d2b0419ad9e22.ctex"]
+source_file="res://Assets/Sprites/Characters/Chibi Smaurai 01 (Conical Hat)/Attacking/Attacking_010.png"
+dest_files=["res://.godot/imported/Attacking_010.png-4117acc1c7ed0ad644edbb31c4afd70e.ctex"]
 
 [params]
 

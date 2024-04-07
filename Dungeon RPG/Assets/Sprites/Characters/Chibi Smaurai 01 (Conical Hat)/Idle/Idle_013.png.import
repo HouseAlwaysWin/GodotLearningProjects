@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfw500lkqbl1a"
-path="res://.godot/imported/Idle_013.png-61d2cbb42f43739a620062bed82b7d53.ctex"
+path="res://.godot/imported/Idle_013.png-2c9e6c502ec81b944818f19deace2ebc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Characters/Chibi Smaurai 01 (Conical Hat)/PNG/PNG Sequences/Large/Idle/Idle_013.png"
-dest_files=["res://.godot/imported/Idle_013.png-61d2cbb42f43739a620062bed82b7d53.ctex"]
+source_file="res://Assets/Sprites/Characters/Chibi Smaurai 01 (Conical Hat)/Idle/Idle_013.png"
+dest_files=["res://.godot/imported/Idle_013.png-2c9e6c502ec81b944818f19deace2ebc.ctex"]
 
 [params]
 

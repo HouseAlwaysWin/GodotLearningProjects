@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://br8hilh23jibo"
-path="res://.godot/imported/Dying_008.png-47b67756b4ff3387ffd3ecbbc3b2f967.ctex"
+path="res://.godot/imported/Dying_008.png-e1e0d0a838e7685dd4536c05b43f8257.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Characters/Chibi Smaurai 01 (Conical Hat)/PNG/PNG Sequences/Large/Dying/Dying_008.png"
-dest_files=["res://.godot/imported/Dying_008.png-47b67756b4ff3387ffd3ecbbc3b2f967.ctex"]
+source_file="res://Assets/Sprites/Characters/Chibi Smaurai 01 (Conical Hat)/Dying/Dying_008.png"
+dest_files=["res://.godot/imported/Dying_008.png-e1e0d0a838e7685dd4536c05b43f8257.ctex"]
 
 [params]
 
