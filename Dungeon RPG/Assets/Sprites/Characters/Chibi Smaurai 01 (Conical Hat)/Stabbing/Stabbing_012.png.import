@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cojiuf8np4lek"
+path="res://.godot/imported/Stabbing_012.png-a812636dea7426a108db53e92d321ffe.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Assets/Sprites/Characters/Chibi Smaurai 01 (Conical Hat)/PNG/PNG Sequences/Large/Stabbing/Stabbing_012.png"
+dest_files=["res://.godot/imported/Stabbing_012.png-a812636dea7426a108db53e92d321ffe.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
