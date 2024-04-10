@@ -14,29 +14,29 @@ public partial class PlayerDashState : PlayerState
 
     private void HandleDashTimeout()
     {
-        playerNode.Velocity = Vector3.Zero;
-        playerNode.StateMachineNode.SwitchState<PlayerIdleState>();
+        characterNode.Velocity = Vector3.Zero;
+        characterNode.StateMachineNode.SwitchState<PlayerIdleState>();
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        playerNode.MoveAndSlide();
-        playerNode.Flip();
+        characterNode.MoveAndSlide();
+        characterNode.Flip();
     }
 
 
 
     protected override void EnterState()
     {
-        playerNode.AnimationPlayer.Play(GameConstants.ANIM_DASH);
-        playerNode.Velocity = new(playerNode.direction.X, 0, playerNode.direction.Y);
+        characterNode.AnimationPlayer.Play(GameConstants.ANIM_DASH);
+        characterNode.Velocity = new(characterNode.direction.X, 0, characterNode.direction.Y);
 
-        if (playerNode.Velocity == Vector3.Zero)
+        if (characterNode.Velocity == Vector3.Zero)
         {
-            playerNode.Velocity = playerNode.Sprite3D.FlipH ? Vector3.Left : Vector3.Right;
+            characterNode.Velocity = characterNode.Sprite3D.FlipH ? Vector3.Left : Vector3.Right;
         }
 
-        playerNode.Velocity *= speed;
+        characterNode.Velocity *= speed;
         dashTimerNode.Start();
     }
 }

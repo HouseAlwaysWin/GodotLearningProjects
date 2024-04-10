@@ -7,14 +7,14 @@ public partial class PlayerIdleState : PlayerState
 {
     protected override void EnterState()
     {
-        playerNode.AnimationPlayer.Play(GameConstants.ANIM_IDLE);
+        characterNode.AnimationPlayer.Play(GameConstants.ANIM_IDLE);
     }
 
     public override void _Input(InputEvent @event)
     {
         if (Input.IsActionJustPressed(GameConstants.INPUT_DASH))
         {
-            playerNode.StateMachineNode.SwitchState<PlayerDashState>();
+            characterNode.StateMachineNode.SwitchState<PlayerDashState>();
         }
     }
 }

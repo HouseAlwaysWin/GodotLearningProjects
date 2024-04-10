@@ -36,7 +36,6 @@
 [ext_resource type="Script" path="res://Scripts/Characters/Players/PlayerIdleState.cs" id="31_vrotf"]
 [ext_resource type="Script" path="res://Scripts/Characters/Players/PlayerMoveState.cs" id="32_6h4ta"]
 [ext_resource type="Texture2D" uid="uid://df3qu3jtxqtvy" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_001.png" id="32_x8lub"]
-[ext_resource type="Script" path="res://Scripts/Characters/StateMachine.cs" id="33_kitmd"]
 [ext_resource type="Texture2D" uid="uid://b4xnn0uspribx" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_002.png" id="33_ri0qi"]
 [ext_resource type="Texture2D" uid="uid://b0nr553h4g18y" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_003.png" id="34_s10ks"]
 [ext_resource type="Texture2D" uid="uid://gghvum3usnib" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_004.png" id="35_tfmvj"]
@@ -49,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://dg0xlcir0bwru" path="res://Assets/Sprites/Characters/Player/Jump Loop/Jump Loop_000.png" id="43_3qs3j"]
 [ext_resource type="Texture2D" uid="uid://bkhp5qxw31pqt" path="res://Assets/Sprites/Characters/Player/Jump Loop/Jump Loop_001.png" id="44_0a5ac"]
 [ext_resource type="Texture2D" uid="uid://dv8kh2xuk24jr" path="res://Assets/Sprites/Characters/Player/Jump Loop/Jump Loop_002.png" id="45_8g2c0"]
+[ext_resource type="PackedScene" uid="uid://5pstxpgpohtb" path="res://Scenes/state_machine.tscn" id="46_ypdrk"]
 
 [sub_resource type="Animation" id="Animation_2ob2x"]
 resource_name = "Dash"
@@ -166,8 +166,7 @@ libraries = {
 "": SubResource("AnimationLibrary_d4wst")
 }
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState", "states")]
-script = ExtResource("33_kitmd")
+[node name="StateMachine" parent="." node_paths=PackedStringArray("currentState", "states") instance=ExtResource("46_ypdrk")]
 currentState = NodePath("IdleState")
 states = [NodePath("IdleState"), NodePath("MoveState"), NodePath("DashState")]
 

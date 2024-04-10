@@ -8,20 +8,20 @@ public partial class PlayerMoveState : PlayerState
 
     protected override void EnterState()
     {
-        playerNode.AnimationPlayer.Play(GameConstants.ANIM_MOVE);
+        characterNode.AnimationPlayer.Play(GameConstants.ANIM_MOVE);
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        if (playerNode.direction == Vector2.Zero)
+        if (characterNode.direction == Vector2.Zero)
         {
-            playerNode.StateMachineNode.SwitchState<PlayerIdleState>();
+            characterNode.StateMachineNode.SwitchState<PlayerIdleState>();
             return;
         }
-        playerNode.Velocity = new(playerNode.direction.X, 0, playerNode.direction.Y);
-        playerNode.Velocity *= speed;
-        playerNode.MoveAndSlide();
-        playerNode.Flip();
+        characterNode.Velocity = new(characterNode.direction.X, 0, characterNode.direction.Y);
+        characterNode.Velocity *= speed;
+        characterNode.MoveAndSlide();
+        characterNode.Flip();
     }
 
 
@@ -29,7 +29,7 @@ public partial class PlayerMoveState : PlayerState
     {
         if (Input.IsActionJustPressed(GameConstants.INPUT_DASH))
         {
-            playerNode.StateMachineNode.SwitchState<PlayerDashState>();
+            characterNode.StateMachineNode.SwitchState<PlayerDashState>();
         }
     }
 }

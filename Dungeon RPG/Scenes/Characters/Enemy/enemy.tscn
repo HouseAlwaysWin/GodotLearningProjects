@@ -1,6 +1,7 @@
-[gd_scene load_steps=105 format=3 uid="uid://6hnqoxwfbh4w"]
+[gd_scene load_steps=108 format=3 uid="uid://6hnqoxwfbh4w"]
 
 [ext_resource type="Texture2D" uid="uid://dip56ubngsvcn" path="res://Assets/Sprites/Characters/Enemy Knight/Death/smoke-Fx3_2.png" id="1_fxkuk"]
+[ext_resource type="Script" path="res://Scenes/Characters/Enemy/Enemy.cs" id="1_gynoy"]
 [ext_resource type="Texture2D" uid="uid://crg60xe3qn6ko" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_013.png" id="1_qe7uv"]
 [ext_resource type="Texture2D" uid="uid://bcpsmgxgrdnhf" path="res://Assets/Sprites/Characters/Enemy Knight/Move/0_Demons_of_Darkness_Walking_023.png" id="1_qqr0g"]
 [ext_resource type="Texture2D" uid="uid://be6f50ucf1xom" path="res://Assets/Sprites/Characters/Enemy Knight/TakeHit/0_Demons_of_Darkness_Hurt_004.png" id="1_vfqei"]
@@ -97,6 +98,8 @@
 [ext_resource type="Texture2D" uid="uid://demtyu04c71gh" path="res://Assets/Sprites/Characters/Enemy Knight/Death/smoke-Fx3_15.png" id="95_hr8l8"]
 [ext_resource type="Texture2D" uid="uid://ddud8tvke7p1p" path="res://Assets/Sprites/Characters/Enemy Knight/Death/smoke-Fx3_16.png" id="96_ndsaa"]
 [ext_resource type="Texture2D" uid="uid://b22ghu5icwxt0" path="res://Assets/Sprites/Characters/Enemy Knight/Death/smoke-Fx3_17.png" id="97_1vm6l"]
+[ext_resource type="PackedScene" uid="uid://5pstxpgpohtb" path="res://Scenes/state_machine.tscn" id="98_fi0l5"]
+[ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyIdleState.cs" id="99_divkq"]
 
 [sub_resource type="Animation" id="Animation_sgng5"]
 resource_name = "Attack"
@@ -206,7 +209,11 @@ _data = {
 radius = 0.505453
 height = 1.36397
 
-[node name="Enemy" type="CharacterBody3D"]
+[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("AnimationPlayer", "Sprite3D", "StateMachineNode")]
+script = ExtResource("1_gynoy")
+AnimationPlayer = NodePath("AnimationPlayer")
+Sprite3D = NodePath("Sprite3D")
+StateMachineNode = NodePath("StateMachine")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.0025
@@ -220,3 +227,10 @@ libraries = {
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061887, -0.0604266, 0.0293393)
 shape = SubResource("CapsuleShape3D_6dnog")
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("currentState", "states") instance=ExtResource("98_fi0l5")]
+currentState = NodePath("IdleState")
+states = [NodePath("IdleState")]
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("99_divkq")
