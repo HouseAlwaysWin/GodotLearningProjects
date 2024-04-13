@@ -9,6 +9,11 @@ public partial class EnemyIdleState : EnemyState
         characterNode.ChaseAreaNode.BodyEntered += HandleChaseAreaBodyEntered;
     }
 
+    private void HandleAttackAreaBodyEntered(Node3D body)
+    {
+        throw new NotImplementedException();
+    }
+
     protected override void ExitState()
     {
         characterNode.ChaseAreaNode.BodyEntered -= HandleChaseAreaBodyEntered;

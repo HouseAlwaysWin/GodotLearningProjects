@@ -23,4 +23,16 @@ public partial class EnemyState : CharacterState
         characterNode.StateMachineNode.SwitchState<EnemyChaseState>();
     }
 
+    protected void HandleChaseAreaBodyExited(Node3D body)
+    {
+        characterNode.StateMachineNode.SwitchState<EnemyReturnState>();
+    }
+
+    protected void HandleAttackAreaBodyEntered(Node3D body)
+    {
+        characterNode.StateMachineNode.SwitchState<EnemyAttackState>();
+    }
+
+
+
 }
