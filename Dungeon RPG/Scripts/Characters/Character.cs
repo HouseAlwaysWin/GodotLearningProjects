@@ -2,7 +2,7 @@
 
 using Godot;
 
-public partial class Character : CharacterBody3D
+public abstract partial class Character : CharacterBody3D
 {
     [ExportGroup("Required Node")]
     [Export] public AnimationPlayer AnimationPlayer { get; private set; }
@@ -10,6 +10,10 @@ public partial class Character : CharacterBody3D
     [Export] public StateMachine StateMachineNode { get; private set; }
 
     [Export] public float Gravity = 100f;
+
+    [ExportGroup("AI Nodes")]
+    [Export] public Path3D PathNode { get; private set; }
+    [Export] public NavigationAgent3D AgentNode { get; private set; }
     public Vector2 direction = new();
 
     public override void _PhysicsProcess(double delta)

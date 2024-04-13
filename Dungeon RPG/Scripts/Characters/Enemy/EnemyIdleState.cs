@@ -7,4 +7,11 @@ public partial class EnemyIdleState : EnemyState
     {
         characterNode.AnimationPlayer.Play(GameConstants.ANIM_IDLE);
     }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        characterNode.StateMachineNode.SwitchState<EnemyReturnState>();
+    }
+
 }
+
