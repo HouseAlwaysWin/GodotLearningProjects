@@ -15,13 +15,6 @@ public partial class StateMachine : Node
     public void SwitchState<T>()
     {
         Node newState = states.FirstOrDefault(s => s is T);
-        // foreach (Node state in states)
-        // {
-        //     if (state is T)
-        //     {
-        //         newState = state;
-        //     }
-        // }
 
         if (newState == null) return;
         currentState.Notification(GameConstants.NOTIFICATION_EXIT_STATE);
