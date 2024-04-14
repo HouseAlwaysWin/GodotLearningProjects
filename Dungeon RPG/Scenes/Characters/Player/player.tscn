@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://jhtkvk4fxvee"]
+[gd_scene load_steps=84 format=3 uid="uid://jhtkvk4fxvee"]
 
 [ext_resource type="Texture2D" uid="uid://brh721afkvfny" path="res://Assets/Sprites/Characters/Player/Running/Running_000.png" id="1_eaa7m"]
 [ext_resource type="Script" path="res://Scripts/Characters/Players/Player.cs" id="1_hf5rb"]
@@ -73,6 +73,7 @@
 [ext_resource type="Texture2D" uid="uid://bpxk6wfhlgr2u" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_009.png" id="67_jynav"]
 [ext_resource type="Texture2D" uid="uid://b3e4mlx27wx2n" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_010.png" id="68_88n15"]
 [ext_resource type="Texture2D" uid="uid://bxerlscumhbw8" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_011.png" id="69_isj1n"]
+[ext_resource type="Script" path="res://Scripts/Characters/Players/PlayerKickState.cs" id="74_nlabq"]
 
 [sub_resource type="Animation" id="Animation_2ob2x"]
 resource_name = "Dash"
@@ -162,7 +163,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_mp1op"]
 resource_name = "Attack1"
-loop_mode = 1
 step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -195,13 +195,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d4wst"]
 _data = {
+"Attack1": SubResource("Animation_mp1op"),
+"Attack2": SubResource("Animation_guwyx"),
 "Dash": SubResource("Animation_2ob2x"),
 "Idle": SubResource("Animation_7jfpj"),
 "JumpLoop": SubResource("Animation_l7obm"),
 "JumpStart": SubResource("Animation_asbg8"),
-"Kicking": SubResource("Animation_mp1op"),
-"Move": SubResource("Animation_s4ptk"),
-"Slashing": SubResource("Animation_guwyx")
+"Move": SubResource("Animation_s4ptk")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kgd8o"]
@@ -219,7 +219,7 @@ StateMachineNode = NodePath("StateMachine")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032521, -0.680901, -0.0303009)
 pixel_size = 0.0025
-texture = ExtResource("69_isj1n")
+texture = ExtResource("47_vvldq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -228,7 +228,7 @@ libraries = {
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("currentState", "states") instance=ExtResource("46_ypdrk")]
 currentState = NodePath("IdleState")
-states = [NodePath("IdleState"), NodePath("MoveState"), NodePath("DashState")]
+states = [NodePath("IdleState"), NodePath("MoveState"), NodePath("DashState"), NodePath("KickState")]
 
 [node name="IdleState" type="Node" parent="StateMachine"]
 script = ExtResource("31_vrotf")
@@ -246,7 +246,8 @@ speed = 20.0
 wait_time = 0.4
 one_shot = true
 
-[node name="Node" type="Node" parent="StateMachine"]
+[node name="KickState" type="Node" parent="StateMachine"]
+script = ExtResource("74_nlabq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0604725, -0.39307, 0)
