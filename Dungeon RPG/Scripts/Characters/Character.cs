@@ -1,5 +1,6 @@
 
 
+using System;
 using Godot;
 
 public abstract partial class Character : CharacterBody3D
@@ -8,6 +9,7 @@ public abstract partial class Character : CharacterBody3D
     [Export] public AnimationPlayer AnimationPlayer { get; private set; }
     [Export] public Sprite3D Sprite3D { get; private set; }
     [Export] public StateMachine StateMachineNode { get; private set; }
+    [Export] public Area3D HurtboxNode { get; private set; }
 
     [Export] public float Gravity = 100f;
 
@@ -17,6 +19,16 @@ public abstract partial class Character : CharacterBody3D
     [Export] public Area3D ChaseAreaNode { get; private set; }
     [Export] public Area3D AttackAreaNode { get; private set; }
     public Vector2 direction = new();
+
+    public override void _Ready()
+    {
+        HurtboxNode.AreaEntered += HandleHurtboxEntered;
+    }
+
+    private void HandleHurtboxEntered(Area3D area)
+    {
+        GD.Print(area.Name);
+    }
 
     public override void _PhysicsProcess(double delta)
     {
