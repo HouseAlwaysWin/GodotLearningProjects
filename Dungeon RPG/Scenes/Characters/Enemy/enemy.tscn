@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://6hnqoxwfbh4w"]
+[gd_scene load_steps=117 format=3 uid="uid://6hnqoxwfbh4w"]
 
 [ext_resource type="Texture2D" uid="uid://dip56ubngsvcn" path="res://Assets/Sprites/Characters/Enemy Knight/Death/smoke-Fx3_2.png" id="1_fxkuk"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/Enemy.cs" id="1_o46hj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bcpsmgxgrdnhf" path="res://Assets/Sprites/Characters/Enemy Knight/Move/0_Demons_of_Darkness_Walking_023.png" id="1_qqr0g"]
 [ext_resource type="Texture2D" uid="uid://be6f50ucf1xom" path="res://Assets/Sprites/Characters/Enemy Knight/TakeHit/0_Demons_of_Darkness_Hurt_004.png" id="1_vfqei"]
 [ext_resource type="Texture2D" uid="uid://b6hlgtv7proiy" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_000.png" id="2_107q3"]
+[ext_resource type="Script" path="res://Scripts/Resources/StatResource.cs" id="2_n03qw"]
 [ext_resource type="Texture2D" uid="uid://brafdi3kdv3x6" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_001.png" id="3_acjf3"]
 [ext_resource type="Texture2D" uid="uid://cx2t2d2l3fo7k" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_002.png" id="4_ylsyf"]
 [ext_resource type="Texture2D" uid="uid://bcfrwwh7fnm0c" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_003.png" id="5_p7kmr"]
@@ -104,6 +105,16 @@
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyPatrolState.cs" id="102_cmqer"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyChaseState.cs" id="103_cds55"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyAttackState.cs" id="104_w0d4e"]
+
+[sub_resource type="Resource" id="Resource_mj0x2"]
+script = ExtResource("2_n03qw")
+StatType = 0
+StatValue = 20.0
+
+[sub_resource type="Resource" id="Resource_es4sj"]
+script = ExtResource("2_n03qw")
+StatType = 1
+StatValue = 4.0
 
 [sub_resource type="Animation" id="Animation_sgng5"]
 resource_name = "Attack"
@@ -223,6 +234,7 @@ radius = 1.0
 [node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("AnimationPlayer", "Sprite3D", "StateMachineNode", "HurtboxNode", "AgentNode", "ChaseAreaNode", "AttackAreaNode")]
 collision_mask = 3
 script = ExtResource("1_o46hj")
+stats = Array[Object]([SubResource("Resource_mj0x2"), SubResource("Resource_es4sj")])
 AnimationPlayer = NodePath("AnimationPlayer")
 Sprite3D = NodePath("Sprite3D")
 StateMachineNode = NodePath("StateMachine")

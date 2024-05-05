@@ -5,6 +5,9 @@ using Godot;
 
 public abstract partial class Character : CharacterBody3D
 {
+
+    [Export] private StatResource[] stats;
+
     [ExportGroup("Required Node")]
     [Export] public AnimationPlayer AnimationPlayer { get; private set; }
     [Export] public Sprite3D Sprite3D { get; private set; }
