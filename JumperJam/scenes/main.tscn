@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://ycx1d3uo1pm3"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_k7mjj"]
+[ext_resource type="PackedScene" uid="uid://dpwdb8ih3sl5m" path="res://scenes/game.tscn" id="1_qboy4"]
+[ext_resource type="PackedScene" uid="uid://c1cj83rvldtjr" path="res://scenes/screens.tscn" id="2_era63"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_k7mjj")
+
+[node name="Game" parent="." instance=ExtResource("1_qboy4")]
+
+[node name="Screens" parent="." instance=ExtResource("2_era63")]
