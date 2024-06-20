@@ -96,10 +96,24 @@ tracks/0/path = NodePath("Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.2499, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("47_vvldq"), ExtResource("48_yitni"), ExtResource("49_vay7a"), ExtResource("50_4bln2"), ExtResource("51_p5kqg"), ExtResource("52_fw8nx"), ExtResource("53_f2lfd"), ExtResource("54_m8hv1"), ExtResource("55_54qac"), ExtResource("56_ioucp"), ExtResource("57_k56vi"), ExtResource("2_y4yg4")]
+"values": [ExtResource("47_vvldq"), ExtResource("48_yitni"), ExtResource("49_vay7a"), ExtResource("50_4bln2"), ExtResource("50_4bln2"), ExtResource("51_p5kqg"), ExtResource("52_fw8nx"), ExtResource("53_f2lfd"), ExtResource("54_m8hv1"), ExtResource("55_54qac"), ExtResource("56_ioucp"), ExtResource("57_k56vi"), ExtResource("2_y4yg4")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/KickState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2499),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PerformHit"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_guwyx"]
@@ -112,10 +126,24 @@ tracks/0/path = NodePath("Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0833333, 0.1666, 0.25, 0.3332, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("58_y1orq"), ExtResource("59_j3ix3"), ExtResource("60_mhn4b"), ExtResource("61_vxyxw"), ExtResource("62_vq716"), ExtResource("63_1x67s"), ExtResource("64_flwjd"), ExtResource("65_r334d"), ExtResource("66_6p5u7"), ExtResource("67_jynav"), ExtResource("68_88n15"), ExtResource("69_isj1n")]
+"values": [ExtResource("58_y1orq"), ExtResource("59_j3ix3"), ExtResource("60_mhn4b"), ExtResource("61_vxyxw"), ExtResource("62_vq716"), ExtResource("62_vq716"), ExtResource("63_1x67s"), ExtResource("64_flwjd"), ExtResource("65_r334d"), ExtResource("66_6p5u7"), ExtResource("67_jynav"), ExtResource("68_88n15"), ExtResource("69_isj1n")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/KickState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2499),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PerformHit"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_2ob2x"]
@@ -235,7 +263,7 @@ HurtboxNode = NodePath("Hitbox")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032521, -0.680901, -0.0303009)
 pixel_size = 0.0025
-texture = ExtResource("47_vvldq")
+texture = ExtResource("61_vxyxw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

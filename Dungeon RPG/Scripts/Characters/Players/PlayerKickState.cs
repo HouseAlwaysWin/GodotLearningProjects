@@ -36,4 +36,9 @@ public partial class PlayerKickState : PlayerState
         characterNode.StateMachineNode.SwitchState<PlayerIdleState>();
 
     }
+
+    private void PerformHit()
+    {
+        Vector3 newPosition = characterNode.Sprite3D.FlipH ? Vector3.Left : Vector3.Right;
+    }
 }
