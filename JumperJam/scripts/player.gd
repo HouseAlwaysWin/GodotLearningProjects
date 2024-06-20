@@ -9,6 +9,7 @@ var viewport_size
 var gravity = 15.0
 var max_fall_velocity = 1000
 var jump_velocity = -800
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	viewport_size = get_viewport_rect().size
