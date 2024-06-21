@@ -14,6 +14,7 @@ public abstract partial class Character : CharacterBody3D
     [Export] public Sprite3D Sprite3D { get; private set; }
     [Export] public StateMachine StateMachineNode { get; private set; }
     [Export] public Area3D HurtboxNode { get; private set; }
+    [Export] public Area3D HitboxNode { get; private set; }
 
     [Export] public float Gravity = 100f;
 

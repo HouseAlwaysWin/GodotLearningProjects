@@ -40,5 +40,8 @@ public partial class PlayerKickState : PlayerState
     private void PerformHit()
     {
         Vector3 newPosition = characterNode.Sprite3D.FlipH ? Vector3.Left : Vector3.Right;
+        float distanceMultiper = 0.75f;
+        newPosition *= distanceMultiper;
+        characterNode.HitboxNode.Position = newPosition;
     }
 }

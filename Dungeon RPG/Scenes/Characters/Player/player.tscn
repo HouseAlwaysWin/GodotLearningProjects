@@ -244,11 +244,12 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kgd8o"]
+height = 1.46317
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_khqwf"]
 size = Vector3(0.5, 0.5, 0.5)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("AnimationPlayer", "Sprite3D", "StateMachineNode", "HurtboxNode")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("AnimationPlayer", "Sprite3D", "StateMachineNode", "HurtboxNode", "HitboxNode")]
 collision_layer = 2
 collision_mask = 5
 floor_max_angle = 1.55334
@@ -259,9 +260,9 @@ AnimationPlayer = NodePath("AnimationPlayer")
 Sprite3D = NodePath("Sprite3D")
 StateMachineNode = NodePath("StateMachine")
 HurtboxNode = NodePath("Hitbox")
+HitboxNode = NodePath("Hitbox")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032521, -0.680901, -0.0303009)
 pixel_size = 0.0025
 texture = ExtResource("61_vxyxw")
 
@@ -298,13 +299,13 @@ comboCounterNode = NodePath("Timer")
 one_shot = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0604725, -0.39307, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0604725, -0.0125876, 0)
 shape = SubResource("CapsuleShape3D_kgd8o")
 
 [node name="Hitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.897296, -0.764803, 0)
 shape = SubResource("BoxShape3D_khqwf")
