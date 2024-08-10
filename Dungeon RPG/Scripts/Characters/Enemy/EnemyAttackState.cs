@@ -12,18 +12,13 @@ public partial class EnemyAttackState : EnemyState
         Node3D target = characterNode.AttackAreaNode.GetOverlappingBodies().First();
         targetPosition = target.GlobalPosition;
 
-        characterNode.AttackAreaNode.BodyExited += HandleAttackAreaBodyExited;
         characterNode.AnimationPlayer.AnimationFinished += HandleAnimationFinished;
     }
 
-    private void HandleAttackAreaBodyExited(Node3D body)
-    {
-        characterNode.StateMachineNode.SwitchState<EnemyChaseState>();
-    }
+ 
 
     protected override void ExitState()
     {
-        characterNode.AttackAreaNode.BodyExited -= HandleAttackAreaBodyExited;
         characterNode.AnimationPlayer.AnimationFinished -= HandleAnimationFinished;
     }
 
@@ -31,7 +26,7 @@ public partial class EnemyAttackState : EnemyState
     {
         characterNode.ToggleHitbox(true);
 
-        Node3D target = characterNode.AttackAreaNode.GetOverlappingBodies().First();
+        Node3D target = characterNode.AttackAreaNode.GetOverlappingBodies().FirstOrDefault();
 
         if (target == null)
         {
@@ -39,6 +34,7 @@ public partial class EnemyAttackState : EnemyState
             if (chaseTarget == null)
             {
                 characterNode.StateMachineNode.SwitchState<EnemyReturnState>();
+                return;
             }
 
             characterNode.StateMachineNode.SwitchState<EnemyChaseState>();

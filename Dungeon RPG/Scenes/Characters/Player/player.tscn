@@ -298,7 +298,7 @@ HitboxShapeNode = NodePath("Hitbox/CollisionShape3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.0025
-texture = ExtResource("85_kawr4")
+texture = ExtResource("47_vvldq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -346,6 +346,7 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 shape = SubResource("BoxShape3D_khqwf")
+disabled = true
 
 [node name="Hurtbox" type="Area3D" parent="."]
 collision_layer = 0
