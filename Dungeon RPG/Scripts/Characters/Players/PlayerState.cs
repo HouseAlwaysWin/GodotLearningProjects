@@ -11,7 +11,7 @@ public abstract partial class PlayerState : CharacterState
 
     private void HandleZeroHealth()
     {
-        characterNode.StateMachineNode.SwitchState<PlayerDashState>();
+        characterNode.StateMachineNode.SwitchState<PlayerDeathState>();
     }
 
     protected void CheckForAttackInput()
