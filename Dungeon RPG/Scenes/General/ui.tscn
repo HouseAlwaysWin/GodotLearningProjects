@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://jgkre3w0wyag"]
+
+[ext_resource type="Texture2D" uid="uid://baf7443uyintt" path="res://Assets/Sprites/UI/UI Element 1.png" id="1_8alqj"]
+[ext_resource type="FontFile" uid="uid://crdt0rcw5lytm" path="res://Assets/RifficFree-Bold.ttf" id="2_oubsi"]
+[ext_resource type="Texture2D" uid="uid://cvp8k7hxvmux7" path="res://Assets/Sprites/UI/UI Element 2.png" id="3_gw38x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ks231"]
+texture = ExtResource("3_gw38x")
+expand_margin_left = 48.0
+expand_margin_top = 8.0
+expand_margin_right = 48.0
+expand_margin_bottom = 6.0
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.5
+offset_top = -109.5
+offset_right = 260.5
+offset_bottom = 109.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_8alqj")
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_oubsi")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_ks231")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ks231")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ks231")
+text = "Start"

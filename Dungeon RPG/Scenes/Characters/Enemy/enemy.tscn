@@ -115,7 +115,7 @@ StatValue = 20.0
 [sub_resource type="Resource" id="Resource_es4sj"]
 script = ExtResource("2_n03qw")
 StatType = 1
-StatValue = 4.0
+StatValue = 50.0
 
 [sub_resource type="Animation" id="Animation_sgng5"]
 resource_name = "Attack"
