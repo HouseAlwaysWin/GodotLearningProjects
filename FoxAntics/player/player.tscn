@@ -1,9 +1,27 @@
-[gd_scene load_steps=10 format=3 uid="uid://dum76gl6t2mxl"]
+[gd_scene load_steps=11 format=3 uid="uid://dum76gl6t2mxl"]
 
 [ext_resource type="Texture2D" uid="uid://6cavifx2lvm5" path="res://assets/assets/player/player.png" id="1_13kjp"]
+[ext_resource type="Script" path="res://player/Player.cs" id="1_suqm0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scpx2"]
-size = Vector2(11, 15)
+size = Vector2(11, 18.5)
+
+[sub_resource type="Animation" id="Animation_dgq0d"]
+resource_name = "Hurt"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [11, 12]
+}
 
 [sub_resource type="Animation" id="Animation_tlcip"]
 resource_name = "Idle"
@@ -20,6 +38,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [13, 14, 15, 16]
+}
+
+[sub_resource type="Animation" id="Animation_qapxu"]
+resource_name = "Jump"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
 }
 
 [sub_resource type="Animation" id="Animation_47rqc"]
@@ -53,22 +87,6 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_qapxu"]
-resource_name = "Jump"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [17]
-}
-
 [sub_resource type="Animation" id="Animation_hwgwm"]
 resource_name = "fall"
 length = 0.1
@@ -85,23 +103,6 @@ tracks/0/keys = {
 "values": [18]
 }
 
-[sub_resource type="Animation" id="Animation_dgq0d"]
-resource_name = "Hurt"
-length = 0.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [11, 12]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fsi62"]
 _data = {
 "Hurt": SubResource("Animation_dgq0d"),
@@ -113,6 +114,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_suqm0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_13kjp")
@@ -120,7 +122,7 @@ hframes = 19
 frame = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(-1, 6.25)
 shape = SubResource("RectangleShape2D_scpx2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
