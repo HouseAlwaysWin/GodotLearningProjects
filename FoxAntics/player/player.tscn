@@ -54,9 +54,10 @@ tracks/0/keys = {
 "values": [11, 12]
 }
 
-[sub_resource type="Animation" id="Animation_y3gt3"]
-resource_name = "Run"
+[sub_resource type="Animation" id="Animation_tlcip"]
+resource_name = "Idle"
 length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -67,7 +68,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [13, 14, 15, 16]
 }
 
 [sub_resource type="Animation" id="Animation_qapxu"]
@@ -86,10 +87,9 @@ tracks/0/keys = {
 "values": [17]
 }
 
-[sub_resource type="Animation" id="Animation_tlcip"]
-resource_name = "Idle"
+[sub_resource type="Animation" id="Animation_y3gt3"]
+resource_name = "Run"
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -100,7 +100,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [13, 14, 15, 16]
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fsi62"]
