@@ -6,7 +6,7 @@ using System.Threading;
 
 
 
-public abstract partial class EnemyBase : CharacterBody2D
+public partial class EnemyBase : CharacterBody2D
 {
     [Export]
     public FACING DefaultFacing = FACING.LEFT;
@@ -32,8 +32,8 @@ public abstract partial class EnemyBase : CharacterBody2D
     {
         this.InitOnReady();
         _playerRef = (Player)GetTree().GetNodesInGroup(GameManager.GROUP_PLAYER)[0];
-        VisibleOnScreenEnabler2D.ScreenEntered += OnVisibleOnScreenEntered;
-        VisibleOnScreenEnabler2D.ScreenExited += OnVisibleOnScreenExited;
+        VisibleOnScreenEnabler2D.Connect(VisibleOnScreenNotifier2D.SignalName.ScreenEntered, Callable.From(OnVisibleOnScreenEntered));
+        VisibleOnScreenEnabler2D.Connect(VisibleOnScreenNotifier2D.SignalName.ScreenExited, Callable.From(OnVisibleOnScreenExited));
     }
 
     public override void _PhysicsProcess(double delta)
