@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dum76gl6t2mxl"]
 
-[ext_resource type="Texture2D" uid="uid://6cavifx2lvm5" path="res://assets/assets/player/player.png" id="1_13kjp"]
+[ext_resource type="Texture2D" uid="uid://6cavifx2lvm5" path="res://assets/player/player.png" id="1_13kjp"]
 [ext_resource type="Script" path="res://player/Player.cs" id="1_suqm0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scpx2"]
@@ -90,6 +90,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_y3gt3"]
 resource_name = "Run"
 length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -130,3 +131,16 @@ libraries = {
 "": SubResource("AnimationLibrary_fsi62")
 }
 autoplay = "idle"
+
+[node name="DebugLabel" type="Label" parent="."]
+offset_left = -31.0
+offset_top = -89.0
+offset_right = 111.0
+offset_bottom = 118.0
+scale = Vector2(0.422761, 0.34872)
+theme_override_font_sizes/font_size = 48
+text = "isOnFloor
+action
+location"
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]

@@ -27,6 +27,15 @@ public partial class Player : CharacterBody2D
     [OnReady]
     public AnimationPlayer AnimationPlayer;
 
+    [OnReady]
+    public Label DebugLabel;
+
+    [OnReady]
+    public AudioStreamPlayer2D SoundPlayer;
+
+    [OnReady("/root/SoundManager")]
+    public SoundManager SoundManager;
+
     private const float GRAVITY = 300f;
     private const float RUN_SPEED = 100f;
     private const float JUMP_VELOCITY = -200f;
@@ -52,6 +61,16 @@ public partial class Player : CharacterBody2D
         GetInput();
         MoveAndSlide();
         CalculateStates();
+        UpdateDebugLabel();
+    }
+
+    public void UpdateDebugLabel()
+    {
+        DebugLabel.Text = $@"
+            floor:{IsOnFloor()} 
+            {state}
+            ({Velocity.X},{Velocity.Y})
+        ";
     }
 
     public void GetInput()
@@ -60,6 +79,7 @@ public partial class Player : CharacterBody2D
         if (Input.IsActionPressed("jump") && IsOnFloor())
         {
             Velocity = new Vector2(Velocity.X, JUMP_VELOCITY);
+            SoundManager.PlayClip(SoundPlayer, SoundManager.SOUND_JUMP);
         }
 
         if (Input.IsActionPressed("left"))
@@ -112,6 +132,14 @@ public partial class Player : CharacterBody2D
     public void SetState(PLAYER_STATE newState)
     {
         if (newState == state) return;
+
+        if (state == PLAYER_STATE.FALL)
+        {
+            if (newState == PLAYER_STATE.IDLE || newState == PLAYER_STATE.RUN)
+            {
+                SoundManager.PlayClip(SoundPlayer, SoundManager.SOUND_LAND);
+            }
+        }
 
         state = newState;
 
