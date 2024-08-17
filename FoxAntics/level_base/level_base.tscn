@@ -264,5 +264,5 @@ layer_0/tile_data = PackedInt32Array(-3, 393216, 0, -2, 393216, 0, -1, 393216, 0
 position = Vector2(480, -175)
 zoom = Vector2(2, 2)
 
-[node name="Player" parent="." instance=ExtResource("3_yc4od")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("3_yc4od")]
 position = Vector2(414, -169)

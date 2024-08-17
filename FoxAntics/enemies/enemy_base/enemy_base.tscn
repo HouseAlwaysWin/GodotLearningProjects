@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://clorhvlwa6mct"]
+
+[ext_resource type="Script" path="res://enemies/enemy_base/EnemyBase.cs" id="1_u076x"]
+
+[node name="EnemyBase" type="CharacterBody2D"]
+script = ExtResource("1_u076x")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -18,6 +18,8 @@ config/icon="res://icon.png"
 [autoload]
 
 SoundManager="*res://singletons/SoundManager.cs"
+SignalManager="*res://singletons/SignalManager.cs"
+GameManager="*res://singletons/GameManager.cs"
 
 [dotnet]
 

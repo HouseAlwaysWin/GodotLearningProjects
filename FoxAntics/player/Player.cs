@@ -7,14 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text.Json.Serialization;
 
 
-public enum PLAYER_STATE
-{
-    IDLE,
-    RUN,
-    JUMP,
-    FALL,
-    HURT
-};
+
 
 public partial class Player : CharacterBody2D
 {

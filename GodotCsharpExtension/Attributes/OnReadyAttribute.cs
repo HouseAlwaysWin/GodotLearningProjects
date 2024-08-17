@@ -7,8 +7,12 @@ namespace GodotCsharpExtension.Attributes
     {
         public string NodePath { get; }
 
-        public OnReadyAttribute(string? nodePath = "")
+        public OnReadyAttribute(string? nodePath = "", bool isAutoLoad = false)
         {
+            if (isAutoLoad)
+            {
+                nodePath = $"/root/{nodePath}";
+            }
             NodePath = nodePath;
         }
 
