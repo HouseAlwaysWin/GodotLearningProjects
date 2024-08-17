@@ -6,6 +6,37 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scpx2"]
 size = Vector2(11, 18.5)
 
+[sub_resource type="Animation" id="Animation_47rqc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+
+[sub_resource type="Animation" id="Animation_hwgwm"]
+resource_name = "fall"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [18]
+}
+
 [sub_resource type="Animation" id="Animation_dgq0d"]
 resource_name = "Hurt"
 length = 0.2
@@ -56,21 +87,6 @@ tracks/0/keys = {
 "values": [17]
 }
 
-[sub_resource type="Animation" id="Animation_47rqc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [13]
-}
-
 [sub_resource type="Animation" id="Animation_y3gt3"]
 resource_name = "Run"
 length = 0.4
@@ -87,30 +103,14 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_hwgwm"]
-resource_name = "fall"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [18]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fsi62"]
 _data = {
-"Hurt": SubResource("Animation_dgq0d"),
-"Idle": SubResource("Animation_tlcip"),
-"Jump": SubResource("Animation_qapxu"),
 "RESET": SubResource("Animation_47rqc"),
-"Run": SubResource("Animation_y3gt3"),
-"fall": SubResource("Animation_hwgwm")
+"fall": SubResource("Animation_hwgwm"),
+"hurt": SubResource("Animation_dgq0d"),
+"idle": SubResource("Animation_tlcip"),
+"jump": SubResource("Animation_qapxu"),
+"run": SubResource("Animation_y3gt3")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -129,4 +129,4 @@ shape = SubResource("RectangleShape2D_scpx2")
 libraries = {
 "": SubResource("AnimationLibrary_fsi62")
 }
-autoplay = "Idle"
+autoplay = "idle"
