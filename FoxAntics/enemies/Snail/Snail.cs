@@ -27,13 +27,15 @@ public partial class Snail : EnemyBase
         }
         else
         {
-            var currentY = _gravity * (float)delta;
+            var currentY = Velocity.Y + _gravity * (float)delta;
             Velocity = new Vector2(Velocity.X, currentY);
         }
 
         MoveAndSlide();
 
-        if (IsOnWall() || !FloorDetection.IsColliding())
+        if (IsOnWall()
+        // || !FloorDetection.IsColliding()
+        )
         {
             FlipMe();
         }

@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://qsi8wng06yx2"]
+
+[ext_resource type="PackedScene" uid="uid://clorhvlwa6mct" path="res://enemies/enemy_base/enemy_base.tscn" id="1_8w8uk"]
+[ext_resource type="Script" path="res://enemies/frog/Frog.cs" id="2_ohrlp"]
+[ext_resource type="Texture2D" uid="uid://yimobdpn2ypx" path="res://assets/enemies/frog/frog_sheet.png" id="3_322ru"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpt0u"]
+atlas = ExtResource("3_322ru")
+region = Rect2(0, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_042tu"]
+atlas = ExtResource("3_322ru")
+region = Rect2(35, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33jgg"]
+atlas = ExtResource("3_322ru")
+region = Rect2(70, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdayf"]
+atlas = ExtResource("3_322ru")
+region = Rect2(105, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i60jy"]
+atlas = ExtResource("3_322ru")
+region = Rect2(140, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_263yv"]
+atlas = ExtResource("3_322ru")
+region = Rect2(175, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjt4l"]
+atlas = ExtResource("3_322ru")
+region = Rect2(210, 0, 35, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k0vqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpt0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_042tu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33jgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdayf")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_i60jy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_263yv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjt4l")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 2.0
+}]
+
+[node name="Frog" instance=ExtResource("1_8w8uk")]
+script = ExtResource("2_ohrlp")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_k0vqj")
+animation = &"jump"
+autoplay = "idle"
+frame_progress = 0.67787

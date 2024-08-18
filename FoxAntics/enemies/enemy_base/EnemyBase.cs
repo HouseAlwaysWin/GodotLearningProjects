@@ -23,7 +23,7 @@ public partial class EnemyBase : CharacterBody2D
     public const float OFF_SCREEN_KILL_ME = 1000f;
 
     public float _speed = 30f;
-    public float _gravity = 800f;
+    public float _gravity = 300f;
     public FACING _facing { get => DefaultFacing; set { DefaultFacing = value; } }
     public Player _playerRef;
     public bool _dying = false;
