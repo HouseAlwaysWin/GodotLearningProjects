@@ -26,7 +26,7 @@ public partial class Player : CharacterBody2D
     [OnReady]
     public AudioStreamPlayer2D SoundPlayer;
 
-    [OnReady("/root/SoundManager")]
+    [OnReady("SoundManager",true)]
     public SoundManager SoundManager;
 
     private const float GRAVITY = 300f;

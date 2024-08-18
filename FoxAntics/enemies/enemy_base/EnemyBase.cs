@@ -24,7 +24,7 @@ public partial class EnemyBase : CharacterBody2D
 
     public float _speed = 30f;
     public float _gravity = 800f;
-    public FACING _facing { get => DefaultFacing; }
+    public FACING _facing { get => DefaultFacing; set { DefaultFacing = value; } }
     public Player _playerRef;
     public bool _dying = false;
 
