@@ -73,4 +73,4 @@ script = ExtResource("2_ohrlp")
 sprite_frames = SubResource("SpriteFrames_k0vqj")
 animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.67787
+frame_progress = 0.0218461

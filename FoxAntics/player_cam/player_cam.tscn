@@ -3,4 +3,9 @@
 [ext_resource type="Script" path="res://player_cam/PlayerCam.cs" id="1_bh2rx"]
 
 [node name="PlayerCam" type="Camera2D"]
+zoom = Vector2(2, 2)
+limit_bottom = 0
 script = ExtResource("1_bh2rx")
+
+[node name="ShakeTimer" type="Timer" parent="."]
+wait_time = 0.3

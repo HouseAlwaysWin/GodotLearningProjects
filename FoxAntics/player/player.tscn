@@ -114,7 +114,8 @@ _data = {
 "run": SubResource("Animation_y3gt3")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Moveables"]]
+collision_layer = 0
 script = ExtResource("1_suqm0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

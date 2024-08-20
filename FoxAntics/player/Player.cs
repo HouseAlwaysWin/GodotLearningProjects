@@ -26,7 +26,7 @@ public partial class Player : CharacterBody2D
     [OnReady]
     public AudioStreamPlayer2D SoundPlayer;
 
-    [OnReady("SoundManager",true)]
+    [OnReady("SoundManager", true)]
     public SoundManager SoundManager;
 
     private const float GRAVITY = 300f;
@@ -45,16 +45,17 @@ public partial class Player : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
-        if (!IsOnFloor())
-        {
-            float y = Velocity.Y + (GRAVITY * (float)delta);
-            Velocity = new Vector2(Velocity.X, y);
-        }
-
+        Velocity = HandleGravity(Velocity, delta);
         GetInput();
         MoveAndSlide();
         CalculateStates();
         UpdateDebugLabel();
+    }
+
+    private Vector2 HandleGravity(Vector2 velocity, double delta)
+    {
+        if (!IsOnFloor()) velocity.Y += GRAVITY * (float)delta;
+        return velocity;
     }
 
     public void UpdateDebugLabel()
