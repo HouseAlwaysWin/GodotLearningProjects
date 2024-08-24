@@ -72,23 +72,27 @@ public partial class Player : CharacterBody2D
         Velocity = new Vector2(0, Velocity.Y);
         if (Input.IsActionPressed("jump") && IsOnFloor())
         {
-            Velocity = new Vector2(Velocity.X, JUMP_VELOCITY);
+            // Velocity = new Vector2(Velocity.X, JUMP_VELOCITY);
+            Velocity = Velocity.SetY(JUMP_VELOCITY);
             SoundManager.PlayClip(SoundPlayer, SoundManager.SOUND_JUMP);
         }
 
         if (Input.IsActionPressed("left"))
         {
-            Velocity = new Vector2(-RUN_SPEED, Velocity.Y);
+            // Velocity = new Vector2(-RUN_SPEED, Velocity.Y);
+            Velocity = Velocity.SetX(-RUN_SPEED);
             Sprite2D.FlipH = true;
         }
         if (Input.IsActionPressed("right"))
         {
-            Velocity = new Vector2(RUN_SPEED, Velocity.Y);
+            // Velocity = new Vector2(RUN_SPEED, Velocity.Y);
+            Velocity = Velocity.SetX(RUN_SPEED);
             Sprite2D.FlipH = false;
         }
 
         var y = Mathf.Clamp(Velocity.Y, JUMP_VELOCITY, MAX_FALL);
-        Velocity = new Vector2(Velocity.X, y);
+        // Velocity = new Vector2(Velocity.X, y);
+        Velocity = Velocity.SetY(y);
 
     }
 

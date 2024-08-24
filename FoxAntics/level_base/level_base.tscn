@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://level_base/LevelBase.cs" id="1_k2avp"]
 [ext_resource type="PackedScene" uid="uid://ce3dfpmh3hkkh" path="res://player_cam/player_cam.tscn" id="2_f66ru"]
 [ext_resource type="PackedScene" uid="uid://dum76gl6t2mxl" path="res://player/player.tscn" id="3_yc4od"]
-[ext_resource type="PackedScene" uid="uid://dujp0b6kotwcj" path="res://enemies/snail/snail.tscn" id="5_jftxk"]
+[ext_resource type="PackedScene" uid="uid://gvbgelpimou2" path="res://enemies/snail/snail.tscn" id="5_jftxk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gve8x"]
 texture = ExtResource("1_cbexn")
@@ -258,7 +258,6 @@ script = ExtResource("1_k2avp")
 
 [node name="PlayerCam" parent="." instance=ExtResource("2_f66ru")]
 position = Vector2(480, -175)
-zoom = Vector2(2, 2)
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("3_yc4od")]
 position = Vector2(414, -169)

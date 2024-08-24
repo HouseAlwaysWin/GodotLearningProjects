@@ -28,6 +28,7 @@ project/assembly_name="Fox Antics"
 [global_group]
 
 Moveables=""
+Player=""
 
 [input]
 

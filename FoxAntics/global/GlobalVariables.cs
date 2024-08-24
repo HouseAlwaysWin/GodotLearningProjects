@@ -12,3 +12,17 @@ public enum FACING
     LEFT = -1,
     RIGHT = 1
 }
+
+public enum ObjectType
+{
+    EXPLOSION,
+    PICKUP,
+    BULLET_PLAYER,
+    BULLET_ENEMY
+}
+
+public class Constants
+{
+    public const string PLAYER_GROUP = "Player";
+    public const string MOVEABLES_GROUP = "Moveables";
+}

@@ -51,7 +51,7 @@ public partial class Game : Node2D
     {
         var yPos = GD.RandRange(SpawnU.Position.Y, SpawnL.Position.Y);
         Node2D newPipes = (Node2D)PipesScene.Instantiate();
-        newPipes.SetPosition(SpawnL.Position.X, (float)yPos);
+        newPipes.SetPos(SpawnL.Position.X, (float)yPos);
         PipesHolder.AddChild(newPipes);
     }
 

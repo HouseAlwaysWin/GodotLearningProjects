@@ -172,7 +172,7 @@ public partial class Animal : RigidBody2D
     {
         var impLen = GetImpulse().Length();
         var perc = impLen / IMPULSE_MAX;
-        ArrowSprite.Scale = ArrowSprite.Scale.SetXPosition((_arrowScaleX * perc) + _arrowScaleX);
+        ArrowSprite.Scale = ArrowSprite.Scale.SetX((_arrowScaleX * perc) + _arrowScaleX);
         ArrowSprite.Rotation = (_start - GlobalPosition).Angle();
     }
 

@@ -114,7 +114,7 @@ _data = {
 "run": SubResource("Animation_y3gt3")
 }
 
-[node name="Player" type="CharacterBody2D" groups=["Moveables"]]
+[node name="Player" type="CharacterBody2D" groups=["Moveables", "Player"]]
 collision_layer = 0
 script = ExtResource("1_suqm0")
 
@@ -134,12 +134,12 @@ libraries = {
 autoplay = "idle"
 
 [node name="DebugLabel" type="Label" parent="."]
-offset_left = -31.0
-offset_top = -89.0
-offset_right = 111.0
-offset_bottom = 118.0
-scale = Vector2(0.422761, 0.34872)
-theme_override_font_sizes/font_size = 48
+offset_left = -42.0
+offset_top = -43.0
+offset_right = 553.0
+offset_bottom = 488.0
+scale = Vector2(0.0709427, 0.058518)
+theme_override_font_sizes/font_size = 128
 text = "isOnFloor
 action
 location"

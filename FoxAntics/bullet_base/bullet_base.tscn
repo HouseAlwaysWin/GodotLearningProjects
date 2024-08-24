@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqcxha37sgnb7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pnslq"]
+
+[node name="BulletBase" type="Area2D" groups=["Moveables"]]
+collision_layer = 0
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pnslq")

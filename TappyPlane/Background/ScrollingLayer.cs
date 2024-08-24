@@ -24,11 +24,11 @@ public partial class ScrollingLayer : ParallaxLayer
     public override void _Ready()
     {
         this.InitOnReady();
-        MotionScale.SetXPosition(ScrollScale);
+        MotionScale.SetX(ScrollScale);
         var scaleF = GetViewportRect().Size.Y / TxY;
         this.Sprite2D.Texture = Texture;
         this.Sprite2D.Scale = new Vector2(scaleF, scaleF);
-        MotionMirroring.SetXPosition(TxX * scaleF);
+        MotionMirroring.SetX(TxX * scaleF);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
