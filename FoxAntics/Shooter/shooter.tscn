@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b642712q44c3d"]
+
+[node name="Shooter" type="Node2D"]
+
+[node name="ShootTimer" type="Timer" parent="."]
+one_shot = true

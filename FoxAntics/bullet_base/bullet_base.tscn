@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqcxha37sgnb7"]
+[gd_scene load_steps=3 format=3 uid="uid://dqcxha37sgnb7"]
+
+[ext_resource type="Script" path="res://bullet_base/BulletBase.cs" id="1_av35m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pnslq"]
 
 [node name="BulletBase" type="Area2D" groups=["Moveables"]]
 collision_layer = 0
 collision_mask = 0
+script = ExtResource("1_av35m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
