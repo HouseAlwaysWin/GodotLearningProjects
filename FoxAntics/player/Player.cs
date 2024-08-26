@@ -26,8 +26,11 @@ public partial class Player : CharacterBody2D
     [OnReady]
     public AudioStreamPlayer2D SoundPlayer;
 
-    [OnReady("SoundManager", true)]
+    [OnReady(isAutoLoad: true)]
     public SoundManager SoundManager;
+
+    [OnReady]
+    public Shooter Shooter;
 
     private const float GRAVITY = 300f;
     private const float RUN_SPEED = 100f;
@@ -50,6 +53,11 @@ public partial class Player : CharacterBody2D
         MoveAndSlide();
         CalculateStates();
         UpdateDebugLabel();
+
+        if (Input.IsActionJustPressed("shoot"))
+        {
+            Shoot();
+        }
     }
 
     private Vector2 HandleGravity(Vector2 velocity, double delta)
@@ -161,6 +169,19 @@ public partial class Player : CharacterBody2D
             default:
                 AnimationPlayer.Play("idle");
                 break;
+        }
+    }
+
+
+    public void Shoot()
+    {
+        if (Sprite2D.FlipH)
+        {
+            Shooter.Shoot(Vector2.Left);
+        }
+        else
+        {
+            Shooter.Shoot(Vector2.Right);
         }
     }
 

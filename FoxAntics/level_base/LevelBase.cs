@@ -11,7 +11,7 @@ public partial class LevelBase : Node2D
     [OnReady]
     public Camera2D PlayerCam;
 
-    [OnReady("SignalManager", true)]
+    [OnReady(isAutoLoad: true)]
     private SignalManager _signalManager;
 
     public override void _Ready()

@@ -19,13 +19,17 @@ namespace GodotCsharpExtension
                 foreach (var field in fieldsWithOnReady)
                 {
                     var onReadyAttribute = (OnReadyAttribute)field.GetCustomAttribute(typeof(OnReadyAttribute), true);
+                    var isAutoLoad = onReadyAttribute.IsAutoLoad;
                     var nodePath = string.IsNullOrWhiteSpace(onReadyAttribute.NodePath) ? field.Name : onReadyAttribute.NodePath;
+                    if (isAutoLoad)
+                    {
+                        nodePath = string.IsNullOrWhiteSpace(onReadyAttribute.NodePath) ? $"/root/{field.FieldType.Name}" : $"/root/{nodePath}";
+                    }
                     field.SetValue(node, node.GetNode(nodePath));
                 }
             }
             catch (Exception ex)
             {
-                // GD.Print(ex);
                 throw ex;
             }
         }

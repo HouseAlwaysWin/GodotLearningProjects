@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dum76gl6t2mxl"]
+[gd_scene load_steps=12 format=3 uid="uid://dum76gl6t2mxl"]
 
 [ext_resource type="Texture2D" uid="uid://6cavifx2lvm5" path="res://assets/player/player.png" id="1_13kjp"]
 [ext_resource type="Script" path="res://player/Player.cs" id="1_suqm0"]
+[ext_resource type="PackedScene" uid="uid://b642712q44c3d" path="res://Shooter/shooter.tscn" id="3_do6io"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scpx2"]
 size = Vector2(11, 18.5)
@@ -145,3 +146,5 @@ action
 location"
 
 [node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Shooter" parent="." instance=ExtResource("3_do6io")]

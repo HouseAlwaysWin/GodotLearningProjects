@@ -14,7 +14,7 @@ public partial class ObjectMaker : Node2D
         {ObjectType.BULLET_ENEMY, GD.Load<PackedScene>("res://bullet_base/bullet_enemy.tscn")}
     };
 
-    [OnReady("SignalManager", isAutoLoad: true)]
+    [OnReady(isAutoLoad: true)]
     private SignalManager _signalManager;
 
     public override void _Ready()
