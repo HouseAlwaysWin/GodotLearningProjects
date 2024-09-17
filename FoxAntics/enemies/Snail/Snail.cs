@@ -13,6 +13,7 @@ public partial class Snail : EnemyBase
     public AnimatedSprite2D AnimatedSprite2D;
     public override void _Ready()
     {
+        base._Ready();
         this.InitOnReady();
     }
 
@@ -22,7 +23,7 @@ public partial class Snail : EnemyBase
 
         if (IsOnFloor())
         {
-            var currentX = _speed * (float)_facing;
+            var currentX = (this.AnimatedSprite2D.FlipH ? _speed : -_speed);
             Velocity = new Vector2(currentX, Velocity.Y);
         }
         else
@@ -32,28 +33,21 @@ public partial class Snail : EnemyBase
         }
 
         MoveAndSlide();
-
-        if (IsOnWall()
-        // || !FloorDetection.IsColliding()
-        )
+        if (IsOnFloor())
         {
-            FlipMe();
+            if (IsOnWall()
+            || !FloorDetection.IsColliding()
+            )
+            {
+                FlipMe();
+            }
         }
     }
 
     private void FlipMe()
     {
         AnimatedSprite2D.FlipH = !AnimatedSprite2D.FlipH;
-        FloorDetection.Position = new Vector2(FloorDetection.Position.X * -1, FloorDetection.Position.Y);
-
-        if (_facing == FACING.LEFT)
-        {
-            _facing = FACING.RIGHT;
-        }
-        else
-        {
-            _facing = FACING.LEFT;
-        }
-
+        // FloorDetection.Position = new Vector2(FloorDetection.Position.X * -1, FloorDetection.Position.Y);
+        FloorDetection.Position = FloorDetection.Position.SetX(-FloorDetection.Position.X);
     }
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://qsi8wng06yx2"]
+[gd_scene load_steps=14 format=3 uid="uid://qsi8wng06yx2"]
 
 [ext_resource type="PackedScene" uid="uid://clorhvlwa6mct" path="res://enemies/enemy_base/enemy_base.tscn" id="1_8w8uk"]
 [ext_resource type="Script" path="res://enemies/frog/Frog.cs" id="2_ohrlp"]
@@ -66,11 +66,28 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qpgi1"]
+radius = 14.0357
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqmks"]
+size = Vector2(10, 19)
+
 [node name="Frog" instance=ExtResource("1_8w8uk")]
 script = ExtResource("2_ohrlp")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_k0vqj")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.0218461
+frame_progress = 0.000480791
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_qpgi1")
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2(-0.5, 6)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_rqmks")
+
+[node name="JumpTimer" type="Timer" parent="." index="4"]
+one_shot = true

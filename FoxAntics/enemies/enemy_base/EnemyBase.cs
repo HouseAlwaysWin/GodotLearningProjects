@@ -2,15 +2,11 @@ using Godot;
 using GodotCsharpExtension;
 using GodotCsharpExtension.Attributes;
 using System;
-using System.Threading;
 
 
 
 public partial class EnemyBase : CharacterBody2D
 {
-    [Export]
-    public FACING DefaultFacing = FACING.LEFT;
-
     [Export]
     public int Points = 1;
 
@@ -20,20 +16,27 @@ public partial class EnemyBase : CharacterBody2D
     [OnReady]
     public VisibleOnScreenEnabler2D VisibleOnScreenEnabler2D;
 
-    public const float OFF_SCREEN_KILL_ME = 1000f;
-
+    public const float OFF_SCREEN_KILL_ME = 200f;
     public float _speed = 30f;
     public float _gravity = 300f;
-    public FACING _facing { get => DefaultFacing; set { DefaultFacing = value; } }
     public Player _playerRef;
     public bool _dying = false;
+    [OnReady]
+    public Area2D HitBox;
 
     public override void _Ready()
     {
         this.InitOnReady();
         _playerRef = (Player)GetTree().GetNodesInGroup(GameManager.GROUP_PLAYER)[0];
-        VisibleOnScreenEnabler2D.Connect(VisibleOnScreenNotifier2D.SignalName.ScreenEntered, Callable.From(OnVisibleOnScreenEntered));
-        VisibleOnScreenEnabler2D.Connect(VisibleOnScreenNotifier2D.SignalName.ScreenExited, Callable.From(OnVisibleOnScreenExited));
+        // VisibleOnScreenEnabler2D.Connect(VisibleOnScreenNotifier2D.SignalName.ScreenEntered, Callable.From(OnVisibleOnScreenEntered));
+        // VisibleOnScreenEnabler2D.Connect(VisibleOnScreenNotifier2D.SignalName.ScreenExited, Callable.From(OnVisibleOnScreenExited));
+        VisibleOnScreenEnabler2D.ScreenEntered += OnVisibleOnScreenEntered;
+        HitBox.AreaEntered += OnHitBoxAreaEntered;
+    }
+
+    private void OnHitBoxAreaEntered(Area2D area)
+    {
+        throw new NotImplementedException();
     }
 
     public override void _PhysicsProcess(double delta)
@@ -60,17 +63,10 @@ public partial class EnemyBase : CharacterBody2D
         QueueFree();
     }
 
-    public void OnVisibleOnScreenEntered()
+    public virtual void OnVisibleOnScreenEntered()
     {
 
     }
-
-    public void OnVisibleOnScreenExited()
-    {
-
-    }
-
-
 
 
 }
