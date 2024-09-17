@@ -34,9 +34,9 @@ public partial class EnemyBase : CharacterBody2D
         HitBox.AreaEntered += OnHitBoxAreaEntered;
     }
 
-    private void OnHitBoxAreaEntered(Area2D area)
+    protected virtual void OnHitBoxAreaEntered(Area2D area)
     {
-        throw new NotImplementedException();
+        // throw new NotImplementedException();
     }
 
     public override void _PhysicsProcess(double delta)
