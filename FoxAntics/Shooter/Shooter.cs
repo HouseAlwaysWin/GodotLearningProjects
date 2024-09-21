@@ -29,8 +29,6 @@ public partial class Shooter : Node2D
     public SignalManager _signalManager;
 
 
-
-
     public override void _Ready()
     {
         this.InitOnReady();

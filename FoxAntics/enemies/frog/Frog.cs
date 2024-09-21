@@ -11,9 +11,6 @@ public partial class Frog : EnemyBase
     [OnReady]
     public Timer JumpTimer;
 
-    [OnReady]
-    public VisibleOnScreenEnabler2D VisibleOnScreenEnabler2D;
-
     const float JUMP_MIN_TIME = 2.0f;
     const float JUMP_MAX_TIME = 4.0f;
 
@@ -31,7 +28,6 @@ public partial class Frog : EnemyBase
         base._Ready();
         this.InitOnReady();
         JumpTimer.Timeout += OnJumpTimeOut;
-        // VisibleOnScreenEnabler2D.ScreenEntered += OnVisibleOnScreenEntered;
     }
 
     public override void _PhysicsProcess(double delta)

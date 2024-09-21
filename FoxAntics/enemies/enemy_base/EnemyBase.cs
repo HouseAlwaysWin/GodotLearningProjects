@@ -24,6 +24,8 @@ public partial class EnemyBase : CharacterBody2D
     [OnReady]
     public Area2D HitBox;
 
+
+
     public override void _Ready()
     {
         this.InitOnReady();
