@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://pl30nywlfgh6"]
+
+[ext_resource type="Texture2D" uid="uid://b4qdnehcd85uh" path="res://assets/explosion/enemy-deadth.png" id="1_61rwx"]
+
+[node name="Explosioin" type="Sprite2D"]
+texture = ExtResource("1_61rwx")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]

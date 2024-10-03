@@ -38,7 +38,7 @@ public partial class EnemyBase : CharacterBody2D
 
     protected virtual void OnHitBoxAreaEntered(Area2D area)
     {
-        // throw new NotImplementedException();
+        Die();
     }
 
     public override void _PhysicsProcess(double delta)

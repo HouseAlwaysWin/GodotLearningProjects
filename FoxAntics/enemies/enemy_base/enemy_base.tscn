@@ -1,12 +1,17 @@
-[gd_scene format=3 uid="uid://clorhvlwa6mct"]
+[gd_scene load_steps=2 format=3 uid="uid://clorhvlwa6mct"]
+
+[ext_resource type="Script" path="res://enemies/enemy_base/EnemyBase.cs" id="1_gq30b"]
 
 [node name="EnemyBase" type="CharacterBody2D"]
+script = ExtResource("1_gq30b")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 
