@@ -62,6 +62,7 @@ public partial class EnemyBase : CharacterBody2D
         SignalManager.EmitSignal(SignalManager.SignalName.OnEnemyHit, Points, GlobalPosition);
         SetPhysicsProcess(false);
         Hide();
+        SignalManager.EmitSignal(SignalManager.SignalName.OnCreateObject, GlobalPosition, Constants.EXPLOSION);
         QueueFree();
     }
 

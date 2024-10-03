@@ -1,3 +1,5 @@
+using System;
+
 public enum PLAYER_STATE
 {
     IDLE,
@@ -25,4 +27,5 @@ public class Constants
 {
     public const string PLAYER_GROUP = "Player";
     public const string MOVEABLES_GROUP = "Moveables";
+    public const string EXPLOSION = "Explode";
 }
