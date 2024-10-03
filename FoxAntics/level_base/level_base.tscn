@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://b55juai0o7ccw"]
+[gd_scene load_steps=12 format=4 uid="uid://b55juai0o7ccw"]
 
 [ext_resource type="Texture2D" uid="uid://v20d25a12yu8" path="res://assets/tiles/Terrain (16x16).png" id="1_cbexn"]
 [ext_resource type="Script" path="res://level_base/LevelBase.cs" id="1_k2avp"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cuxvyl41vw41e" path="res://object_maker/object_maker.tscn" id="6_eamw8"]
 [ext_resource type="PackedScene" uid="uid://qsi8wng06yx2" path="res://enemies/frog/frog.tscn" id="7_iqw8c"]
 [ext_resource type="PackedScene" uid="uid://gsq7ikxow2sg" path="res://enemies/eagle/eagle.tscn" id="8_kf661"]
+[ext_resource type="PackedScene" uid="uid://pl30nywlfgh6" path="res://explosion/explosioin.tscn" id="9_kwh0m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gve8x"]
 texture = ExtResource("1_cbexn")
@@ -294,3 +295,6 @@ position = Vector2(671, -293)
 
 [node name="Eagle" parent="Enemies" instance=ExtResource("8_kf661")]
 position = Vector2(440, -235)
+
+[node name="Explosioin" parent="." instance=ExtResource("9_kwh0m")]
+position = Vector2(464, -74)
