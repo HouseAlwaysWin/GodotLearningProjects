@@ -59,10 +59,12 @@ public partial class EnemyBase : CharacterBody2D
         if (_dying) return;
 
         _dying = true;
-        SignalManager.EmitSignal(SignalManager.SignalName.OnEnemyHit, Points, GlobalPosition);
+        // SignalManager.EmitSignal(SignalManager.SignalName.OnEnemyHit, Points, GlobalPosition);
         SetPhysicsProcess(false);
         Hide();
-        SignalManager.EmitSignal(SignalManager.SignalName.OnCreateObject, GlobalPosition, Constants.EXPLOSION);
+
+        SignalManager.EmitSignal(SignalManager.SignalName.OnCreateObject, GlobalPosition, (int)ObjectType.EXPLOSION);
+        SignalManager.EmitSignal(SignalManager.SignalName.OnCreateObject, GlobalPosition, (int)ObjectType.PICKUP);
         QueueFree();
     }
 

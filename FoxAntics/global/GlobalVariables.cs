@@ -23,9 +23,10 @@ public enum ObjectType
     BULLET_ENEMY
 }
 
-public class Constants
-{
-    public const string PLAYER_GROUP = "Player";
-    public const string MOVEABLES_GROUP = "Moveables";
-    public const string EXPLOSION = "Explode";
-}
+// public class Constants
+// {
+//     public const string PLAYER_GROUP = "Player";
+//     public const string MOVEABLES_GROUP = "Moveables";
+//     public const string EXPLOSION = "Explode";
+//     public const string PICKUP = "Pickup";
+// }

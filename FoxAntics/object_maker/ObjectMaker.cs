@@ -10,6 +10,7 @@ public partial class ObjectMaker : Node2D
 {
     public Dictionary<ObjectType, PackedScene> ObjectScenes = new()
     {
+        {ObjectType.PICKUP, GD.Load<PackedScene>("res://fruit_pickup/fruit_pickup.tscn")},
         {ObjectType.EXPLOSION, GD.Load<PackedScene>("res://explosion/explosion.tscn")},
         {ObjectType.BULLET_PLAYER, GD.Load<PackedScene>("res://bullet_base/bullet_player.tscn")},
         {ObjectType.BULLET_ENEMY, GD.Load<PackedScene>("res://bullet_base/bullet_enemy.tscn")}
